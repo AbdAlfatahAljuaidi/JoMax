@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* تعريف الألوان الخاصة بالتصميم هنا */
+  --color-brand-green: #28CAE1;
+  --color-brand-light-blue: #00D1FF;
+  --color-dark-bg: #050A15;
+}
+
+:root {
+  color: white;
+}
