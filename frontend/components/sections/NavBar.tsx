@@ -51,7 +51,7 @@ const NavBar = () => {
                 {/* Dropdown - Glassy Card with Hover Effect */}
                 <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                   <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-3 w-52 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                    {menu.links.map((item) => (
+                    {menu.links?.map((item) => (
                       <Link key={item} href={`/${item.toLowerCase().replace(' ', '-')}`} className="flex items-center justify-between px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-2xl transition-all group/item">
                         {item}
                         <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
