@@ -1,101 +1,86 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const posts = [
+  { id: '01', title: 'Future Systems Thinking', category: 'Research', desc: 'Deep dive into systemic architecture and logical frameworks.' },
+  { id: '02', title: 'Architecting Cloud Scale', category: 'Cloud', desc: 'Mastering distributed systems for high-traffic applications.' },
+  { id: '03', title: 'Intelligence In Motion', category: 'AI', desc: 'Developing real-time inference engines for modern interfaces.' },
+  { id: '04', title: 'Security Beyond Boundaries', category: 'Cyber', desc: 'Implementing zero-trust protocols in microservice architectures.' }
+];
 
 export default function BlogSection() {
-
-  const articles = [
-    {
-      title: 'The Future of Cloud Native Architectures in 2025',
-      excerpt: 'How microservices and serverless are reshaping enterprise systems.',
-      date: 'Oct 12, 2024',
-      category: 'Cloud'
-    },
-    {
-      title: 'Implementing Zero-Trust Security Models',
-      excerpt: 'A modern approach to securing distributed infrastructures.',
-      date: 'Oct 05, 2024',
-      category: 'Security'
-    },
-    {
-      title: 'AI Integration for Legacy Systems',
-      excerpt: 'Transforming legacy platforms into intelligent systems.',
-      date: 'Sep 28, 2024',
-      category: 'AI & ML'
-    }
-  ];
+  const [active, setActive] = useState(0);
 
   return (
-    <section className="relative py-32 px-6 bg-slate-900
-bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white overflow-hidden">
+    <section className="bg-slate-900
+bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        
+        {/* القسم الرئيسي */}
+        <div className="grid md:grid-cols-5 gap-12 md:gap-20 items-start">
+          
+          {/* الجانب الأيسر: قائمة التحكم (أخذت حصة أقل من العرض) */}
+          <div className="md:col-span-2 space-y-2">
+            <h4 className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-10 italic">Select Insight</h4>
+            {posts.map((post, i) => (
+              <button
+                key={post.id}
+                onClick={() => setActive(i)}
+                className={`w-full text-left py-6 border-b border-white/5 transition-all duration-300 group flex items-baseline gap-6 ${active === i ? 'text-white' : 'text-zinc-600 hover:text-zinc-300'}`}
+              >
+                <span className={`font-mono text-lg transition-transform duration-300 ${active === i ? 'translate-x-0' : '-translate-x-2'}`}>
+                  {post.id}
+                </span>
+                <span className="text-xl md:text-2xl font-bold tracking-tight leading-snug">
+                  {post.title}
+                </span>
+              </button>
+            ))}
+          </div>
 
-      {/* glow background */}
-      <div className="absolute top-20 left-20 w-[600px] h-[600px] bg-cyan-500/10 blur-[180px]" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 blur-[200px]" />
-
-      <div className="max-w-5xl mx-auto relative z-10">
-
-        {/* heading */}
-        <div className="text-center mb-28">
-          <p className="text-cyan-400 uppercase tracking-[0.4em] text-sm mb-6">
-            Intelligence Feed
-          </p>
-
-          <h2 className="text-6xl md:text-8xl font-black leading-[0.9]">
-            Knowledge
-            <span className="block bg-gradient-to-r from-cyan-400 to-brand-greentext-transparent bg-clip-text">
-              Stream
-            </span>
-          </h2>
-
-          <p className="text-white/50 max-w-2xl mx-auto mt-6">
-            A continuous flow of insights shaping modern enterprise systems.
-          </p>
-        </div>
-
-        {/* timeline */}
-        <div className="relative">
-
-          {/* vertical glow line */}
-          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400/40 via-emerald-400/30 to-transparent" />
-
-          {articles.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.15 }}
-              className="relative pl-20 py-12"
-            >
-
-              {/* node dot */}
-              <div className="absolute left-[18px] top-14 w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_25px_rgba(0,255,220,0.7)]" />
-
-              {/* content (NOT card) */}
-              <div className="space-y-4">
-
-                <div className="flex items-center gap-4 text-xs text-white/40 tracking-[0.3em] uppercase">
-                  <span className="text-cyan-400">{item.category}</span>
-                  <span>•</span>
-                  <span>{item.date}</span>
+          {/* الجانب الأيمن: شاشة العرض (أخذت مساحة أكبر لتكون هي بطل المشهد) */}
+          <div className="md:col-span-3 min-h-[450px] bg-zinc-900/30 border border-white/5 p-8 md:p-12 relative overflow-hidden flex flex-col justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="space-y-8"
+              >
+                <div className="flex items-center gap-4">
+                    <span className="text-cyan-400 font-mono text-xs tracking-widest uppercase">
+                        {posts[active].category}
+                    </span>
+                    <div className="h-[1px] w-12 bg-cyan-400/30" />
                 </div>
-
-                <h3 className="text-3xl md:text-4xl font-black leading-tight hover:text-cyan-300 transition">
-                  {item.title}
-                </h3>
-
-                <p className="text-white/50 max-w-2xl leading-relaxed">
-                  {item.excerpt}
+                
+                <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tighter">
+                  {posts[active].title}
+                </h2>
+                
+                <p className="text-zinc-400 text-lg md:text-xl leading-relaxed max-w-md">
+                  {posts[active].desc}
                 </p>
-
-              </div>
-
-            </motion.div>
-          ))}
-
+                
+                <motion.button 
+                    whileHover={{ x: 10 }}
+                    className="text-sm font-semibold border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-colors"
+                >
+                    READ_FULL_STORY
+                </motion.button>
+              </motion.div>
+            </AnimatePresence>
+            
+            {/* رقم خلفي مخفي بوضوح منخفض ليعطي عمق */}
+            <div className="absolute -bottom-10 -right-6 text-[150px] md:text-[200px] font-black text-white/5 pointer-events-none select-none">
+              {posts[active].id}
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   );

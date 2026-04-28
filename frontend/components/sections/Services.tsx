@@ -56,37 +56,67 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text
         </div>
 
         {/* ORBIT SYSTEM - الأحجام الضخمة الجديدة (900px) */}
-        <div className="relative w-[900px] h-[900px] flex items-center justify-center shrink-0">
-          <div className="absolute w-[400px] h-[400px] rounded-full border border-white/5" />
-          <div className="absolute w-[650px] h-[650px] rounded-full border border-white/5" />
-          <div className="absolute w-[900px] h-[900px] rounded-full border border-cyan-500/10" />
+       {/* Orbit System */}
+<div className="relative w-[700px] h-[700px] flex items-center justify-center shrink-0">
 
-          {/* Core - تم تكبير المركز ليصبح 240px */}
-          <div className="w-50 h-50 rounded-full bg-slate-900 border border-cyan-500/30 flex flex-col items-center justify-center shadow-[0_0_120px_rgba(6,182,212,0.25)] z-10">
-            <h3 className="text-5xl font-black tracking-tighter">CORE</h3>
-            <span className="text-cyan-500 text-sm tracking-[0.25em] mt-2">SYSTEM</span>
-          </div>
+{/* Orbit Rings */}
+<div className="absolute w-[400px] h-[400px] rounded-full border border-white/5" />
+<div className="absolute w-[650px] h-[650px] rounded-full border border-cyan-500/10" />
 
-          <motion.div animate={{ rotate: 360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }} className="absolute inset-0">
-            {services.map((item, i) => {
-              const Icon = item.icon;
-              const angle = (i * 60) * (Math.PI / 180);
-              // تم تكبير نصف القطر إلى 450px لتناسب المدار الضخم
-              const radius = 450; 
-              const x = Math.cos(angle) * radius;
-              const y = Math.sin(angle) * radius;
-              return (
-                <div key={i} className="absolute top-1/2 left-1/2" style={{ transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))` }}>
-                  <motion.div animate={{ rotate: -360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }} className="w-56 p-5 bg-slate-900/90 backdrop-blur border border-white/10 rounded-2xl hover:border-cyan-500/50 transition-colors shadow-2xl">
-                    <Icon className="text-cyan-400 mb-2" size={26} />
-                    <h4 className="font-bold text-xl leading-tight">{item.title}</h4>
-                    <p className="text-base text-white/50 mt-1">{item.desc}</p>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
+{/* Core */}
+<div className="w-50 h-50 rounded-full bg-slate-900 border border-cyan-500/30 flex flex-col items-center justify-center shadow-[0_0_120px_rgba(6,182,212,0.25)] z-10">
+  <h3 className="text-5xl font-black tracking-tighter">CORE</h3>
+  <span className="text-cyan-500 text-sm tracking-[0.25em] mt-2">
+    SYSTEM
+  </span>
+</div>
+
+<motion.div
+  animate={{ rotate: 360 }}
+  transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+  className="absolute inset-0"
+>
+  {services.map((item,i)=>{
+    const Icon = item.icon;
+    const angle = (i * 60) * (Math.PI/180);
+
+    // orbit on second circle
+    const radius = 325;
+
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    return (
+      <div
+        key={i}
+        className="absolute top-1/2 left-1/2"
+        style={{
+          transform:`translate(calc(${x}px - 50%), calc(${y}px - 50%))`
+        }}
+      >
+        <motion.div
+          animate={{ rotate:-360 }}
+          transition={{
+            duration:70,
+            repeat:Infinity,
+            ease:"linear"
+          }}
+          className="w-56 p-5 bg-slate-900/90 backdrop-blur border border-white/10 rounded-2xl hover:border-cyan-500/50 shadow-2xl"
+        >
+          <Icon className="text-cyan-400 mb-2" size={26}/>
+          <h4 className="font-bold text-xl">
+            {item.title}
+          </h4>
+          <p className="text-base text-white/50 mt-1">
+            {item.desc}
+          </p>
+        </motion.div>
+      </div>
+    )
+  })}
+</motion.div>
+
+</div>
       </div>
     </section>
   );

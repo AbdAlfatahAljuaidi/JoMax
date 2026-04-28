@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Zap, Shield, Cpu, BarChart3, Globe } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Shield, Cpu, BarChart3, Globe,CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+import { useRouter } from 'next/navigation';
 
 const sliderData = [
   {
@@ -35,6 +37,16 @@ const sliderData = [
     partners: [{ name: 'Partner 5', logo: '/images/Picture29.png' }, { name: 'Partner 6', logo: '/images/Picture30.png' }],
     icon: Globe
   },
+  {
+    id: 4,
+    image: '/images/Billing.png', // تأكد من حفظ الصورة الجديدة بهذا الاسم
+    badge: 'Automated Finance',
+    title: 'Smart Billing Solutions',
+    description: 'Empowering businesses with seamless, automated billing services designed for precision, secure payment gateways, and real-time financial data management.',
+    features: ['Automated Invoicing', 'Secure Payment Gateways', 'Real-time Analytics'],
+    partners: [{ name: 'Partner 5', logo: '/images/Picture29.png' }, { name: 'Partner 6', logo: '/images/Picture30.png' }],
+    icon: CreditCard // يمكنك استبدال Globe بـ CreditCard أو أي أيقونة مالية مناسبة
+  },
 ];
 
 
@@ -48,6 +60,9 @@ export default function Home() {
     }, 7000);
     return () => clearInterval(timer);
   }, []);
+
+  
+  const router = useRouter();
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
@@ -89,6 +104,8 @@ export default function Home() {
               {sliderData[currentSlide].description}
             </p>
 
+
+
             {/* Features Row */}
             <div className="flex flex-wrap gap-4 mb-12">
               {sliderData[currentSlide].features.map((f, i) => (
@@ -98,7 +115,36 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Partners Specific to Slide */}
+                        {/* إضافة الزر هنا */}
+{sliderData[currentSlide].id === 4 && (
+  <motion.button
+  whileHover={{ scale: 1.05 }} // جعل الحركة أقل حدة لتبدو أكثر ثباتاً
+  whileTap={{ scale: 0.95 }}
+  onClick={() => router.push('/contact')}
+  // أضفنا 'cursor-pointer' و 'group' للتأثيرات
+  className="group relative flex items-center gap-3 bg-slate-900 text-white border border-brand-green px-8 py-4 mb-10 rounded-full shadow-[0_0_20px_rgba(var(--brand-green-rgb),0.3)] hover:shadow-[0_0_30px_rgba(var(--brand-green-rgb),0.5)] overflow-hidden transition-all duration-300 cursor-pointer"
+>
+  {/* الخلفية المضيئة - أضفنا لها تأثير دخول من اليسار */}
+  <div className="absolute inset-0 bg-brand-green translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out opacity-20" />
+  
+  {/* النص */}
+  <span className="relative z-10 font-extrabold uppercase text-xs tracking-[0.25em] text-white transition-all duration-300 group-hover:text-black">
+    Get Demo
+  </span>
+  
+  {/* الأيقونة - أضفنا حركة بسيطة لها عند الـ hover */}
+  <div className="relative z-10 p-1 bg-brand-green rounded-full shadow-[0_0_10px_rgba(var(--brand-green-rgb),0.8)] transition-transform duration-300 group-hover:rotate-[-45deg]">
+    <ArrowRight size={18} className="text-black" />
+  </div>
+
+  {/* تأثير الإطار المتوهج */}
+  <div className="absolute inset-0 rounded-full border-2 border-brand-green/30 group-hover:border-brand-green transition-colors duration-300"></div>
+</motion.button>
+)}
+
+{/* Partners Specific to Slide */}
+{sliderData[currentSlide].id != 4 && (
+
             <div className="flex items-center gap-8">
               <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest">Our Clients:</span>
               <div className="flex gap-6">
@@ -115,6 +161,8 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          )}
+
           </motion.div>
         </AnimatePresence>
       </div>

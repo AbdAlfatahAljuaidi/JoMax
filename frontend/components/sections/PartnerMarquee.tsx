@@ -15,7 +15,7 @@ const PartnerMarquee = () => {
  
   return (
     // الخلفية الآن black متوافقة مع الـ Hero والـ Dashboard
-    <section className="w-full py-20   bg-gradient-to-b from-black border-b border-white/20  to-slate-900 overflow-hidden">
+    <section className="w-full py-12   bg-gradient-to-b from-black border-b border-white/20  to-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <h4 className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] text-center">
           Trusted Global Alliances

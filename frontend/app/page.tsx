@@ -30,7 +30,7 @@ export default function Home() {
       <AboutSection />
       <AdvantageSection />
       <ServicesSection />
-      <Capabilities />
+     
       <TechStack />
       <BlogSection />
       <Footer />

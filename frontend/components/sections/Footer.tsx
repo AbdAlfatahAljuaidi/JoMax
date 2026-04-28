@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer className="
-    relative text-white pt-32 pb-14 overflow-hidden
+    relative text-white pt-12 pb-8 overflow-hidden
   bg-slate-900
 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]
     ">
@@ -23,7 +23,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12">
 
           {/* BRAND CORE */}
           <div className="lg:col-span-4 space-y-8">
@@ -88,38 +88,41 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]
 
           </div>
 
-          {/* CONTACT NODE (SYSTEM STYLE) */}
           <div className="lg:col-span-3">
+  <div className="group relative p-8 border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden">
+    
+    {/* مؤشر النبض (Pulse Indicator) */}
+    <div className="absolute top-6 right-6">
+      <div className="relative flex h-3 w-3">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+      </div>
+    </div>
 
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl space-y-8">
+    <h4 className="text-[10px] tracking-[0.3em] text-white/30 mb-8 font-mono">
+      SYSTEM_STATUS: <span className="text-cyan-400">ONLINE</span>
+    </h4>
 
-              <h4 className="text-xs tracking-[0.4em] text-white/40">
-                CONTACT NODE
-              </h4>
+    <div className="space-y-6">
+      {/* Location */}
+      <div className="relative pl-6 border-l border-white/10 group-hover:border-cyan-500 transition-colors duration-500">
+        <p className="text-[9px] text-white/30 uppercase tracking-widest mb-1">Coordinates</p> 
+        <p className="text-xs text-white ">Amman, Jordan</p>
+      </div>
 
-              {/* location */}
-              <div className="flex gap-4">
-                <MapPin className="text-cyan-400" />
-                <div>
-                  <p className="text-white/40 text-xs">LOCATION</p>
-                  <p className="font-bold">Amman, Jordan</p>
-                </div>
-              </div>
+      {/* Email */}
+      <div className="relative pl-6 border-l border-white/10 group-hover:border-emerald-500 transition-colors duration-500">
+        <p className="text-[9px] text-white/30 uppercase tracking-widest mb-1">Direct_Channel</p>
+        <a href="mailto:info@jomaxsoft.com" className="font-mono text-sm tracking-tight hover:text-emerald-400 transition-colors">
+          info@jomaxsoft.com
+        </a>
+      </div>
+    </div>
 
-              {/* email */}
-              <div className="flex gap-4">
-                <Mail className="text-brand-green" />
-                <div>
-                  <p className="text-white/40 text-xs">CHANNEL</p>
-                  <a href="mailto:info@jomaxsoft.com" className="font-bold hover:text-cyan-300">
-                    info@jomaxsoft.com
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+    {/* إطار جانبي يضيء عند الهوفر */}
+    <div className="absolute left-0 bottom-0 w-[2px] h-0 bg-cyan-500 transition-all duration-700 group-hover:h-full" />
+  </div>
+</div>
 
         </div>
 
