@@ -18,7 +18,7 @@ const NavBar = () => {
   const menuItems = [
     { title: "Home", link: "/" },
     { title: "Business", links: ["Services", "Projects", "Solutions"] },
-    { title: "About Us", links: ["Our Story", "Partners"] },
+    { title: "About Us", links: ["About", "Partners"] },
     { title: "Portfolio", links: ["Clients", "Certification"] }
   ];
 
