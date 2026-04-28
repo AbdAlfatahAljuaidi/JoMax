@@ -121,7 +121,15 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text
     </section>
   );
 }
-function StatCard({ icon: Icon, label, value, color }) {
+
+type StatCardProps = {
+  icon: React.ElementType;
+  label: string;
+  value: string | number;
+  color?: string;
+};
+
+function StatCard({ icon: Icon, label, value, color }: StatCardProps) {
   return (
     <div className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur flex items-center gap-4 min-w-[220px]">
       <Icon className={color} size={26} />
