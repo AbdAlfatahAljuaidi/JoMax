@@ -3,7 +3,7 @@
 
 import React from 'react'
 import { Check, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react';
-import { motion } from "framer-motion";
+import { motion,Variants } from "framer-motion";
 import Footer from '@/components/sections/Footer';
 import NavBar from '@/components/sections/NavBar';
 
@@ -29,10 +29,29 @@ const page = () => {
       features: ["Endpoint Protection", "Next-Gen Firewalls", "Vulnerability Assessment", "Security Audit & Compliance", "Identity Management", "Threat Intel & Response"]
     }
   ];
-
-  const fadeUp = { hidden: { opacity: 0, y: 60 }, show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
-  const stagger = { show: { transition: { staggerChildren: 0.15 } } };
-
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 60,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const,
+      },
+    },
+  };
+  
+  const stagger: Variants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
   return (
     <div>
       <NavBar />

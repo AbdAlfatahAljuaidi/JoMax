@@ -2,7 +2,7 @@
 
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion ,Variants} from "framer-motion";
 
 import NavBar from "@/components/sections/NavBar";
 import Footer from "@/components/sections/Footer";
@@ -49,20 +49,27 @@ const page = () => {
     { name: "Azure Architect Expert", count: 20 },
     { name: "CEH", count: 9 },
   ];
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: {
+        duration: 0.7,
+        ease: "easeOut" as const,
+      },
     },
   };
-
-  const stagger = {
+  
+  const stagger: Variants = {
     hidden: {},
     show: {
-      transition: { staggerChildren: 0.1 },
+      transition: {
+        staggerChildren: 0.1,
+      },
     },
   };
 

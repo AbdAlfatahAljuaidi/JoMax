@@ -10,22 +10,36 @@ import {
   LifeBuoy,
   CheckCircle,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion ,Variants} from "framer-motion";
 
 import Footer from "@/components/sections/Footer";
 import NavBar from "@/components/sections/NavBar";
 
 const AboutPage = () => {
   // تعريف الأنيميشن داخل المكون
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const,
+      },
+    },
   };
-
-  const stagger = {
-    show: { transition: { staggerChildren: 0.1 } },
+  
+  const stagger: Variants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
   };
-
   return (
     <div className="bg-[#fcfdfe]">
       <NavBar />

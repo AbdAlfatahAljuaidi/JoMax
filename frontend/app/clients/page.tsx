@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Quote } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion,Variants } from "framer-motion";
 
 import Footer from "@/components/sections/Footer";
 import NavBar from "@/components/sections/NavBar";
@@ -18,18 +18,22 @@ const page = () => {
     { id: 7, name: "PulseRetail", initials: "PR", sector: "E-Commerce", color: "bg-pink-600" },
     { id: 8, name: "GlobalBridge", initials: "GB", sector: "Media & Streaming", color: "bg-indigo-600" },
   ];
-
-  // Animations
-  const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
+  const fadeUp: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: {
+        duration: 0.7,
+        ease: "easeOut" as const,
+      },
     },
   };
-
-  const stagger = {
+  
+  const stagger: Variants = {
     hidden: {},
     show: {
       transition: {
