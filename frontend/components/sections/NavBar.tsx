@@ -9,7 +9,7 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // إضافة State للتحكم في القوائم المنسدلة داخل الموبايل
-  const [expandedMenu, setExpandedMenu] = useState(null);
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
