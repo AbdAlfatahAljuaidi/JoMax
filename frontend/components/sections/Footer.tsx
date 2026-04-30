@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="
     relative text-white pt-12 pb-8 overflow-hidden
-  bg-slate-900
+bg-slate-900
 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]
     ">
 

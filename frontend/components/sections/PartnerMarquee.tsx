@@ -11,19 +11,21 @@ const PartnerMarquee = () => {
     { id: 4, logoUrl: '/images/Picture28.png' },
     { id: 5, logoUrl: '/images/Picture27.png' },
     { id: 6, logoUrl: '/images/Picture26.png' },
+    { id: 7, logoUrl: '/images/invice.jpeg' },
   ];
- 
+  
   return (
-    // الخلفية الآن black متوافقة مع الـ Hero والـ Dashboard
-    <section className="w-full py-12   bg-gradient-to-b from-black border-b border-white/20  to-slate-900 overflow-hidden">
+    <section className="w-full py-12 bg-gradient-to-b from-black border-b border-white/20 to-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <h4 className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] text-center">
           Trusted Global Alliances
         </h4>
       </div>
 
-      <div className="relative flex w-full">
-        {/* Gradient Mask متوافق مع الخلفية السوداء */}
+      {/* تم تحديد العرض هنا بـ w-4/5 (أي 80%) مع mx-auto للتوسيط */}
+      <div className="relative flex w-4/5 mx-auto overflow-hidden">
+        
+        {/* Gradient Mask */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
 
@@ -35,12 +37,12 @@ const PartnerMarquee = () => {
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-48 h-16 flex items-center justify-center  transition-all duration-700"
+              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700"
             >
               <img 
                 src={partner.logoUrl} 
                 alt="Partner Logo" 
-                className="max-h-full w-auto object-contain  invert" 
+                className="max-h-full w-auto object-contain invert" 
               />
             </div>
           ))}

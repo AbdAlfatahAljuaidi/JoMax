@@ -27,9 +27,9 @@ export default function Home() {
       <NavBar />
       <Hero />
       <PartnerMarquee />
+      <ServicesSection />
       <AboutSection />
       <AdvantageSection />
-      <ServicesSection />
      
       <TechStack />
       <BlogSection />
