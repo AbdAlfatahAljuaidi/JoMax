@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // إضافة State للتحكم في القوائم المنسدلة داخل الموبايل
+  const [expandedMenu, setExpandedMenu] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -48,7 +50,6 @@ const NavBar = () => {
                 <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
                   {menu.title} <ChevronDown size={14} className="opacity-60 group-hover:rotate-180 transition-transform duration-300" />
                 </button>
-                {/* Dropdown - Glassy Card with Hover Effect */}
                 <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                   <div className="bg-black/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-3 w-52 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                     {menu.links?.map((item) => (
@@ -64,7 +65,7 @@ const NavBar = () => {
           ))}
         </div>
 
-        {/* Right Actions - Support & Contact */}
+        {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-2">
           <Link href="/support" className="flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white px-4 py-2 transition-colors">
             <LifeBuoy size={18} /> Support
@@ -79,16 +80,60 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Updated */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-black z-[100] p-8 lg:hidden">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] p-8 lg:hidden overflow-y-auto">
           <button onClick={() => setMobileMenuOpen(false)} className="absolute top-8 right-8 text-white"><X size={32}/></button>
-          <div className="flex flex-col gap-6 text-2xl font-light text-white mt-20">
-            {['Home', 'Business', 'About Us', 'Portfolio', 'Support', 'Contact'].map(item => (
-              <Link key={item} href={`/${item.toLowerCase().replace(' ', '-')}`} onClick={() => setMobileMenuOpen(false)}>
-                {item}
-              </Link>
+          
+          <div className="flex flex-col gap-4 mt-20">
+            {menuItems.map((menu) => (
+              <div key={menu.title} className="border-b border-white/10 pb-4">
+                {menu.link ? (
+                  <Link 
+                    href={menu.link} 
+                    className="text-2xl font-light text-white block"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {menu.title}
+                  </Link>
+                ) : (
+                  <div>
+                    <button 
+                      onClick={() => setExpandedMenu(expandedMenu === menu.title ? null : menu.title)}
+                      className="flex items-center justify-between w-full text-2xl font-light text-white"
+                    >
+                      {menu.title}
+                      <ChevronDown className={`transition-transform duration-300 ${expandedMenu === menu.title ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {expandedMenu === menu.title && (
+                      <div className="mt-4 ml-4 flex flex-col gap-4 border-l border-white/20 pl-4">
+                        {menu.links?.map((item) => (
+                          <Link 
+                            key={item} 
+                            href={`/${item.toLowerCase().replace(' ', '-')}`}
+                            className="text-lg text-gray-400 hover:text-white"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {item}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             ))}
+            
+            {/* إلحاق روابط الدعم والاتصال في نهاية قائمة الموبايل */}
+            <div className="mt-4 flex flex-col gap-6">
+                <Link href="/support" className="flex items-center gap-3 text-xl text-white/80" onClick={() => setMobileMenuOpen(false)}>
+                    <LifeBuoy /> Support
+                </Link>
+                <Link href="/contact" className="flex items-center justify-center gap-2 bg-white text-black px-6 py-4 rounded-full text-lg font-bold" onClick={() => setMobileMenuOpen(false)}>
+                    <Mail size={20} /> Contact Us
+                </Link>
+            </div>
           </div>
         </div>
       )}
