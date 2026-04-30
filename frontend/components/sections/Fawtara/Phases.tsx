@@ -1,78 +1,91 @@
 import React from 'react';
-import { CheckCircle2, Link2, FileCode2 } from 'lucide-react';
+import { CheckCircle2, Zap, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 const PhasesSection = () => {
   return (
-    <section className="bg-slate-900 py-24 relative font-sans" dir="ltr">
-      <div className="container mx-auto px-6">
+    <section className="bg-slate-900 py-32 relative overflow-hidden font-sans" dir="ltr">
+      
+      {/* Decorative background text */}
+      <div className="absolute top-10 left-10 text-[15rem] font-black text-white/[0.02] select-none pointer-events-none">
+        PHASE
+      </div>
+
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-brand-green text-sm font-bold tracking-widest uppercase">
-            Invoicing Journey
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-4">
-            Full Support for Both Phases
-          </h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            Our platform fully covers ZATKA requirements for both the Generation Phase and the Integration Phase.
+        {/* Header with Side Line */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <div className="max-w-xl">
+            <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
+              Our Readiness <br />
+              <span className="text-brand-green">For Every Step</span>
+            </h2>
+          </div>
+          <p className="text-slate-400 max-w-sm border-l-2 border-brand-green pl-6 py-2">
+            Fully compliant with ZATKA requirements for both Generation and Integration phases.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="relative">
           
-          {/* Phase 2 - Integration (The Active One) */}
-          <div className="relative group order-1 md:order-2">
-            {/* Active Border Glow */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-            
-            <div className="relative bg-slate-900 border border-emerald-500/50 rounded-2xl p-8 h-full">
-              {/* Active Badge */}
-              <div className="absolute top-4 left-4">
-                <span className="bg-emerald-500/10 text-brand-green text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-500/20 uppercase tracking-tighter">
-                  Currently Active
-                </span>
-              </div>
-
-              <div className="flex flex-col items-end text-right">
-                <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20">
-                  <Link2 className="text-brand-green w-6 h-6" />
+          {/* Phase 1: The Foundation (Lower Layer) */}
+          <div className="relative z-10 w-full lg:w-3/4 mr-auto">
+            <div className="bg-slate-800/20 border border-slate-800 p-8 md:p-12 rounded-[3rem] backdrop-blur-sm group hover:bg-slate-800/40 transition-all duration-500">
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="bg-slate-900 p-4 rounded-2xl border border-slate-700">
+                  <ShieldCheck className="text-slate-500 w-8 h-8" />
                 </div>
-
-                <h3 className="text-white text-2xl font-bold mb-2">Phase Two – Integration</h3>
-                <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-                  Real-time integration with ZATKA (Fatoora) portal via API for instant invoice clearance and reporting.
-                </p>
-
-                <ul className="space-y-4 w-full">
-                  <FeatureItem text="Direct API Integration" active />
-                  <FeatureItem text="Tax Invoice Clearance" active />
-                  <FeatureItem text="Simplified Invoice Reporting" active />
-                  <FeatureItem text="CSID & CCSID Management" active />
-                  <FeatureItem text="Full UBL 2.1 XML Support" active />
-                </ul>
+                <div className="flex-1">
+                  <span className="text-slate-500 font-bold text-xs uppercase tracking-widest">Initial Requirement</span>
+                  <h3 className="text-white text-3xl font-bold mt-2 mb-6">Phase One: Generation</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <FeatureItem text="Compliant XML Format" />
+                    <FeatureItem text="Mandatory QR Codes" />
+                    <FeatureItem text="Tax Invoices" />
+                    <FeatureItem text="Digital Archiving" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Phase 1 - Generation */}
-          <div className="relative bg-slate-800/30 border border-slate-800 rounded-2xl p-8 h-full order-2 md:order-1 transition-all hover:bg-slate-800/50">
-            <div className="flex flex-col items-end text-right">
-              <div className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center mb-6">
-                <FileCode2 className="text-slate-400 w-6 h-6" />
+          {/* Phase 2: The Future (Floating Layer) */}
+          <div className="relative z-20 w-full lg:w-2/3 -mt-20 lg:-mt-32 ml-auto">
+            <div className="p-[2px] rounded-[3rem] bg-gradient-to-br from-brand-green to-transparent shadow-2xl shadow-brand-green/10">
+              <div className="bg-slate-950 p-8 md:p-12 rounded-[3rem] relative overflow-hidden">
+                
+                {/* Active Glow */}
+                <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-green/10 blur-[80px] rounded-full"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="bg-brand-green p-4 rounded-2xl shadow-lg shadow-brand-green/20">
+                      <Zap className="text-slate-950 w-8 h-8 fill-current" />
+                    </div>
+                    <span className="px-4 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[10px] font-black tracking-tighter uppercase">
+                      Active Phase
+                    </span>
+                  </div>
+
+                  <h3 className="text-white text-3xl md:text-4xl font-black mb-4">Phase Two: Integration</h3>
+                  <p className="text-slate-400 mb-10 text-lg leading-relaxed">
+                    Automated real-time synchronization with ZATKA systems via <span className="text-white font-mono">Fatoora API</span>.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <FeatureItem text="Direct API Integration" active />
+                    <FeatureItem text="Invoice Clearance" active />
+                    <FeatureItem text="Real-time Reporting" active />
+                    <FeatureItem text="CSID Management" active />
+                    <FeatureItem text="UBL 2.1 Standard" active />
+                    <FeatureItem text="Simplified Reporting" active />
+                  </div>
+                  
+                  <button className="mt-12 flex items-center gap-2 text-brand-green font-bold group/btn">
+                    Learn about integration
+                    <ArrowUpRight className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                  </button>
+                </div>
               </div>
-
-              <h3 className="text-white text-2xl font-bold mb-2">Phase One – Generation</h3>
-              <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-                Generating e-invoices in compliant XML format with mandatory QR codes as per ZATKA standards.
-              </p>
-
-              <ul className="space-y-4 w-full">
-                <FeatureItem text="Approved Tax Invoices" />
-                <FeatureItem text="Credit & Debit Notes" />
-                <FeatureItem text="Encrypted QR Code" />
-                <FeatureItem text="Digital Signature" />
-              </ul>
             </div>
           </div>
 
@@ -82,12 +95,11 @@ const PhasesSection = () => {
   );
 };
 
-// Reusable Component for List Items
 const FeatureItem = ({ text, active = false }: { text: string; active?: boolean }) => (
-  <li className="flex items-center justify-end gap-3 group/item">
-    <span className={`text-sm ${active ? 'text-slate-300' : 'text-slate-500'}`}>{text}</span>
-    <CheckCircle2 className={`w-5 h-5 ${active ? 'text-brand-green' : 'text-slate-700'}`} />
-  </li>
+  <div className="flex items-center gap-3">
+    <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${active ? 'text-brand-green' : 'text-slate-700'}`} />
+    <span className={`text-sm md:text-base ${active ? 'text-slate-200' : 'text-slate-500'}`}>{text}</span>
+  </div>
 );
 
 export default PhasesSection;

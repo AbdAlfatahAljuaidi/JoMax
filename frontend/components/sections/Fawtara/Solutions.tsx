@@ -1,98 +1,106 @@
 import React from 'react';
 import { 
-  FileText, 
-  Zap, 
-  QrCode, 
-  ShieldCheck, 
-  Settings, 
-  BarChart3, 
-  LayoutGrid, 
-  Archive 
+  FileText, Zap, QrCode, ShieldCheck, 
+  Settings, BarChart3, LayoutGrid, Archive, ArrowUpRight 
 } from 'lucide-react';
 
 const solutions = [
   {
     title: "Electronic Invoicing",
-    desc: "Generate and issue tax invoices and debit/credit notes in XML format with a certified digital signature.",
-    icon: <FileText className="w-6 h-6 text-blue-400" />,
+    desc: "Generate tax invoices and debit/credit notes in XML format with certified digital signatures.",
+    icon: <FileText size={24} />,
   },
   {
-    title: "API Integration with ZATKA",
-    desc: "Direct integration with the Fatoora portal for real-time validation and instant invoice reporting.",
-    icon: <Zap className="w-6 h-6 text-amber-400" />,
+    title: "ZATKA API Sync",
+    desc: "Direct integration with the Fatoora portal for real-time validation and instant reporting.",
+    icon: <Zap size={24} />,
   },
   {
     title: "Certified QR Code",
-    desc: "Generate encrypted QR codes compliant with TLV standards for both simplified and standard tax invoices.",
-    icon: <QrCode className="w-6 h-6 text-emerald-400" />,
+    desc: "Encrypted QR codes compliant with TLV standards for all tax invoice types.",
+    icon: <QrCode size={24} />,
   },
   {
-    title: "Digital Signatures & CSID",
-    desc: "Automated management of Cryptographic CSIDs and stamps, with auto-renewal before expiration.",
-    icon: <ShieldCheck className="w-6 h-6 text-purple-400" />,
+    title: "Digital Signatures",
+    desc: "Automated management of Cryptographic CSIDs and stamps with auto-renewal.",
+    icon: <ShieldCheck size={24} />,
   },
   {
-    title: "ERP & Accounting Integration",
-    desc: "Seamless connectivity with SAP, Oracle, Odoo, and cloud accounting systems via our open API.",
-    icon: <Settings className="w-6 h-6 text-slate-400" />,
+    title: "ERP Integration",
+    desc: "Seamless connectivity with SAP, Oracle, Odoo, and cloud systems via Open API.",
+    icon: <Settings size={24} />,
   },
   {
-    title: "Dashboard & Analytics",
-    desc: "A comprehensive interface to monitor all invoices, validation status, and detailed financial reports.",
-    icon: <BarChart3 className="w-6 h-6 text-rose-400" />,
+    title: "Analytics Dashboard",
+    desc: "A comprehensive interface to monitor invoice status and detailed financial reports.",
+    icon: <BarChart3 size={24} />,
   },
   {
     title: "Multi-Branch Support",
-    desc: "Centrally manage invoicing for all company branches and facilities with consolidated reporting.",
-    icon: <LayoutGrid className="w-6 h-6 text-cyan-400" />,
+    desc: "Centrally manage invoicing for all company branches with consolidated reporting.",
+    icon: <LayoutGrid size={24} />,
   },
   {
     title: "Legal Archiving",
-    desc: "Secure storage and archiving of electronic invoices for 10+ years in compliance with legal regulations.",
-    icon: <Archive className="w-6 h-6 text-indigo-400" />,
+    desc: "Secure storage of electronic invoices for 10+ years in compliance with regulations.",
+    icon: <Archive size={24} />,
   },
 ];
 
 const SolutionsSection = () => {
   return (
-    <section className="bg-slate-900 py-24 relative font-sans" dir="ltr">
-      <div className="container mx-auto px-6">
+    <section className="bg-slate-900 py-32 relative overflow-hidden font-sans" dir="ltr">
+      {/* Decorative Blur Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-green/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         
-        {/* Header */}
-        <div className="text-center mb-20">
-          <span className="text-brand-green text-sm font-bold tracking-[0.3em] uppercase">
-            Our Services
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-6">
-            Integrated E-Invoicing Solutions
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            We provide a comprehensive suite of tools designed to cover all business needs for digital invoicing compliance.
-          </p>
+        {/* Modern Header Section */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-8">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-8 h-[1px] bg-brand-green"></span>
+              <span className="text-brand-green text-xs font-bold tracking-[0.4em] uppercase">Premium Features</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white leading-none">
+              Powerful Solutions <br />
+              <span className="text-slate-600 italic">For Digital Growth.</span>
+            </h2>
+          </div>
+          <div className="lg:mb-2 text-slate-400 max-w-sm">
+            Everything you need to manage your electronic billing cycles under one secure, ZATKA-certified roof.
+          </div>
         </div>
 
-        {/* Solutions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* New Solution Grid: Hover-Border Effect */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-slate-800/50 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
           {solutions.map((item, index) => (
             <div 
               key={index}
-              className="group relative p-8 rounded-2xl bg-slate-800/40 border border-slate-700/50  transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-black/20"
+              className="group relative p-10 bg-slate-900 hover:bg-slate-800/50 transition-all duration-500 flex flex-col justify-between min-h-[320px]"
             >
-              {/* Icon Container */}
-              <div className="w-14 h-14 rounded-xl bg-slate-900 flex items-center justify-center mb-6 border border-slate-700 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
+              <div>
+                {/* Icon with Glowing background */}
+                <div className="relative w-12 h-12 mb-8 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-brand-green/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative text-brand-green group-hover:text-white transition-colors duration-300">
+                    {item.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-white text-xl font-bold mb-4 group-hover:translate-x-1 transition-transform duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                  {item.desc}
+                </p>
               </div>
 
-              {/* Content */}
-              <h3 className="text-white text-xl font-bold mb-3 group-hover:text-brand-green transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {item.desc}
-              </p>
-
-              {/* Decorative Accent */}
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-brand-green transition-all duration-300 group-hover:w-full rounded-b-2xl opacity-50"></div>
+              {/* Bottom Arrow Detail */}
+              <div className="mt-8 flex items-center justify-between">
+                <span className="h-[1px] w-0 bg-brand-green group-hover:w-12 transition-all duration-500"></span>
+                <ArrowUpRight className="text-slate-700 group-hover:text-brand-green transition-colors w-5 h-5" />
+              </div>
             </div>
           ))}
         </div>
