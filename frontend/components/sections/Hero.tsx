@@ -19,7 +19,7 @@ const sliderData = [
   },
   {
     id: 2,
-    video: 'https://res.cloudinary.com/danvxvhvq/video/upload/v1777367608/world_f1zfr8.mp4',
+    video: '/videos/billing.mp4',
     duration: 5,
     badge: 'Smart Ecosystems',
     title: 'Seamless Digital Harmony',
