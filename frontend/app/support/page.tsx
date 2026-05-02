@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
-import { Mail, MessageSquare, Phone, BookOpen, ChevronRight, Zap } from 'lucide-react';
+import { Mail, MessageSquare, Phone, BookOpen, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 import NavBar from '@/components/sections/NavBar';
 import Footer from '@/components/sections/Footer';
 
@@ -12,117 +15,124 @@ const SupportPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 overflow-hidden">
+    <div className="min-h-screen bg-slate-900 text-white selection:bg-brand-green/30 selection:text-white uppercase tracking-tighter font-sans">
       <NavBar />
 
-      <main className="pt-32 pb-24 px-6 relative">
-        {/* Ambient background animation */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-main/5 rounded-full blur-[140px] animate-pulse pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[120px] animate-pulse pointer-events-none" />
+      <main className="pt-44 pb-24 px-6 relative">
+        {/* اضاءة خلفية خفيفة */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-main/10 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           
-          {/* Header Area */}
-          <div className="mb-20 text-center space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter">
-              Jomax <span className="text-brand-green">Support Centerdd</span>
+          {/* --- قسم العنوان مع "الضو" المحدث --- */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-24 text-center space-y-8"
+          >
+            {/* Status Badge - الضو اللي كان ناقص */}
+            <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-xl mx-auto shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+              <span className="relative flex h-3 w-3">
+                {/* تأثير النبض الخارجي - زدت القوة والسرعة */}
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75 duration-700"></span>
+                {/* النقطة المركزية مع توهج نيون (Neon Glow) */}
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-green shadow-[0_0_12px_#22c55e,0_0_20px_#22c55e]"></span>
+              </span>
+              <span className="text-[11px] font-black uppercase tracking-[0.4em] text-brand-green drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]">
+                Engineers Online
+              </span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]">
+              Jomax <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-main via-brand-green to-brand-main italic">
+                Support Center.
+              </span>
             </h1>
-            <p className="text-slate-500 text-lg max-w-xl mx-auto">
+            
+            <p className="text-slate-400 text-xl font-medium max-w-xl mx-auto normal-case leading-relaxed">
               Our engineering team is dedicated to your uptime. Choose your preferred support channel below.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Support Categories */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          {/* --- كروت الدعم --- */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
             {supportCategories.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-white p-8 rounded-3xl border border-slate-100
-                hover:border-brand-green/30 hover:shadow-2xl hover:-translate-y-2
-                transition-all duration-500 ease-out"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group relative bg-slate-800/40 backdrop-blur-xl p-8 rounded-[2.5rem] border border-slate-700/50
+                hover:border-brand-green/50 hover:bg-slate-800/60 transition-all duration-500 overflow-hidden"
               >
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center mb-6
+                <div className="w-16 h-16 bg-slate-700/50 rounded-2xl flex items-center justify-center mb-8
                 group-hover:bg-brand-green group-hover:rotate-6 transition-all duration-500">
-                  <item.icon className="text-brand-green group-hover:text-white transition-colors" size={24} />
+                  <item.icon className="text-brand-green group-hover:text-white transition-colors" size={28} />
                 </div>
-
-                <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-brand-green transition-colors">
+                <h3 className="text-2xl font-black text-white mb-3 group-hover:text-brand-green transition-colors uppercase italic">
                   {item.title}
                 </h3>
-
-                <p className="text-slate-500 text-sm mb-6">{item.desc}</p>
-
-                {/* animated underline */}
-                <div className="w-0 group-hover:w-full h-[2px] bg-brand-green transition-all duration-500 rounded-full" />
-              </div>
+                <p className="text-slate-500 text-sm mb-8 leading-relaxed normal-case">
+                  {item.desc}
+                </p>
+                <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-1 bg-brand-green transition-all duration-700" />
+              </motion.div>
             ))}
           </div>
 
-          {/* Support Form Section */}
-          <section className="bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
-            
-            {/* animated background dots */}
-            <div
-              className="absolute inset-0 opacity-10 animate-pulse"
-              style={{
-                backgroundImage: `radial-gradient(#fff 1px, transparent 0)`,
-                backgroundSize: '40px 40px'
-              }}
-            />
-
-            <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-              
-              <div className="space-y-6">
-                <h2 className="text-4xl font-black">Send us a direct request</h2>
-                <p className="text-slate-400">
-                  Fill in the details and our support desk will respond within 2 hours during working hours.
+          {/* --- قسم الفورم --- */}
+          <motion.section 
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-slate-800/30 rounded-[3.5rem] border border-slate-700/50 p-12 md:p-20 relative overflow-hidden"
+          >
+            <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+              <div className="space-y-8 text-left">
+                <h2 className="text-5xl font-black tracking-tighter uppercase italic text-brand-green">Direct Request.</h2>
+                <p className="text-slate-400 text-lg leading-relaxed normal-case">
+                  Fill in the details and our support desk will respond within <span className="text-white underline decoration-brand-green underline-offset-4">2 hours</span>.
                 </p>
-
-                <div className="flex items-center gap-4 text-brand-green font-bold animate-pulse">
-                  <Zap size={20} className="animate-bounce" />
-                  <span>Avg. response time: 45 Minutes</span>
+                <div className="flex items-center gap-4 text-brand-green font-black text-xs tracking-widest bg-brand-green/10 w-fit px-6 py-3 rounded-full border border-brand-green/20">
+                  <Zap size={18} className="animate-pulse" />
+                  <span>AVG RESPONSE: 45 MINS</span>
                 </div>
               </div>
 
-              <form className="bg-white/5 p-8 rounded-3xl border border-white/10 space-y-6 backdrop-blur-md
-              hover:scale-[1.02] transition-transform duration-500">
-
-                <div className="grid grid-cols-2 gap-4">
+              <form className="bg-slate-900/80 p-10 rounded-[2.5rem] border border-white/5 space-y-8 backdrop-blur-xl shadow-2xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input
                     type="text"
+                    className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 focus:border-brand-green outline-none transition-all text-white placeholder:text-slate-600"
                     placeholder="Full Name"
-                    className="bg-transparent border-b border-white/20 p-3 focus:border-brand-green outline-none transition-all"
                   />
                   <input
                     type="email"
-                    placeholder="Email"
-                    className="bg-transparent border-b border-white/20 p-3 focus:border-brand-green outline-none transition-all"
+                    className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 focus:border-brand-green outline-none transition-all text-white placeholder:text-slate-600"
+                    placeholder="Email Address"
                   />
                 </div>
-
-                <select className="w-full bg-transparent border-b border-white/20 p-3 outline-none text-slate-400 focus:border-brand-green transition-all">
-                  <option>Select Issue Type</option>
-                  <option>Infrastructure</option>
-                  <option>Security</option>
-                  <option>Cloud</option>
+                <select className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 outline-none text-slate-400 focus:border-brand-green appearance-none cursor-pointer">
+                  <option>Infrastructure Issue</option>
+                  <option>Security Inquiry</option>
+                  <option>Cloud Deployment</option>
                 </select>
-
                 <textarea
-                  placeholder="Describe your issue..."
-                  className="w-full bg-transparent border-b border-white/20 p-3 outline-none h-32 focus:border-brand-green transition-all"
+                  className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 outline-none h-32 focus:border-brand-green transition-all text-white placeholder:text-slate-600 shadow-inner"
+                  placeholder="Describe the technical situation..."
                 />
-
                 <button
-                  className="w-full bg-brand-green py-4 rounded-xl font-black uppercase text-xs tracking-widest
-                  hover:bg-white hover:text-slate-900 hover:scale-105 active:scale-95
-                  transition-all duration-300 shadow-lg"
+                  type="button"
+                  className="w-full bg-brand-green py-5 rounded-2xl font-black uppercase text-xs tracking-[0.3em] text-slate-900 hover:bg-white hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(34,197,94,0.3)]"
                 >
-                  Submit Ticket
+                  Submit Support Ticket
                 </button>
               </form>
             </div>
-          </section>
-
+          </motion.section>
         </div>
       </main>
 

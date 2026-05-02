@@ -20,94 +20,108 @@ const PartnersPage = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    hidden: { opacity: 0, y: 30, scale: 0.92 },
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
   };
 
   return (
-    <div className="bg-[#fcfdfe] min-h-screen">
+    <div className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_60%)] min-h-screen">
       <NavBar />
 
-      <main className="pt-40 pb-32 px-6">
-        {/* Header Section */}
-        <section className="max-w-5xl mx-auto text-center mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+      <main className="pt-32 md:pt-40 pb-28 md:pb-36 px-6 md:px-10">
+
+        {/* --- HEADER --- */}
+        <section className="max-w-4xl mx-auto text-center mb-20 md:mb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-6"
           >
-            <span className="text-brand-green font-bold tracking-[0.3em] uppercase text-xs">Global Alliance</span>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter">
-              Partners in <span className="text-brand-main italic">Innovation</span>
+            <span className="text-brand-green font-bold tracking-[0.35em] uppercase text-xs">
+              Global Alliance
+            </span>
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05]">
+              Partners in{" "}
+              <span className="text-brand-main italic">Innovation</span>
             </h1>
-            <p className="text-slate-500 text-lg max-w-xl mx-auto">
+
+            <p className="text-slate-400 text-base md:text-lg max-w-lg mx-auto leading-relaxed">
               Connecting with industry leaders to push the boundaries of what is possible.
             </p>
           </motion.div>
         </section>
 
-        {/* Partners Grid */}
+        {/* --- GRID --- */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6 max-w-6xl mx-auto"
         >
           {partners.map((partner) => (
             <motion.div
               key={partner.id}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="group aspect-square bg-white border border-slate-100 rounded-3xl flex items-center justify-center p-8 relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+              whileHover={{ y: -8 }}
+              className="group aspect-square bg-white/90 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-6 relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500"
             >
-              {/* تدرج لوني يظهر عند التمرير */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-main/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              
+              {/* glow hover */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-main/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
               <img
                 src={partner.logoUrl}
                 alt="Partner Logo"
-                className="max-w-[70%] max-h-[70%] object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                className="max-w-[65%] max-h-[65%] object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
               />
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Enhanced CTA Section */}
-        <motion.section 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        {/* --- CTA --- */}
+        <motion.section
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 max-w-6xl mx-auto"
+          className="mt-28 md:mt-36 max-w-5xl mx-auto"
         >
-          <div className="relative bg-slate-900 rounded-[3rem] p-12 md:p-20 overflow-hidden">
-            {/* زخرفة خلفية */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-green/20 rounded-full blur-[120px]" />
-            
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">
+          <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 rounded-[2.5rem] p-10 md:p-16 overflow-hidden">
+
+            {/* glow */}
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-brand-green/20 rounded-full blur-[120px]" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
+
+              <div className="space-y-4 max-w-md">
+                <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
                   Ready to collaborate?
                 </h2>
-                <p className="text-slate-400">Join our growing ecosystem today.</p>
+
+                <p className="text-slate-400 text-sm md:text-base">
+                  Join our growing ecosystem and build impactful solutions together.
+                </p>
               </div>
 
               <Link
                 href="/contact"
-                className="group flex items-center gap-4 bg-white text-slate-900 px-8 py-4 rounded-full font-black uppercase text-sm hover:bg-brand-green hover:text-white transition-colors"
+                className="group flex items-center gap-4 bg-white text-slate-900 px-7 py-3 rounded-full font-black uppercase text-xs md:text-sm hover:bg-brand-green hover:text-white transition-all duration-300"
               >
                 Start Partnership
-                <div className="bg-slate-100 p-2 rounded-full group-hover:bg-white/20 transition-colors">
+
+                <div className="bg-slate-100 p-2 rounded-full group-hover:bg-white/20 transition-all">
                   <ArrowUpRight size={18} />
                 </div>
               </Link>
+
             </div>
           </div>
         </motion.section>
+
       </main>
 
       <Footer />

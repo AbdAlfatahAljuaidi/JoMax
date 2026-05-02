@@ -1,139 +1,171 @@
 'use client';
 
+import React from "react";
+import { motion } from "framer-motion";
+import { Cpu, Orbit, Shield, Sparkles, Zap, Globe, Layers } from "lucide-react";
+import Footer from "@/components/sections/Footer";
+import { div } from "three/src/nodes/math/OperatorNode.js";
+import NavBar from "@/components/sections/NavBar";
 
-import React from 'react'
-import { Check, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react';
-import { motion,Variants } from "framer-motion";
-import Footer from '@/components/sections/Footer';
-import NavBar from '@/components/sections/NavBar';
-
-const page = () => {
-
-  const services = [
-    {
-      title: "Network Infrastructure",
-      tagline: "Reliable, High-Performance Connectivity",
-      description: "We design and build network experiences that are fast, secure, and built to scale for enterprise-level operations.",
-      icon: Globe,
-      iconBg: "bg-brand-green",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop",
-      features: ["Enterprise Routing & Switching", "Wireless Solutions (Wi-Fi 6)", "SD-WAN Implementation", "Fiber Optic & Structured Cabling", "Performance Optimization", "Network Security Hardening"]
-    },
-    {
-      title: "Cyber Security",
-      tagline: "Scalable Infrastructure, Zero Compromise",
-      description: "Protecting your digital assets with advanced threat detection, penetration testing, and 24/7 security monitoring.",
-      icon: ShieldCheck,
-      iconBg: "bg-slate-900",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
-      features: ["Endpoint Protection", "Next-Gen Firewalls", "Vulnerability Assessment", "Security Audit & Compliance", "Identity Management", "Threat Intel & Response"]
-    }
-  ];
-  const fadeUp: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 60,
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-  
-  const stagger: Variants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
+export default function page() {
   return (
     <div>
-      <NavBar />
+        <NavBar/>
+    
+    <section className="relative min-h-screen bg-slate-900
+bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white overflow-hidden py-24">
+      
+      {/* Background Effects */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-700/10 blur-[150px] rounded-full" />
+      </div>
 
-      <section className="relative py-28  px-6 bg-[#fcfdfe] overflow-hidden">
-
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-main/5 rounded-full blur-[140px]" />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-
-          {/* Header */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="max-w-3xl mb-32 space-y-8"
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        
+        {/* Headline */}
+        <div className="text-center my-32">
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-6xl md:text-[120px] font-black leading-[0.85] tracking-tighter"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                Business / Services
-              </span>
-            </div>
-
-            <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-              What We <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-main to-brand-green italic font-black">
-                Deliver.
-              </span>
-            </h1>
-
-            <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-xl">
-              Six core service lines. One unified team. End-to-end technology services engineered to
-              <span className="text-slate-900 font-bold"> modernize your operations.</span>
-            </p>
-          </motion.div>
-
-          {/* Services */}
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }} className="space-y-12">
-            {services.map((service, idx) => (
-              <motion.div key={idx} variants={fadeUp} className="group relative bg-white rounded-[3.5rem] border border-slate-100 p-8 md:p-12 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700">
-                
-                {/* خلفية الصورة التفاعلية */}
-                <div className="absolute inset-0 z-0">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover opacity-100  transition-all duration-1000 scale-105 group-hover:scale-100" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
-                </div>
-
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                  <div className="lg:col-span-4 space-y-6">
-                    <div className={`w-16 h-16 rounded-[1.5rem] ${service.iconBg} flex items-center justify-center text-white shadow-lg`}>
-                      <service.icon size={32} strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-black text-brand-green uppercase tracking-widest">{service.tagline}</span>
-                      <h3 className="text-4xl font-black text-slate-900 mt-2">{service.title}</h3>
-                      <p className="text-slate-500 font-medium mt-4 text-sm leading-relaxed">{service.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {service.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-4 p-5 bg-white/50 backdrop-blur-sm rounded-[1.5rem] border border-slate-100">
-                        <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green">
-                          <Check size={14} strokeWidth={3} />
-                        </div>
-                        <span className="text-sm font-bold text-slate-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
+            WE BUILD <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-500">
+              DIGITAL UNIVERSES
+            </span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }}
+            className="mt-10 max-w-2xl mx-auto text-xl text-slate-400 leading-relaxed"
+          >
+            Jomaxsoft is not just a development agency. We engineer sophisticated enterprise ecosystems designed to automate growth and redefine digital efficiency.
+          </motion.p>
         </div>
-      </section>
 
+        {/* Floating Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { icon: <Cpu size={32}/>, title: "Neural ERP", text: "Intelligent resource planning that adapts to your unique business flow." },
+            { icon: <Globe size={32}/>, title: "Cloud Galaxies", text: "Scalable infrastructure that powers your operations across the globe." },
+            { icon: <Shield size={32}/>, title: "Quantum Security", text: "Military-grade protection for your most sensitive enterprise data." },
+            { 
+              icon: <Layers size={32}/>, 
+              title: "Web Development", 
+              text: "High-performance, immersive web applications built with cutting-edge frameworks." 
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -15 }}
+              className="group relative rounded-[32px] p-8 bg-white/[0.02] border border-white/10 hover:border-cyan-500/50 transition-all duration-500"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+                {item.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+              <p className="text-slate-400 leading-relaxed">{item.text}</p>
+            </motion.div>
+          ))}
+        </div>
+
+       {/* Futuristic Core - Enhanced Version */}
+<div className="mt-40 flex flex-col items-center">
+  <div className="relative flex items-center justify-center">
+    
+    {/* Outer Pulsing Glow - طبقة التوهج الخارجي */}
+    <motion.div
+      animate={{
+        scale: [1, 1.2, 1],
+        opacity: [0.3, 0.6, 0.3],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="absolute w-64 h-64 rounded-full bg-cyan-500/20 blur-3xl"
+    />
+
+    {/* Spinning Outer Ring - الحلقة الخارجية المتقطعة */}
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      className="absolute w-56 h-56 rounded-full border-2 border-dashed border-cyan-500/20"
+    />
+
+    {/* Middle Orbiting Ring - الحلقة الوسطى المعاكسة */}
+    <motion.div
+      animate={{ rotate: -360 }}
+      transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+      className="absolute w-48 h-48 rounded-full border border-blue-400/30 border-t-transparent border-b-transparent"
+    />
+
+    {/* The Core - القلب المركزي */}
+    <motion.div 
+      whileHover={{ scale: 1.1, rotate: 90 }}
+      initial={{ boxShadow: "0 0 20px rgba(6, 182, 212, 0.5)" }}
+      animate={{ 
+        boxShadow: [
+          "0 0 20px rgba(6, 182, 212, 0.5)",
+          "0 0 50px rgba(6, 182, 212, 0.8)",
+          "0 0 20px rgba(6, 182, 212, 0.5)"
+        ]
+      }}
+      transition={{ 
+        boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+        rotate: { duration: 0.5 } 
+      }}
+      className="relative z-10 w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 via-blue-600 to-indigo-700 flex items-center justify-center cursor-pointer overflow-hidden"
+    >
+      {/* Internal Scanning Light - تأثير ضوء المسح الداخلي */}
+      <motion.div 
+        animate={{ x: [-100, 200] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 blur-md"
+      />
+      
+      <Sparkles size={40} className="text-white relative z-20" />
+    </motion.div>
+
+    {/* Orbiting Particle - جسيم صغير يدور حول القلب */}
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      className="absolute w-48 h-48"
+    >
+      <div className="w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_10px_#22d3ee] absolute top-0 left-1/2 -translate-x-1/2" />
+    </motion.div>
+  </div>
+
+  {/* Subtitle with Glitch-like animation */}
+  <motion.p 
+    initial={{ opacity: 0.5 }}
+    animate={{ opacity: [0.5, 1, 0.5] }}
+    transition={{ duration: 2, repeat: Infinity }}
+    className="mt-12 text-cyan-400 font-mono tracking-[0.3em] uppercase text-xs"
+  >
+     System Status: Operational
+  </motion.p>
+</div>
+
+        {/* Bottom Stats - Optimized Grid */}
+        <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/5 pt-16">
+          {[
+            { n: "250+", l: "Happy Clients" },
+            { n: "1.2K+", l: "Projects Shipped" },
+            { n: "99.9%", l: "System Uptime" },
+            { n: "24/7", l: "Expert Support" }
+          ].map((item, i) => (
+            <motion.div key={i} whileHover={{ y: -5 }} className="text-center">
+              <div className="text-4xl md:text-5xl font-black text-white mb-2">{item.n}</div>
+              <div className="text-slate-500 text-sm uppercase tracking-widest">{item.l}</div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
       <Footer />
     </div>
-  )
+  );
 }
-
-export default page;

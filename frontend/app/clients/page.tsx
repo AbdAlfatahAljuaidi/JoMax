@@ -1,205 +1,203 @@
 "use client";
 
-import React from "react";
-import { Quote } from "lucide-react";
-import { motion,Variants } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Quote, Zap } from "lucide-react";
 
-import Footer from "@/components/sections/Footer";
 import NavBar from "@/components/sections/NavBar";
+import Footer from "@/components/sections/Footer";
 
-const page = () => {
+const ClientsPage = () => {
   const clients = [
-    { id: 1, name: "Meridian Bank", initials: "MB", sector: "Financial Services", color: "bg-blue-600" },
-    { id: 2, name: "Apex Health", initials: "AH", sector: "Healthcare", color: "bg-emerald-500" },
-    { id: 3, name: "Stratas Logistics", initials: "SL", sector: "Supply Chain", color: "bg-orange-500" },
-    { id: 4, name: "Vertex AI", initials: "VA", sector: "Artificial Intelligence", color: "bg-purple-600" },
-    { id: 5, name: "CoreDefense", initials: "CD", sector: "Cybersecurity", color: "bg-rose-600" },
-    { id: 6, name: "NovaBuild", initials: "NB", sector: "Construction Tech", color: "bg-sky-500" },
-    { id: 7, name: "PulseRetail", initials: "PR", sector: "E-Commerce", color: "bg-pink-600" },
-    { id: 8, name: "GlobalBridge", initials: "GB", sector: "Media & Streaming", color: "bg-indigo-600" },
+    { name: "Meridian Bank" },
+    { name: "Apex Health" },
+    { name: "Stratas Logistics" },
+    { name: "Vertex AI" },
+    { name: "CoreDefense" },
+    { name: "NovaBuild" },
+    { name: "PulseRetail" },
+    { name: "GlobalBridge" },
   ];
-  const fadeUp: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-  
-  const stagger: Variants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
-    <div>
+    <div className="bg-slate-900 text-white min-h-screen 
+    bg-[radial-gradient(circle_at_center,rgba(40,202,225,.15),transparent_60%)]">
+      
       <NavBar />
 
-      <section className="relative py-40 px-6 bg-[#fcfdfe] overflow-hidden">
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-main/5 rounded-full blur-[120px]" />
+      {/* 🔥 HERO */}
+      <section className="h-screen flex items-center justify-center text-center px-6">
+        <h1 className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter">
+          TRUST <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 italic">
+            EXPERIENCE
+          </span>
+        </h1>
+      </section>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header */}
+      {/* 🔥 HORIZONTAL CLIENTS */}
+      <section ref={containerRef} className="relative h-[320vh]">
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            className="flex flex-col items-center text-center mb-24 space-y-6"
+            style={{ x }}
+            className="flex gap-24 px-20 md:px-32"
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-slate-100 shadow-sm">
-              <div className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">
-                Trust Network
-              </span>
-            </div>
-
-            <h2 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-              Companies That <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-main to-brand-green italic">
-                Trust Us.
-              </span>
-            </h2>
-
-            <p className="text-slate-500 text-xl font-medium max-w-2xl leading-relaxed">
-              From startups to enterprise giants — we power global infrastructure.
-            </p>
-          </motion.div>
-
-          {/* Clients */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32"
-          >
-            {clients.map((client) => (
+            {clients.map((c, i) => (
               <motion.div
-                key={client.id}
-                variants={fadeUp}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="group relative bg-white border border-slate-100 rounded-[2.5rem] p-8 flex flex-col items-center justify-center gap-4 transition-all duration-700 hover:shadow-2xl"
+                key={i}
+                whileHover={{ scale: 1.08, y: -10 }}
+                className="min-w-[380px] md:min-w-[480px] h-[320px] md:h-[380px] 
+                bg-[#0a0a0a] border border-white/10 rounded-[3rem] 
+                flex flex-col items-center justify-center text-center 
+                shadow-xl hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] 
+                transition-all duration-500 relative overflow-hidden"
               >
-                <motion.div
-                  whileHover={{ rotate: 10, scale: 1.1 }}
-                  className={`w-14 h-14 rounded-2xl ${client.color} flex items-center justify-center text-white font-black text-lg shadow-lg`}
-                >
-                  {client.initials}
-                </motion.div>
+                {/* glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 hover:opacity-100 transition-all duration-500" />
 
-                <div className="text-center">
-                  <h4 className="text-sm font-black text-slate-900 tracking-tight">
-                    {client.name}
-                  </h4>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    {client.sector}
-                  </p>
+                {/* initials */}
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-2xl mb-6 shadow-lg">
+                  {c.name.split(" ").map(w => w[0]).join("")}
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-main/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-[2.5rem]" />
+                <h3 className="text-2xl md:text-3xl font-black tracking-tight">
+                  {c.name}
+                </h3>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="bg-slate-900 rounded-[4rem] p-12 md:p-20 relative overflow-hidden mb-40 shadow-2xl"
-          >
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `radial-gradient(#fff 1px, transparent 0)`,
-                backgroundSize: "40px 40px",
-              }}
-            />
-
-            <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-              {[
-                { label: "Active Clients", value: "500+" },
-                { label: "Industries", value: "18" },
-                { label: "Retention Rate", value: "98%" },
-                { label: "Satisfaction", value: "4.9/5" },
-              ].map((stat, idx) => (
-                <div key={idx} className="space-y-4">
-                  <h4 className="text-[10px] font-black text-brand-green uppercase tracking-[0.3em]">
-                    {stat.label}
-                  </h4>
-                  <div className="text-5xl md:text-6xl font-black text-white italic tracking-tighter">
-                    {stat.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Testimonials */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[1, 2, 3].map((item) => (
-              <motion.div
-                key={item}
-                variants={fadeUp}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="group relative bg-white/60 backdrop-blur-xl border border-slate-100 rounded-[3rem] p-10 flex flex-col justify-between hover:shadow-2xl transition-all duration-700"
-              >
-                <div className="text-brand-main/20 mb-8">
-                  <Quote size={40} />
-                </div>
-
-                <p className="text-slate-600 text-lg font-medium leading-relaxed italic mb-10">
-                  "Jomax transformed our infrastructure completely."
-                </p>
-
-                <div className="flex items-center gap-4 pt-8 border-t border-slate-50">
-                  <div className="w-12 h-12 rounded-full bg-slate-100 border-2 border-white" />
-                  <div>
-                    <h4 className="font-black text-slate-900 text-sm">
-                      Marcus Webb
-                    </h4>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase">
-                      CTO, Meridian Bank
-                    </p>
-                  </div>
-
-                  <div className="ml-auto flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((s) => (
-                      <div
-                        key={s}
-                        className="w-1.5 h-1.5 rounded-full bg-brand-green"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
+
+      <section className="py-40 px-6 md:px-12 max-w-5xl mx-auto">
+
+<h2 className="text-5xl md:text-7xl font-black mb-20 text-center">
+  PERFORMANCE
+</h2>
+
+<div className="space-y-10">
+
+  {[
+    { label: "Client Growth", value: 90 },
+    { label: "Retention Rate", value: 98 },
+    { label: "Project Success", value: 95 },
+    { label: "Customer Satisfaction", value: 92 },
+  ].map((item, i) => (
+    
+    <div key={i} className="space-y-3">
+      
+      <div className="flex justify-between text-sm uppercase tracking-widest">
+        <span className="text-slate-400">{item.label}</span>
+        <span className="text-cyan-400 font-bold">{item.value}%</span>
+      </div>
+
+      <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${item.value}%` }}
+          transition={{ duration: 1 }}
+          className="h-full bg-gradient-to-r from-cyan-400 to-blue-500"
+        />
+      </div>
+
+    </div>
+  ))}
+
+</div>
+</section>
+
+      {/* 🔥 TESTIMONIALS */}
+      <section className="py-40 px-6 md:px-12 max-w-7xl mx-auto">
+
+{/* HEADER */}
+<div className="text-center mb-24">
+  <h2 className="text-5xl md:text-7xl font-black tracking-tighter">
+    WHY CLIENTS <span className="text-cyan-400 italic">CHOOSE US</span>
+  </h2>
+  <p className="text-slate-500 mt-6 max-w-xl mx-auto normal-case">
+    We don’t just deliver services — we engineer outcomes.
+  </p>
+</div>
+
+{/* GRID */}
+<div className="grid md:grid-cols-2 gap-8">
+
+  {[
+    {
+      title: "Engineering Precision",
+      desc: "We build systems with surgical accuracy and scalable architecture.",
+    },
+    {
+      title: "Fast Execution",
+      desc: "From idea to production in record time without sacrificing quality.",
+    },
+    {
+      title: "Enterprise Security",
+      desc: "Security-first approach built for high-risk environments.",
+    },
+    {
+      title: "Scalable Systems",
+      desc: "We design infrastructure that grows with your business."
+    }
+  ].map((item, i) => (
+
+    <div
+      key={i}
+      className="group relative p-[1px] rounded-[2.5rem] overflow-hidden"
+    >
+
+      {/* Animated Border */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-400 opacity-40 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+
+      {/* Inner Card */}
+      <div className="relative bg-[#0a0a0a] rounded-[2.5rem] p-10 h-full
+        transition-all duration-500 group-hover:translate-y-[-6px]">
+
+        {/* glow overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[2.5rem]" />
+
+        {/* CONTENT */}
+        <div className="relative z-10 space-y-6">
+
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg" />
+            <span className="text-xs text-cyan-400 uppercase tracking-[0.3em]">
+              0{i + 1}
+            </span>
+          </div>
+
+          <h3 className="text-3xl font-black uppercase tracking-tight">
+            {item.title}
+          </h3>
+
+          <p className="text-slate-400 leading-relaxed normal-case">
+            {item.desc}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  ))}
+
+</div>
+</section>
 
       <Footer />
     </div>
   );
 };
 
-export default page;
+export default ClientsPage;
