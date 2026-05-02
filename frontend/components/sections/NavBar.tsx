@@ -9,7 +9,8 @@ import { usePathname } from 'next/navigation'; // أضفنا هذا لمعرفة
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedMenu, setExpandedMenu] = useState(null);
+// تحديد أن الحالة يمكن أن تكون نص أو null
+const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const pathname = usePathname(); // للحصول على المسار الحالي
 
   useEffect(() => {
