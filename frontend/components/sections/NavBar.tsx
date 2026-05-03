@@ -20,9 +20,9 @@ const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   }, []);
 
   const menuItems = [
-    { title: "Home", link: "/" },
-    { title: "Business", links: ["Services", "Projects", "Solutions"] },
     { title: "About Us", links: ["About", "Partners"] },
+    { title: "Products", link: "/" },
+    { title: "Our Services", links: ["Services", "Projects", "Solutions"] },
     { title: "Portfolio", links: ["Clients", "Certification"] }
   ];
 

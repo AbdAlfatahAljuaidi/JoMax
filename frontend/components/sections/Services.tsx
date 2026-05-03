@@ -36,7 +36,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text
               </p>
     
               <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              Enterprise Systems
+              Enterprise
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-brand-green">
                 Systems
                 </span>

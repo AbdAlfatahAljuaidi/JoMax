@@ -10,7 +10,7 @@ const sliderData = [
     id: 1,
     video: 'https://res.cloudinary.com/danvxvhvq/video/upload/v1777367606/web_qoi5fh.mp4',
     duration: 7, // المدة بالثواني
-    badge: 'Enterprise Intelligence',
+    badge: 'Enterprise Resource Planning',
     title: 'Architecting Future Dominance',
     description: 'Orchestrating AI-driven architectures engineered for unmatched speed, scalability, and competitive intelligence.',
     features: ['AI Analytics', 'Cloud Scaling', 'Cyber Security'],
