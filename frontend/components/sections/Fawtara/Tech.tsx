@@ -92,7 +92,7 @@ const TechAndCtaSection = () => {
       
       {/* إضافة خلفية زجاجية خفيفة للنص لضمان المقروئية فوق الصورة */}
       <p className="text-slate-300 text-lg mb-12 max-w-2xl leading-relaxed bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/5">
-        Connect with the Domax Soft team to register as a certified service provider and get an integrated offer that fits your facility's needs.
+        Connect with the Jomax Soft team to register as a certified service provider and get an integrated offer that fits your facility's needs.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-5">

@@ -66,7 +66,7 @@ const ComplianceSection = () => {
     {/* 2. الآن يعمل fill بشكل صحيح داخل هذه الحاوية */}
     <Image
         src="/images/bv.png" // مسار الصورة الخاص بك
-        alt="Domax to ZATKA Integration Bridge Visual" 
+        alt="Jomax to ZATKA Integration Bridge Visual" 
         fill // تأخذ الصورة حجم الـ div الأب بالكامل
         className="object-cover object-center transition-transform duration-1000 scale-105 group-hover:scale-110 group-hover:rotate-1"
         // ملاحظة: مع fill، لا نحتاج لتحديد w-full h-full داخل className
@@ -101,12 +101,12 @@ const ComplianceSection = () => {
             {/* كروت الاتصال تحت الصورة مباشرة */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
               
-              {/* Domax Soft Node */}
+              {/* Jomax Soft Node */}
               <div className="p-6 rounded-2xl bg-slate-800/40 border border-slate-700/50 backdrop-blur-sm group hover:border-brand-green transition-all duration-500">
                 <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center mb-4">
                   <Cpu className="text-brand-green w-5 h-5" />
                 </div>
-                <h4 className="text-white font-bold text-lg mb-1">Domax System</h4>
+                <h4 className="text-white font-bold text-lg mb-1">Jomax System</h4>
                 <p className="text-slate-500 text-xs leading-relaxed">Automated data processing and XML UBL 2.1 generation.</p>
               </div>
 
@@ -149,7 +149,7 @@ const ComplianceSection = () => {
                   </div>
                 </div>
                 <p className="text-slate-300 text-lg leading-relaxed italic border-l-4 border-slate-700 pl-6 py-2">
-                  "Domax Soft is specifically engineered to meet Phase 2 technical requirements, 
+                  "Jomax Soft is specifically engineered to meet Phase 2 technical requirements, 
                   mandating direct real-time integration with the ZATKA platform."
                 </p>
               </div>

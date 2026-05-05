@@ -47,9 +47,16 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] active:scale-95">
-              Book a Demo <span className="text-xl">→</span>
-            </button>
+          <a 
+  href="https://wa.me/962799198989" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="contents" // عشان اللينك ما يخرب التصميم
+>
+  <button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] active:scale-95">
+    Book a Demo <span className="text-xl">→</span>
+  </button>
+</a>
             <button className="border border-slate-700 bg-white/5 hover:bg-white/10 px-8 py-3.5 rounded-xl font-semibold transition-all backdrop-blur-md active:scale-95 text-center">
               Get Started
             </button>

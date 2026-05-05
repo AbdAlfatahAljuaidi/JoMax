@@ -67,7 +67,7 @@ const SolutionsSection = () => {
     {/* 2. الآن يعمل fill بشكل صحيح داخل هذه الحاوية */}
     <Image
         src="/images/SOL.jpeg" // مسار الصورة الخاص بك
-        alt="Domax to ZATKA Integration Bridge Visual" 
+        alt="Jomax to ZATKA Integration Bridge Visual" 
         fill // تأخذ الصورة حجم الـ div الأب بالكامل
         className=" object-center transition-transform duration-1000 scale-105 group-hover:scale-110 group-hover:rotate-1"
         // ملاحظة: مع fill، لا نحتاج لتحديد w-full h-full داخل className
