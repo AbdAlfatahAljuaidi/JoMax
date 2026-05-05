@@ -108,6 +108,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]
       <div className="relative pl-6 border-l border-white/10 group-hover:border-cyan-500 transition-colors duration-500">
         <p className="text-[9px] text-white/30 uppercase tracking-widest mb-1">Coordinates</p> 
         <p className="text-xs text-white ">Amman, Jordan</p>
+        <p className="text-xs text-white mt-1 ">Riyadh, Saudi Arabia</p>
       </div>
 
       {/* Email */}

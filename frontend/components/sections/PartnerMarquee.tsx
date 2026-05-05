@@ -23,7 +23,7 @@ const PartnerMarquee = () => {
       </div>
 
       {/* تم تحديد العرض هنا بـ w-4/5 (أي 80%) مع mx-auto للتوسيط */}
-      <div className="relative flex w-4/5 mx-auto overflow-hidden">
+      <div className="relative flex w-[50%] mx-auto overflow-hidden bg-white">
         
         {/* Gradient Mask */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
@@ -42,7 +42,7 @@ const PartnerMarquee = () => {
               <img 
                 src={partner.logoUrl} 
                 alt="Partner Logo" 
-                className="max-h-full w-auto object-contain invert" 
+                className="max-h-full w-auto object-contain " 
               />
             </div>
           ))}

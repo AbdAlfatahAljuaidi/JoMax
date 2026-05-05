@@ -12,13 +12,11 @@ import AdvantageSection from "@/components/sections/Advantage";
 
 import ServicesSection from "@/components/sections/Services";
 
-import StatsSection from "@/components/sections/Stats";
 
 import TechStack from "@/components/sections/Tech";
 import BlogSection from "@/components/sections/Blog";
 import Footer from "@/components/sections/Footer";
 import PartnerMarquee from "@/components/sections/PartnerMarquee";
-import Capabilities from "@/components/sections/Capabilities";
 
 export default function Home() {
   return (

@@ -37,7 +37,7 @@ const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
       >
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <Image src="/images/jomax2.png" alt="JOMAX" width={110} height={30} priority />
+          <Image src="/images/jomax2.png" alt="JOMAX" width={150} height={150} priority />
         </Link>
 
         {/* Desktop Menu */}

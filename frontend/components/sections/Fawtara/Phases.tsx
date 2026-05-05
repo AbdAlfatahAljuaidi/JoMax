@@ -1,13 +1,33 @@
 import React from 'react';
 import { CheckCircle2, Zap, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 const PhasesSection = () => {
   return (
     <section className="bg-slate-900 py-32 relative overflow-hidden font-sans" dir="ltr">
       
+      {/* --- بداية تعديل: أنيميشن الخلفية الدائم --- */}
+      <style>{`
+        @keyframes pulse-ring {
+          0% { transform: scale(0.8); opacity: 0.5; }
+          100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-pulse-ring {
+          animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+          animation: float-slow 5s ease-in-out infinite;
+        }
+      `}</style>
+      {/* --- نهاية تعديل الأنيميشن --- */}
+
       {/* Decorative background text */}
-      <div className="absolute top-10 left-10 text-[15rem] font-black text-white/[0.02] select-none pointer-events-none">
-        PHASE
+      <div className="absolute top-10 left-10 text-[15rem] font-black text-white/[0.02] select-none pointer-events-none uppercase">
+        Phase
       </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
@@ -27,8 +47,18 @@ const PhasesSection = () => {
 
         <div className="relative">
           
+          {/* صورة خلفية تربط بين المرحلتين (بصرية تقنية) */}
+          <div className="absolute inset-0 z-0 opacity-30 pointer-events-none hidden lg:block">
+            <Image
+              src="/images/tech-flow.png" // افترض أن هذه هي الصورة التقنية الجديدة
+              alt="Technology Flow"
+              fill
+              className="w-full h-full object-contain object-center scale-110"
+            />
+          </div>
+
           {/* Phase 1: The Foundation (Lower Layer) */}
-          <div className="relative z-10 w-full lg:w-3/4 mr-auto">
+          <div className="relative z-10 w-full lg:w-3/4 mr-auto animate-float">
             <div className="bg-slate-800/20 border border-slate-800 p-8 md:p-12 rounded-[3rem] backdrop-blur-sm group hover:bg-slate-800/40 transition-all duration-500">
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="bg-slate-900 p-4 rounded-2xl border border-slate-700">
@@ -50,20 +80,31 @@ const PhasesSection = () => {
 
           {/* Phase 2: The Future (Floating Layer) */}
           <div className="relative z-20 w-full lg:w-2/3 -mt-20 lg:-mt-32 ml-auto">
-            <div className="p-[2px] rounded-[3rem] bg-gradient-to-br from-brand-green to-transparent shadow-2xl shadow-brand-green/10">
+            
+            {/* تأثير النبض خلف الكرت (أنيميشن دائم) */}
+            <div className="absolute -inset-4 z-0">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl animate-pulse-ring"></div>
+            </div>
+
+            <div className="p-[2px] rounded-[3rem] bg-gradient-to-br from-brand-green to-transparent shadow-2xl shadow-brand-green/10 relative z-10">
               <div className="bg-slate-950 p-8 md:p-12 rounded-[3rem] relative overflow-hidden">
                 
-                {/* Active Glow */}
-                <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-green/10 blur-[80px] rounded-full"></div>
+                {/* Active Glow Background Image inside card */}
+                <div className="absolute inset-0 opacity-50 pointer-events-none">
+                     <img src="/images/phase.jpeg" alt="Overlay" className="w-full h-full object-cover" />
+                </div>
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-8">
                     <div className="bg-brand-green p-4 rounded-2xl shadow-lg shadow-brand-green/20">
                       <Zap className="text-slate-950 w-8 h-8 fill-current" />
                     </div>
-                    <span className="px-4 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[10px] font-black tracking-tighter uppercase">
-                      Active Phase
-                    </span>
+                    <div className="flex items-center gap-2">
+                         <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                        <span className="px-4 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[10px] font-black tracking-tighter uppercase">
+                        Active Phase
+                        </span>
+                    </div>
                   </div>
 
                   <h3 className="text-white text-3xl md:text-4xl font-black mb-4">Phase Two: Integration</h3>

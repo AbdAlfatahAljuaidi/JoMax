@@ -1,102 +1,90 @@
 import React from 'react';
+import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen pt-28 pb-16 flex items-center bg-slate-900 overflow-hidden font-sans" dir="ltr">
+    // نستخدم flex-col للموبايل لترتيب الصورة فوق النص، و block للديسكتوب لأن الصورة ستصبح absolute
+    <section className="md:h-[120vh] bg-[#01040a] text-white relative flex flex-col lg:block overflow-hidden">
       
-      {/* 1. Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]" />
-      
-      {/* Animated Light Beam */}
-      <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-emerald-500/10 blur-[120px] rounded-full animate-pulse" />
+      {/* 1. حاوية الصورة المتغيرة */}
+      <div className="relative w-full h-[350px] sm:h-[450px] lg:absolute lg:inset-0 lg:h-full lg:w-full z-0">
+        <Image 
+          src="/images/wq.jpeg" 
+          alt="Fatoora Dashboard"
+          fill
+          // object-cover تضمن ملء المساحة دائماً
+          className="object-cover object-center lg:object-right transition-all duration-700"
+          priority
+        />
+        
+        {/* طبقات التدرج اللوني - تم تعديلها لتناسب الموبايل (أسود من الأسفل) والديسكتوب (أسود من اليسار) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#01040a] via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#01040a] lg:via-[#01040a]/60 lg:to-transparent z-10" />
+        
+        {/* توهج أزرق - للديسكتوب فقط */}
+        <div className="hidden lg:block absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-cyan-600/20 blur-[120px] rounded-full -translate-y-1/2" />
+      </div>
 
-      {/* Main Container with Horizontal Padding */}
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      {/* 2. المحتوى الرئيسي */}
+      <main className="container mx-auto px-6 lg:px-12 relative z-20 flex-1 flex items-center lg:min-h-screen">
+        <div className="max-w-3xl w-full py-12 lg:py-0 text-center lg:text-left">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-black/40 border border-cyan-500/30 px-4 py-2 rounded-full text-[10px] lg:text-xs mb-8 backdrop-blur-md">
+            <span className="text-cyan-400">🛡️ ZATCA-Compliant</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-300">Integration Experts</span>
+          </div>
           
-          {/* Left Side: Content */}
-          <div className="lg:w-7/12 text-left">
-            {/* Minimalist Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-emerald-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-                ZATKA Certified Provider
-              </span>
-            </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+            Your Saudi <br />
+            <span className="text-white">E-Invoicing &</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-200 to-emerald-400">
+              Integration Provider
+            </span>
+          </h1>
+          
+          <p className="text-slate-400 text-sm lg:text-lg max-w-lg mb-8 lg:mb-10 leading-relaxed mx-auto lg:mx-0">
+            We help businesses stay ZATCA-compliant with Fatoora, seamlessly integrate systems, and grow with custom dashboards.
+          </p>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] mb-8 tracking-tight">
-              E-Invoicing <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#28CAE1] to-emerald-400">
-                World-Class
-              </span> <br />
-              <span className="relative inline-block mt-2">
-                Standards
-                <div className="absolute -bottom-2 left-0 w-full h-2 bg-emerald-500/30 rounded-full"></div>
-              </span>
-            </h1>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] active:scale-95">
+              Book a Demo <span className="text-xl">→</span>
+            </button>
+            <button className="border border-slate-700 bg-white/5 hover:bg-white/10 px-8 py-3.5 rounded-xl font-semibold transition-all backdrop-blur-md active:scale-95 text-center">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </main>
 
-            <p className="text-slate-400 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed border-l-2 border-slate-800 pl-8">
-              Domax Soft — A comprehensive e-invoicing platform integrated with ZATKA requirements. 
-              Issue <span className="text-white font-semibold">UBL 2.1</span> invoices with digital signatures 
-              and real-time API synchronization.
-            </p>
-
-            <div className="flex flex-wrap gap-5">
-              <button className="px-10 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-2xl transition-all hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] active:scale-95">
-                Explore Services
-              </button>
-              <button className="px-10 py-4 bg-slate-800/40 hover:bg-slate-800 text-white font-semibold rounded-2xl border border-slate-700 backdrop-blur-sm transition-all active:scale-95">
-                How it works?
-              </button>
+      {/* 3. شريط المميزات السفلي */}
+      <div className="relative lg:absolute bottom-6 lg:bottom-10 left-0 w-full z-30 pb-10 lg:pb-0">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-between items-center gap-6 lg:gap-4 p-6 lg:p-4 lg:px-10 border border-white/5 bg-black/40 backdrop-blur-xl rounded-[2rem]">
+            <FeatureItem icon="🛡️" title="ZATCA" sub="Compliance" />
+            <div className="hidden lg:block w-px h-8 bg-slate-800" />
+            <FeatureItem icon="🔗" title="ERP" sub="Integration" />
+            <div className="hidden md:block lg:block w-px h-8 bg-slate-800" />
+            <FeatureItem icon="👥" title="Onboarding" sub="Team" />
+            <div className="hidden lg:block w-px h-8 bg-slate-800" />
+            <FeatureItem icon="📊" title="Custom" sub="Dashboards" />
+            <div className="hidden md:block lg:block w-px h-8 bg-slate-800" />
+            <div className="col-span-2 md:col-span-1 lg:col-span-auto flex justify-center lg:block">
+               <FeatureItem icon="🎧" title="24/7" sub="Support" />
             </div>
           </div>
-
-          {/* Right Side: Visual Stats Card */}
-          <div className="lg:w-5/12 w-full max-w-lg mx-auto lg:mx-0">
-            <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-br from-slate-700 to-transparent shadow-2xl">
-              <div className="relative bg-slate-900/90 backdrop-blur-2xl p-8 md:p-10 rounded-[2.5rem] overflow-hidden">
-                
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-6 relative z-10">
-                  <StatBox label="ZATKA Compliant" value="100%" color="text-emerald-400" />
-                  <StatBox label="XML Standard" value="UBL 2.1" color="text-[#28CAE1]" />
-                  <StatBox label="Support" value="24/7" color="text-emerald-400" />
-                  <StatBox label="Integration" value="API" color="text-[#28CAE1]" />
-                </div>
-
-                {/* Integration Status Footer */}
-                <div className="mt-8 pt-8 border-t border-slate-800 flex items-center justify-between">
-                  <div>
-                    <p className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Current Status</p>
-                    <p className="text-slate-200 font-bold">Phase Two Integration</p>
-                  </div>
-                  <div className="px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-black rounded-lg">
-                    LIVE
-                  </div>
-                </div>
-
-                {/* Subtle Background Shape in Card */}
-                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#28CAE1]/10 blur-3xl rounded-full"></div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
   );
 };
 
-const StatBox = ({ label, value, color }: { label: string; value: string; color: string }) => (
-  <div className="group cursor-default">
-    <div className={`text-3xl md:text-4xl font-black mb-2 transition-transform duration-300 group-hover:scale-110 ${color}`}>
-      {value}
-    </div>
-    <div className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-bold leading-tight">
-      {label}
+const FeatureItem = ({ icon, title, sub }: { icon: string, title: string, sub: string }) => (
+  <div className="flex items-center gap-3 lg:gap-4 group cursor-pointer">
+    <div className="text-xl lg:text-2xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">{icon}</div>
+    <div className="flex flex-col leading-tight text-left">
+      <span className="text-[12px] lg:text-[14px] font-bold text-white whitespace-nowrap">{title}</span>
+      <span className="text-[10px] lg:text-[11px] text-slate-500 whitespace-nowrap uppercase tracking-tighter">{sub}</span>
     </div>
   </div>
 );
