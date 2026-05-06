@@ -5,35 +5,35 @@ import Image from 'next/image';
 const steps = [
   {
     id: "01",
-    title: "Invoice Creation",
-    subtitle: "UBL 2.1 Standard",
-    desc: "Automatically converts data into ZATKA-approved XML format."
+    title: "UBL 2.1 Invoice Creation",
+    subtitle: "Automated XML Generation",
+    desc: "Our system converts invoice data from your system into the ZATCA-approved XML format (UBL 2.1), automatically including all mandatory fields."
   },
   {
     id: "02",
-    title: "Digital Signing",
-    subtitle: "PKI Encryption",
-    desc: "Signed using certified CSID certificates according to security standards."
+    title: "Digital Signing & Encryption",
+    subtitle: "Secure Compliance",
+    desc: "Invoices are digitally signed using a ZATCA-approved CSID certificate and encrypted according to approved PKI standards."
   },
   {
     id: "03",
-    title: "ZATKA Submission",
-    subtitle: "Fatoora API",
-    desc: "Seamless transfer via Reporting or Clearance API gateways."
+    title: "Fatoora Platform Submission",
+    subtitle: "Seamless Integration",
+    desc: "Invoices are automatically sent to ZATCA via the Reporting API for simplified invoices or the Clearance API for tax invoices."
   },
   {
     id: "04",
-    title: "Instant Validation",
-    subtitle: "Real-time Sync",
-    desc: "Instant status updates directly from government servers."
+    title: "Real-Time Authentication",
+    subtitle: "Instant Status Updates",
+    desc: "Immediate authentication is received from ZATCA, and the invoice status is automatically updated in your system with the official timestamp."
   },
   {
     id: "05",
-    title: "Secure Archiving",
-    subtitle: "10+ Years Storage",
-    desc: "Certified QR codes and long-term secure XML archiving."
+    title: "Delivery & Archiving",
+    subtitle: "Compliant Storage",
+    desc: "Invoices are delivered to customers in PDF format with an approved QR code, while XML copies are securely archived in compliance with legal requirements."
   }
-];
+]
 
 const WorkflowSection = () => {
   return (

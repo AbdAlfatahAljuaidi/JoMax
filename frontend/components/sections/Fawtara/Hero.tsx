@@ -36,15 +36,15 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
-            Your Saudi <br />
-            <span className="text-white">E-Invoicing &</span> <br />
+          E-Invoicing <br />
+            <span className="text-white">With Global Standards</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-200 to-emerald-400">
-              Integration Provider
+            For Phase Two
             </span>
           </h1>
           
-          <p className="text-slate-400 text-sm lg:text-lg max-w-lg mb-8 lg:mb-10 leading-relaxed mx-auto lg:mx-0">
-            We help businesses stay ZATCA-compliant with Fatoora, seamlessly integrate systems, and grow with custom dashboards.
+          <p className="text-slate-400 text-sm lg:text-lg  mb-8 lg:mb-10 leading-relaxed mx-auto lg:mx-0">
+          Jomax Soft — An integrated e-invoicing platform compliant with the requirements of the Zakat, Tax and Customs Authority (ZATCA), featuring full integration with the Fatoora system, invoice generation in UBL 2.1 format with digital signature, and real-time API connectivity.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
