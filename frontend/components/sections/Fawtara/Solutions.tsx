@@ -18,7 +18,7 @@ const solutions = [
 
 const SolutionsSection = () => {
   return (
-    <section className="bg-slate-900 py-32 relative overflow-hidden font-sans" dir="ltr">
+    <section className="bg-slate-900 py-20 relative overflow-hidden font-sans" dir="ltr">
       
       {/* --- أنيميشن الخط الضوئي (Scanning Line) - حركة احترافية بسيطة --- */}
       <style>{`

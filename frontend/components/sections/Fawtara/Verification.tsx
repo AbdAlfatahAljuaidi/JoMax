@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const ComplianceSection = () => {
   return (
-    <section className="bg-slate-900 py-32 relative overflow-hidden font-sans" dir="ltr">
+    <section className="bg-slate-900 py-20 relative overflow-hidden font-sans" dir="ltr">
       
       {/* --- بداية تعديل: تعريف الأنيميشن الدائم (CSS Keyframes) --- */}
       <style>{`

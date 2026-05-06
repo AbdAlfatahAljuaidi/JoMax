@@ -19,7 +19,7 @@ const technologies = [
 
 const TechAndCtaSection = () => {
   return (
-    <section className="bg-slate-900 pt-32 pb-48 relative overflow-hidden font-sans" dir="ltr">
+    <section className="bg-slate-900 py-20  relative overflow-hidden font-sans" dir="ltr">
       
       {/* 1. Tech Stack Matrix */}
       <div className="container mx-auto px-6 md:px-12 lg:px-20 mb-40">
