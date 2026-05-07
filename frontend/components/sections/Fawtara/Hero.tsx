@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className="md:h-[135vh] md:pt-20 bg-[#01040a] text-white relative flex flex-col lg:block overflow-hidden">
+    <section className="md:h-[145vh] md:pt-20 bg-[#01040a] text-white relative flex flex-col lg:block overflow-hidden">
       
       {/* 1. حاوية الصورة الخلفية الأساسية */}
       <div className="relative w-full h-[350px] sm:h-[450px] lg:absolute lg:inset-0 lg:h-full lg:w-full z-0">
@@ -62,30 +62,30 @@ const HeroSection = () => {
 <div className="relative w-full overflow-hidden transition-all duration-500">
   
   {/* 1. صورة وضع الموبايل - تظهر في الشاشات الصغيرة وتختفي من الديسكتوب */}
-  <div className="relative w-[90%] mx-auto h-[1000px]  block md:hidden">
-    <Image 
-      src="/images/rt.jpeg" // ضع مسار صورة الموبايل هنا
-      alt="Mobile Feature Banner"
-      fill
-      className="object-cover" 
-      priority
-    />
-    {/* التدرج الناعم للأعلى - للموبايل */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[#01040a] via-transparent to-transparent h-16" />
-  </div>
+ 
 
   {/* 2. صورة وضع الديسكتوب (الكبير) - تختفي من الموبايل وتظهر من شاشات MD فما فوق */}
-  <div className="relative w-full h-[150px] lg:h-[220px] hidden md:block">
-    <Image 
-      src="/images/io.png" // صورتك الأصلية للديسكتوب
-      alt="Feature Full Banner"
-      fill
-      className="object-cover object-center" 
-      priority
-    />
-    {/* التدرج الناعم للأعلى - للديسكتوب */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[#01040a] via-transparent to-transparent h-12" />
+{/* الحاوية الخارجية مع padding جانبي لضمان وجود مسافة عن أطراف الشاشة */}
+<div className="w-full px-4 sm:px-6 lg:px-12 pb-10">
+  <div className="container mx-auto">
+    
+    {/* 1. صورة الموبايل: تظهر في الشاشات الصغيرة فقط وبتصميم "Boxed" */}
+ 
+
+    {/* 2. صورة الديسكتوب: تظهر في الشاشات الكبيرة وبتصميم "Boxed" مع عرض محدد */}
+  {/* يجب أن يكون الأب relative وله ارتفاع (height) وعرض (width) محدد */}
+<div className="relative w-full h-[200px] md:h-[300px]"> 
+  <Image 
+    src="/images/io.png" 
+    alt="banner"
+    fill
+    className="object-cover"
+    priority
+  />
+</div>
+
   </div>
+</div>
 
 </div>
       </div>
