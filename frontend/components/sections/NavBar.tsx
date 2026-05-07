@@ -9,9 +9,10 @@ import { usePathname } from 'next/navigation'; // أضفنا هذا لمعرفة
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-// تحديد أن الحالة يمكن أن تكون نص أو null
-const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  // تحديد أن الحالة يمكن أن تكون نص أو null
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const pathname = usePathname(); // للحصول على المسار الحالي
+  const isFawtaraPage = pathname === '/Fawtara';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -35,11 +36,40 @@ const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
             : 'w-full max-w-[95%] bg-transparent py-4'
         }`}
       >
-        {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-          <Image src="/images/jomax2.png" alt="JOMAX" width={150} height={150} priority />
-        </Link>
 
+     {/* Logo Container */}
+<div className='flex items-center gap-3 sm:gap-4 min-w-0 flex-shrink-0'>
+  <Link href="/" className="flex-shrink-0">
+    {/* اللوجو الأول - تم تكبيره في الموبايل */}
+    <Image 
+      src="/images/jomax2.png" 
+      alt="JOMAX" 
+      width={140} 
+      height={45} 
+      className="object-contain w-[100px] sm:w-[120px] md:w-[140px] transition-all" 
+      priority 
+    />
+  </Link>
+
+  {/* اللوجو الثاني والفاصل: يظهران عند تحقق الشرط بحجم بارز */}
+  {isFawtaraPage && (
+    <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+      {/* الفاصل - جعلناه أكثر وضوحاً وطولاً */}
+      <div className="h-7 md:h-8 w-[1.5px] bg-white/30" />
+      
+      <div className="relative">
+        <Image 
+          src="/images/fatoo-2.png" 
+          alt="Fawtara Logo" 
+          width={120} 
+          height={45} 
+          className="object-contain w-[85px] sm:w-[105px] md:w-[120px] transition-all"
+          priority 
+        />
+      </div>
+    </div>
+  )}
+</div>
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-1">
           {menuItems.map((menu) => (
