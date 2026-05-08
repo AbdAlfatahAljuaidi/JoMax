@@ -59,7 +59,7 @@ export default function TerminalUI() {
 
   return (
     <section 
-      className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-h-screen py-24 px-8 md:px-20 font-mono overflow-hidden"
+      className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-h-screen  px-8 md:px-20 font-mono overflow-hidden"
       dir={isAr ? "rtl" : "ltr"}
     >
       <div className="max-w-6xl mx-auto">

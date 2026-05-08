@@ -50,7 +50,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative text-white pt-12 pb-8 overflow-hidden bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]" dir={isAr ? "rtl" : "ltr"}>
+    <footer className="relative text-white pt-12 pb-3 overflow-hidden bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)]" dir={isAr ? "rtl" : "ltr"}>
 
       {/* background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-cyan-500/10 blur-[200px]" />
@@ -59,7 +59,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-7">
 
           {/* BRAND CORE */}
           <div className="lg:col-span-4 space-y-8">
@@ -155,7 +155,7 @@ export default function Footer() {
         </div>
 
         {/* BOTTOM SYSTEM BAR */}
-        <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="border-t border-white/10 pt-3 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xs text-white/40 tracking-[0.3em] uppercase">
             {content.rights}
           </div>

@@ -17,16 +17,20 @@ import TechStack from "@/components/sections/Tech";
 import BlogSection from "@/components/sections/Blog";
 import Footer from "@/components/sections/Footer";
 import PartnerMarquee from "@/components/sections/PartnerMarquee";
+import StackedScrollSection from "@/components/sections/StackedScroll";
+import StrategicPartnerSection from "@/components/sections/StrategicPartner";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="cursor-default">
       <Particles />
       <NavBar />
       <Hero />
       <PartnerMarquee />
       <ServicesSection />
       <AboutSection />
+      <StackedScrollSection />
+      <StrategicPartnerSection />
       <AdvantageSection />
      
       <TechStack />

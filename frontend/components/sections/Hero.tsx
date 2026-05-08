@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ArrowLeft, CheckCircle, Cpu, BarChart3, Globe, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -24,10 +24,12 @@ export default function Home() {
 
   const isAr = lang === 'ar';
 
+  // الفيديو الأساسي الذي سيعمل في الخلفية لكل السلايدات
+  const backgroundVideo = 'https://res.cloudinary.com/danvxvhvq/video/upload/v1777367606/web_qoi5fh.mp4';
+
   const sliderData = [
     {
       id: 1,
-      video: 'https://res.cloudinary.com/danvxvhvq/video/upload/v1777367606/web_qoi5fh.mp4',
       duration: 7,
       badge: isAr ? 'تخطيط موارد المؤسسات' : 'Enterprise Resource Planning',
       title: isAr ? 'هندسة الهيمنة المستقبلية' : 'Architecting Future Dominance',
@@ -40,7 +42,6 @@ export default function Home() {
     },
     {
       id: 2,
-      video: '/videos/billing.mp4',
       duration: 5,
       badge: isAr ? 'الأنظمة الذكية' : 'Smart Ecosystems',
       title: isAr ? 'تناغم رقمي سلس' : 'Seamless Digital Harmony',
@@ -53,7 +54,6 @@ export default function Home() {
     },
     {
       id: 3,
-      video: 'https://res.cloudinary.com/danvxvhvq/video/upload/v1777367606/billing_tiiwbp.mp4',
       duration: 8,
       badge: isAr ? 'شراكة عالمية' : 'Global Partnership',
       title: isAr ? 'نتحول معاً' : 'Transforming Together',
@@ -66,7 +66,6 @@ export default function Home() {
     },
     {
       id: 4,
-      video: '/videos/billing.mp4',
       duration: 6,
       badge: isAr ? 'التمويل المؤتمت' : 'Automated Finance',
       title: isAr ? 'حلول الفوترة الذكية' : 'Smart Billing Solutions',
@@ -79,8 +78,6 @@ export default function Home() {
     }
   ];
 
-  const CurrentIcon = sliderData[currentSlide].icon;
-
   useEffect(() => {
     const duration = sliderData[currentSlide].duration * 1000;
     const timer = setTimeout(() => {
@@ -89,48 +86,56 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [currentSlide]);
 
+  const CurrentIcon = sliderData[currentSlide].icon;
+
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
-      {/* Background Video */}
-      <AnimatePresence mode="wait">
-        <motion.div key={currentSlide} className="absolute inset-0 z-0">
-          <video
-            key={sliderData[currentSlide].video}
-            autoPlay
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-60"
-          >
-            <source src={sliderData[currentSlide].video} type="video/mp4" />
-          </video>
-        </motion.div>
-      </AnimatePresence>
+      
+      {/* 1. Static Background Video - يظل ثابتاً ولا يتأثر بتغيير السلايد */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-50"
+        >
+          <source src="/images/nb.mp4" type="video/mp4" />
+        </video>
+        {/* طبقة تظليل إضافية لضمان وضوح النص فوق أي فيديو */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+      </div>
 
-      {/* Content Overlay */}
+      {/* 2. Content Overlay - النصوص هي فقط ما يتغير */}
       <div className="relative z-20 h-full flex flex-col justify-center px-8 lg:px-24 max-w-7xl">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentSlide + "content"}
-            initial={{ y: 40, opacity: 0 }}
+            key={currentSlide} // تغيير المفتاح هنا يحفز الأنيميشن للنصوص فقط
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -40, opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            exit={{ y: -30, opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-brand-green font-bold text-xs tracking-[0.3em] uppercase mb-4 flex items-center gap-2">
-              <CurrentIcon size={16} /> {sliderData[currentSlide].badge}
-            </span>
+            <div className="flex items-center gap-3 mb-6">
+               <div className="p-2 bg-brand-green/20 rounded-lg border border-brand-green/30 backdrop-blur-sm">
+                  <CurrentIcon size={20} className="text-brand-green" />
+               </div>
+               <span className="text-brand-green font-black text-xs tracking-[0.4em] uppercase">
+                {sliderData[currentSlide].badge}
+              </span>
+            </div>
             
-            <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-8 leading-[1.1]">
+            <h1 className="text-5xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[1] max-w-4xl">
               {sliderData[currentSlide].title}
             </h1>
             
-            <p className="text-xl text-white/70 max-w-xl mb-10 font-light leading-relaxed">
+            <p className="text-xl text-white/70 max-w-2xl mb-12 font-medium leading-relaxed">
               {sliderData[currentSlide].description}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
               {sliderData[currentSlide].features.map((f, i) => (
-                <div key={i} className="flex items-center gap-2 bg-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 text-white font-medium text-sm">
+                <div key={i} className="flex items-center gap-2 bg-white/5 backdrop-blur-xl px-6 py-3 rounded-2xl border border-white/10 text-white font-bold text-sm">
                   <CheckCircle size={18} className="text-brand-green" /> {f}
                 </div>
               ))}
@@ -141,26 +146,21 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => router.push('/Fawtara')}
-                className="group relative flex items-center gap-3 bg-slate-900 text-white border border-brand-green px-8 py-4 mb-10 rounded-full shadow-[0_0_20px_rgba(var(--brand-green-rgb),0.3)] hover:shadow-[0_0_30px_rgba(var(--brand-green-rgb),0.5)] overflow-hidden transition-all duration-300 cursor-pointer"
+                className="group relative flex items-center gap-4 bg-white text-black px-10 py-5 mb-10 rounded-2xl font-black uppercase text-sm tracking-widest overflow-hidden transition-all"
               >
-                <div className={`absolute inset-0 bg-brand-green transition-transform duration-500 ease-out opacity-20 ${isAr ? 'translate-x-[100%] group-hover:translate-x-0' : 'translate-x-[-100%] group-hover:translate-x-0'}`} />
-                <span className="relative z-10 font-extrabold uppercase text-xs tracking-[0.25em] text-white transition-all duration-300 group-hover:text-black">
-                  {isAr ? 'اكتشف المزيد' : 'Learn More'}
-                </span>
-                <div className="relative z-10 p-1 bg-brand-green rounded-full shadow-[0_0_10px_rgba(var(--brand-green-rgb),0.8)]">
-                  {isAr ? <ArrowLeft size={18} className="text-black" /> : <ArrowRight size={18} className="text-black" />}
-                </div>
+                <span className="relative z-10">{isAr ? 'اكتشف المزيد' : 'Learn More'}</span>
+                {isAr ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
               </motion.button>
             )}
 
             {sliderData[currentSlide].partners.length > 0 && (
-              <div className="flex items-center gap-8">
-                <span className="text-white/30 text-[10px] uppercase font-bold tracking-widest">
-                  {isAr ? 'عملائنا:' : 'Our Clients:'}
+              <div className="flex items-center gap-8 pt-8 border-t border-white/10">
+                <span className="text-white/40 text-[10px] uppercase font-black tracking-[0.3em]">
+                  {isAr ? 'الشركاء الاستراتيجيون' : 'Strategic Partners'}
                 </span>
-                <div className="flex gap-6">
+                <div className="flex gap-8 items-center">
                   {sliderData[currentSlide].partners.map((p, i) => (
-                    <img key={i} src={p.logo} alt={p.name} className="h-10 w-auto opacity-60 hover:opacity-100 transition-all cursor-pointer" />
+                    <img key={i} src={p.logo} alt={p.name} className="h-8 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
                   ))}
                 </div>
               </div>
@@ -169,19 +169,27 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* Progress Bars Indicators */}
-      <div className={`absolute bottom-12 ${isAr ? 'right-24' : 'left-24'} flex gap-4 z-30`}>
+      {/* 3. Global Progress Bars */}
+      <div className={`absolute bottom-16 ${isAr ? 'right-24' : 'left-24'} flex gap-3 z-30`}>
         {sliderData.map((slide, i) => (
-          <div key={i} className="h-[2px] w-24 bg-white/20 rounded-full overflow-hidden">
-            <motion.div 
-              initial={{ width: 0 }} 
-              animate={{ width: i === currentSlide ? "100%" : 0 }} 
-              transition={{ duration: slide.duration, ease: "linear" }} 
-              className="h-full bg-brand-green" 
-            />
+          <div key={i} className="group cursor-pointer py-4" onClick={() => setCurrentSlide(i)}>
+            <div className="h-[3px] w-20 bg-white/10 rounded-full overflow-hidden">
+              <motion.div 
+                initial={{ width: 0 }} 
+                animate={{ width: i === currentSlide ? "100%" : i < currentSlide ? "100%" : "0%" }} 
+                transition={{ 
+                  duration: i === currentSlide ? slide.duration : 0.3, 
+                  ease: i === currentSlide ? "linear" : "easeInOut" 
+                }} 
+                className="h-full bg-brand-green shadow-[0_0_10px_#00ff00]" 
+              />
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Decorative Scanline effect */}
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%] z-10" />
     </div>
   );
 }
