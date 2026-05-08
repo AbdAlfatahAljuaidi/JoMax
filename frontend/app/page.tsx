@@ -31,7 +31,6 @@ export default function Home() {
       <AboutSection />
       <StackedScrollSection />
       <StrategicPartnerSection />
-      <AdvantageSection />
      
       <TechStack />
       <BlogSection />
