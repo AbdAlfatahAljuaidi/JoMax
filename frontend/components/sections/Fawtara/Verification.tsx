@@ -154,15 +154,20 @@ const ComplianceSection = () => {
           </div>
         </div>
 
-        {/* Feature Highlights Bar */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-800 pt-12 ${isAr ? 'text-right' : 'text-left'}`}>
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex flex-col gap-1">
-              <span className="text-white font-bold text-sm">{content[`feat${i}Title`]}</span>
-              <span className="text-slate-500 text-xs">{content[`feat${i}Desc`]}</span>
-            </div>
-          ))}
-        </div>
+{/* Feature Highlights Bar */}
+<div className={`grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-800 pt-12 ${isAr ? 'text-right' : 'text-left'}`}>
+  {[1, 2, 3].map((i) => (
+    <div key={i} className="flex flex-col gap-1">
+      {/* الحل هنا باستخدام 'as keyof typeof content' */}
+      <span className="text-white font-bold text-sm">
+        {content[`feat${i}Title` as keyof typeof content]}
+      </span>
+      <span className="text-slate-500 text-xs">
+        {content[`feat${i}Desc` as keyof typeof content]}
+      </span>
+    </div>
+  ))}
+</div>
 
       </div>
     </section>
