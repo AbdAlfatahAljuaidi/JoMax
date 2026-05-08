@@ -1,9 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const PartnerMarquee = () => {
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('language') || 'en';
+    setLang(storedLang);
+
+    const handleStorageChange = () => {
+      setLang(localStorage.getItem('language') || 'en');
+    };
+
+    const interval = setInterval(handleStorageChange, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const isAr = lang === 'ar';
+
   const partners = [
     { id: 1, logoUrl: '/images/Picture31.jpg' },
     { id: 2, logoUrl: '/images/Picture30.png' },
@@ -15,34 +31,34 @@ const PartnerMarquee = () => {
   ];
   
   return (
-    <section className="w-full py-12 bg-gradient-to-b from-black border-b border-white/20 to-slate-900 overflow-hidden">
+    <section className="w-full py-12 bg-gradient-to-b from-black border-b border-white/20 to-slate-900 overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <h4 className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] text-center">
-          Trusted Global Alliances
+          {isAr ? "تحالفات عالمية موثوقة" : "Trusted Global Alliances"}
         </h4>
       </div>
 
-      {/* تم تحديد العرض هنا بـ w-4/5 (أي 80%) مع mx-auto للتوسيط */}
-      <div className="relative flex w-[50%] mx-auto overflow-hidden bg-white">
+      <div className="relative flex w-[50%] mx-auto overflow-hidden bg-white/5 backdrop-blur-sm rounded-lg">
         
-        {/* Gradient Mask */}
+        {/* Gradient Masks - تنعيم الحواف عند الدخول والخروج */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
 
         <motion.div
           className="flex gap-24 items-center"
-          animate={{ x: ["0%", "-50%"] }}
+          // في حال العربية، نعكس مصفوفة الحركة ليبدأ التحرك لليمين
+          animate={{ x: isAr ? ["-50%", "0%"] : ["0%", "-50%"] }}
           transition={{ duration: 40, ease: "linear", repeat: Infinity }}
         >
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700"
+              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700 hover:grayscale-0 grayscale"
             >
               <img 
                 src={partner.logoUrl} 
                 alt="Partner Logo" 
-                className="max-h-full w-auto object-contain " 
+                className="max-h-full w-auto object-contain brightness-100 contrast-125" 
               />
             </div>
           ))}

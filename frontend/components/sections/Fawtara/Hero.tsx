@@ -7,17 +7,14 @@ const HeroSection = () => {
   const [lang, setLang] = useState('en');
 
   useEffect(() => {
-    // جلب اللغة المخزنة عند تحميل المكون
     const storedLang = localStorage.getItem('language') || 'en';
     setLang(storedLang);
 
-    // إضافة مستمع لحدث التغيير في localStorage للتزامن مع الـ Navbar
     const handleStorageChange = () => {
       setLang(localStorage.getItem('language') || 'en');
     };
 
     window.addEventListener('storage', handleStorageChange);
-    // كحل إضافي للتزامن في نفس النافذة، يمكن استخدام Custom Event أو التحديث كل ثانية
     const interval = setInterval(handleStorageChange, 500);
 
     return () => {
@@ -28,7 +25,6 @@ const HeroSection = () => {
 
   const isAr = lang === 'ar';
 
-  // نصوص الترجمة
   const content = {
     badge1: isAr ? "🛡️ متوافق مع زاتكا" : "🛡️ ZATCA-Compliant",
     badge2: isAr ? "خبراء الربط" : "Integration Experts",
@@ -43,7 +39,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="md:min-h-[145vh] md:pt-20 bg-[#01040a] text-white relative flex flex-col lg:block overflow-hidden">
+    <section className="md:min-h-[155vh] md:pt-20 bg-[#01040a] text-white relative flex flex-col lg:block overflow-hidden">
       
       {/* 1. حاوية الصورة الخلفية الأساسية */}
       <div className="relative w-full h-[350px] sm:h-[450px] lg:absolute lg:inset-0 lg:h-full lg:w-full z-0">
@@ -51,24 +47,28 @@ const HeroSection = () => {
           src="/images/wq.jpeg" 
           alt="Dashboard"
           fill
-          className={`object-cover object-center transition-all duration-700 ${isAr ? 'lg:object-left' : 'lg:object-right'}`}
+          className={` object-center transition-all duration-700 opacity-100 ${isAr ? 'lg:object-left' : 'lg:object-right'}`}
           priority
         />
-        <div className={`absolute inset-0 bg-gradient-to-t from-[#01040a] via-transparent to-transparent lg:bg-gradient-to-r ${isAr ? 'lg:from-transparent lg:to-[#01040a]' : 'lg:from-[#01040a] lg:to-transparent'} lg:via-[#01040a]/60 z-10`} />
-        <div className={`hidden lg:block absolute top-1/2 ${isAr ? 'left-1/4' : 'right-1/4'} w-[400px] h-[400px] bg-cyan-600/20 blur-[120px] rounded-full -translate-y-1/2`} />
+        {/* تم إزالة التدرج اللوني هنا لضمان وضوح الصورة 100% */}
+        {/* <div className={`absolute inset-0 bg-gradient-to-t from-[#01040a] via-transparent to-transparent lg:bg-gradient-to-r ${isAr ? 'lg:from-transparent lg:to-[#01040a]' : 'lg:from-[#01040a] lg:to-transparent'} lg:via-[#01040a]/60 z-10`} /> */}
+        
+        {/* تأثير التوهج الجانبي (يمكن إبقاؤه أو إزالته حسب الرغبة، هو لا يغطي الصورة بالكامل) */}
+        <div className={`hidden lg:block absolute top-1/2 ${isAr ? 'left-1/4' : 'right-1/4'} w-[400px] h-[400px] bg-cyan-600/10 blur-[120px] rounded-full -translate-y-1/2 z-10`} />
       </div>
 
       {/* 2. المحتوى الرئيسي */}
       <main className="container mx-auto px-6 lg:px-12 relative z-20 flex-1 flex items-center lg:min-h-screen">
-        <div className={`max-w-3xl w-full py-12 lg:py-0 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'}`}>
+        {/* تم إضافة خلفية داكنة خفيفة جداً (bg-black/10) وضبابية (backdrop-blur-sm) لحاوية النص لضمان وضوحه فوق أي جزء من الصورة */}
+        <div className={`max-w-3xl w-full py-12 lg:py-16 text-center ${isAr ? 'lg:text-right' : 'lg:text-left'} bg-black/10 p-8 rounded-3xl`}>
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-black/40 border border-cyan-500/30 px-4 py-2 rounded-full text-[10px] lg:text-xs mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 bg-black/60 border border-cyan-500/30 px-4 py-2 rounded-full text-[10px] lg:text-xs mb-8 backdrop-blur-md">
             <span className="text-cyan-400">{content.badge1}</span>
             <span className="text-slate-600">•</span>
             <span className="text-slate-300">{content.badge2}</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-white">
             {content.title1} <br />
             <span className="text-white">{content.title2}</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-200 to-emerald-400">
@@ -76,7 +76,7 @@ const HeroSection = () => {
             </span>
           </h1>
           
-          <p className="text-slate-400 text-sm lg:text-lg mb-8 lg:mb-10 leading-relaxed mx-auto lg:mx-0">
+          <p className="text-slate-300 text-sm lg:text-lg mb-8 lg:mb-10 leading-relaxed mx-auto lg:mx-0 max-w-2xl">
             {content.description}
           </p>
 
@@ -86,7 +86,7 @@ const HeroSection = () => {
                 {content.demoBtn} <span className={`text-xl ${isAr ? 'rotate-180' : ''}`}>→</span>
               </button>
             </a>
-            <button className="border border-slate-700 bg-white/5 hover:bg-white/10 px-8 py-3.5 rounded-xl font-semibold transition-all backdrop-blur-md active:scale-95 text-center">
+            <button className="border border-slate-700 bg-white/5 hover:bg-white/10 px-8 py-3.5 rounded-xl font-semibold transition-all backdrop-blur-md active:scale-95 text-center text-white">
               {content.startBtn}
             </button>
           </div>
@@ -98,12 +98,12 @@ const HeroSection = () => {
         <div className="relative w-full overflow-hidden transition-all duration-500">
           <div className="w-full px-4 sm:px-6 lg:px-12 pb-10">
             <div className="container mx-auto">
-              <div className="relative w-full h-[200px] md:h-[300px]"> 
+              <div className="relative w-full h-[200px] md:h-[300px] " dir ="ltr"> 
                 <Image 
                   src="/images/io.png" 
                   alt="banner"
                   fill
-                  className="object-cover"
+                  className="object-cover opacity-100"
                   priority
                 />
               </div>

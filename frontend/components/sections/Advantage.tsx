@@ -1,21 +1,67 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const commands = [
-  { cmd: 'INIT_SYSTEM_CORE', result: 'ENTERPRISE_ARCHITECTURE_READY' },
-  { cmd: 'CONNECT_SERVICES', result: 'MICROSERVICES_LINKED' },
-  { cmd: 'SYNC_DATABASES', result: 'DATA_LAYER_STABLE' },
-  { cmd: 'DEPLOY_BACKEND', result: 'API_INFRASTRUCTURE_ACTIVE' },
-  { cmd: 'RENDER_FRONTEND', result: 'UI_PIPELINE_OPTIMIZED' },
-  { cmd: 'ENABLE_MONITORING', result: 'REALTIME_SYSTEM_OBSERVABILITY' }
-];
-
 export default function TerminalUI() {
+  const [lang, setLang] = useState('en');
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem('language') || 'en';
+    setLang(storedLang);
+
+    const handleStorageChange = () => {
+      setLang(localStorage.getItem('language') || 'en');
+    };
+
+    const interval = setInterval(handleStorageChange, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const isAr = lang === 'ar';
+
+  const commands = [
+    { 
+      cmd: 'INIT_SYSTEM_CORE', 
+      result: isAr ? 'هيكلية_المؤسسة_جاهزة' : 'ENTERPRISE_ARCHITECTURE_READY' 
+    },
+    { 
+      cmd: 'CONNECT_SERVICES', 
+      result: isAr ? 'تم_ربط_الخدمات_المصغرة' : 'MICROSERVICES_LINKED' 
+    },
+    { 
+      cmd: 'SYNC_DATABASES', 
+      result: isAr ? 'طبقة_البيانات_مستقرة' : 'DATA_LAYER_STABLE' 
+    },
+    { 
+      cmd: 'DEPLOY_BACKEND', 
+      result: isAr ? 'البنية_التحتية_للـAPI_نشطة' : 'API_INFRASTRUCTURE_ACTIVE' 
+    },
+    { 
+      cmd: 'RENDER_FRONTEND', 
+      result: isAr ? 'تحسين_مسار_واجهة_المستخدم' : 'UI_PIPELINE_OPTIMIZED' 
+    },
+    { 
+      cmd: 'ENABLE_MONITORING', 
+      result: isAr ? 'مراقبة_النظام_اللحظية_تعمل' : 'REALTIME_SYSTEM_OBSERVABILITY' 
+    }
+  ];
+
+  const content = {
+    badge: isAr ? "واجهة التحكم" : "Control Interface",
+    title: isAr ? "حيث تتحول الأنظمة إلى" : "Where Systems",
+    titleHighlight: isAr ? "ذكاء اصطناعي" : "Become Intelligence",
+    desc: isAr 
+      ? "هيكلية برمجية لحظية، أتمتة ذكية، وبنية تحتية للمهام الحساسة تعمل بتزامن تام."
+      : "Real-time architecture, intelligent automation and mission-critical infrastructure operating in perfect synchronization.",
+    terminalName: isAr ? "منصة.النواة_العصبية" : "neural-core.console"
+  };
+
   return (
-    <section className="bg-slate-900
-bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-h-screen py-24 px-8 md:px-20 font-mono overflow-hidden">
+    <section 
+      className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-h-screen py-24 px-8 md:px-20 font-mono overflow-hidden"
+      dir={isAr ? "rtl" : "ltr"}
+    >
       <div className="max-w-6xl mx-auto">
 
         {/* Section Heading */}
@@ -27,19 +73,18 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
           className="text-center mb-20"
         >
           <p className="text-brand-green tracking-[0.35em] text-sm mb-4 uppercase">
-            Control Interface
+            {content.badge}
           </p>
 
           <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-            Where Systems
+            {content.title}
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-brand-green">
-              Become Intelligence
+              {content.titleHighlight}
             </span>
           </h2>
 
           <p className="mt-6 text-white/60 max-w-3xl mx-auto text-lg leading-relaxed">
-            Real-time architecture, intelligent automation and mission-critical
-            infrastructure operating in perfect synchronization.
+            {content.desc}
           </p>
         </motion.div>
 
@@ -50,13 +95,15 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-72 bg-cyan-500/10 blur-[120px]" />
 
           {/* Terminal Top Bar */}
-          <div className="flex items-center gap-3 mb-10 relative z-10">
-            <div className="w-3 h-3 rounded-full bg-red-500/70" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-            <div className="w-3 h-3 rounded-full bg-green-500/70" />
+          <div className={`flex items-center gap-3 mb-10 relative z-10 ${isAr ? 'flex-row-reverse' : ''}`}>
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500/70" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+              <div className="w-3 h-3 rounded-full bg-green-500/70" />
+            </div>
 
-            <span className="ml-4 text-white/30 text-sm">
-              neural-core.console
+            <span className={`${isAr ? 'mr-4' : 'ml-4'} text-white/30 text-sm`}>
+              {content.terminalName}
             </span>
           </div>
 
@@ -65,7 +112,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
             {commands.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -40 }}
+                initial={{ opacity: 0, x: isAr ? 40 : -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{
@@ -76,7 +123,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
               >
                 <div className="flex gap-4 items-center">
                   <span className="text-[#00E6CC] text-xl">
-                    {'>'}
+                    {isAr ? ' < ' : ' > '}
                   </span>
 
                   <span className="text-white font-bold tracking-wide group-hover:text-cyan-300 transition">
@@ -84,8 +131,8 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
                   </span>
                 </div>
 
-                <div className="ml-8 mt-2 text-brand-green text-sm italic tracking-wide">
-                  {`// RESULT: ${item.result}`}
+                <div className={`${isAr ? 'mr-8' : 'ml-8'} mt-2 text-brand-green text-sm italic tracking-wide`}>
+                  {isAr ? `النتيجة: ${item.result} //` : `// RESULT: ${item.result}`}
                 </div>
               </motion.div>
             ))}
@@ -93,7 +140,7 @@ bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] min-
             {/* Cursor */}
             <div className="mt-10 flex gap-3 items-center">
               <span className="text-brand-green text-xl">
-                {'>'}
+                {isAr ? ' < ' : ' > '}
               </span>
 
               <motion.div
