@@ -78,7 +78,7 @@ const ComplianceSection = () => {
 
         {/* --- الصورة المطلوبة (تحت العنوان مباشرة وبنسبة عرض 80%) --- */}
         <div className="w-full  mb-16">
-            <div className="relative w-full lg:w-[80%] h-[400px] md:h-[600px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
+            <div className="relative w-full lg:w-[80%] h-[300px] md:h-[600px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
                 <Image
                     src="/images/xc.jpeg" 
                     alt="Integration Visual" 

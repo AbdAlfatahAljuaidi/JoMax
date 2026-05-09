@@ -96,7 +96,7 @@ const PhasesSection = () => {
             {/* The Image (fg.jpeg) - Separated */}
             <div className="relative order-2 lg:order-1 group">
                <div className="absolute -inset-4 bg-cyan-500/10 rounded-[3.5rem] blur-2xl group-hover:bg-cyan-500/20 transition-all duration-700"></div>
-               <div className="relative h-[400px] md:h-[400px] w-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
+               <div className="relative h-[300px] md:h-[400px] w-full rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                   <Image 
                     src="/images/fg.jpeg" 
                     fill 

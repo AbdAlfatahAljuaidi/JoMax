@@ -89,7 +89,7 @@ export default function Home() {
   const CurrentIcon = sliderData[currentSlide].icon;
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
+    <div className="relative pt-28 w-full h-screen bg-black overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       
       {/* 1. Static Background Video - يظل ثابتاً ولا يتأثر بتغيير السلايد */}
       <div className="absolute inset-0 z-0">
@@ -116,7 +116,7 @@ export default function Home() {
             exit={{ y: -30, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center md:pt-0 pt-44 gap-3 mb-6">
                <div className="p-2 bg-brand-green/20 rounded-lg border border-brand-green/30 backdrop-blur-sm">
                   <CurrentIcon size={20} className="text-brand-green" />
                </div>
