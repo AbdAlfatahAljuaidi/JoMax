@@ -100,7 +100,7 @@ export default function Home() {
           playsInline
           className="w-full h-full object-cover opacity-50"
         >
-          <source src="/images/nb.mp4" type="video/mp4" />
+          <source src="/images/vf.mp4" type="video/mp4" />
         </video>
         {/* طبقة تظليل إضافية لضمان وضوح النص فوق أي فيديو */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
