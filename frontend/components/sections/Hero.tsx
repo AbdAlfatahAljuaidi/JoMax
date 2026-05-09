@@ -160,7 +160,7 @@ export default function Home() {
                 </span>
                 <div className="flex gap-8 items-center">
                   {sliderData[currentSlide].partners.map((p, i) => (
-                    <img key={i} src={p.logo} alt={p.name} className="h-8 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
+                    <img key={i} src={p.logo} alt={p.name} className="h-8 w-auto  opacity-50   transition-all duration-500" />
                   ))}
                 </div>
               </div>
@@ -170,7 +170,7 @@ export default function Home() {
       </div>
 
       {/* 3. Global Progress Bars */}
-      <div className={`absolute bottom-16 ${isAr ? 'right-24' : 'left-24'} flex gap-3 z-30`}>
+      {/* <div className={`absolute bottom-16 ${isAr ? 'right-24' : 'left-24'} flex gap-3 z-30`}>
         {sliderData.map((slide, i) => (
           <div key={i} className="group cursor-pointer py-4" onClick={() => setCurrentSlide(i)}>
             <div className="h-[3px] w-20 bg-white/10 rounded-full overflow-hidden">
@@ -186,7 +186,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* Decorative Scanline effect */}
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%] z-10" />

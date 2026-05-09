@@ -53,12 +53,12 @@ const PartnerMarquee = () => {
           {[...partners, ...partners].map((partner, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700 hover:grayscale-0 grayscale"
+              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700 "
             >
               <img 
                 src={partner.logoUrl} 
                 alt="Partner Logo" 
-                className="max-h-full w-auto object-contain brightness-100 contrast-125" 
+                className="max-h-full w-auto object-contain " 
               />
             </div>
           ))}
