@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JoMaxSoft",
+  title: "JoMaxSoft | ERP & AI Solutions",
   description: "The bridge between complex data and simple decisions. Scalable ERP solutions, certified e-invoicing, and AI-driven architectures for leading enterprises",
+  icons: {
+    icon: "/icon.png", // سيقوم Next.js بالبحث عنه في المجلدات العامة
+    apple: "/icon.png", // لأجهزة الآيفون عند حفظ الموقع على الشاشة الرئيسية
+  },
 };
 
 export default function RootLayout({
