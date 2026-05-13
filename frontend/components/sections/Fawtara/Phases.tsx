@@ -135,10 +135,7 @@ const PhasesSection = () => {
                   {content.phase2Features.map(f => <FeatureItem key={f} text={f} active />)}
                </div>
 
-               <button className="group flex items-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 py-4 rounded-2xl transition-all active:scale-95 shadow-[0_20px_40px_rgba(6,182,212,0.2)]">
-                  {content.learnMore}
-                  <ArrowUpRight className={`w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ${isAr ? 'rotate-[-90deg]' : ''}`} />
-               </button>
+             
             </div>
           </div>
 
