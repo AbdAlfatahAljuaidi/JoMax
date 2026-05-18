@@ -32,7 +32,7 @@ export default function Home() {
       <StackedScrollSection />
       <StrategicPartnerSection />
      
-      <TechStack />
+      {/* <TechStack /> */}
       <BlogSection />
       <Footer />
       
