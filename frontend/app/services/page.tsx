@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Cpu, Orbit, Shield, Sparkles, Zap, Globe, Layers } from "lucide-react";
+import { Cpu, Orbit, Shield, Sparkles, Zap, Globe, Layers, Laptop, Cloud, Database, ShieldCheck, Server } from "lucide-react";
 import Footer from "@/components/sections/Footer";
 import NavBar from "@/components/sections/NavBar";
 
@@ -22,30 +22,41 @@ export default function Page() {
   }, []);
 
   const isAr = lang === 'ar';
+// تأكد من تحديث سطر استيراد الأيقونات في أعلى الملف ليشمل الأيقونات الجديدة:
+// import { Globe, Laptop, Cloud, Database, ShieldCheck, Server } from 'lucide-react';
 
-  const services = [
-    { 
-      icon: <Cpu size={32}/>, 
-      title: isAr ? "نظام ERP عصبي" : "Neural ERP", 
-      text: isAr ? "تخطيط موارد ذكي يتكيف مع التدفق الفريد لأعمالك." : "Intelligent resource planning that adapts to your unique business flow." 
-    },
-    { 
-      icon: <Globe size={32}/>, 
-      title: isAr ? "مجرات سحابية" : "Cloud Galaxies", 
-      text: isAr ? "بنية تحتية قابلة للتوسع تدير عملياتك عبر القارات." : "Scalable infrastructure that powers your operations across the globe." 
-    },
-    { 
-      icon: <Shield size={32}/>, 
-      title: isAr ? "أمن كوانتوم" : "Quantum Security", 
-      text: isAr ? "حماية بمواصفات عسكرية لبيانات مؤسستك الأكثر حساسية." : "Military-grade protection for your most sensitive enterprise data." 
-    },
-    { 
-      icon: <Layers size={32}/>, 
-      title: isAr ? "تطوير الويب" : "Web Development", 
-      text: isAr ? "تطبيقات ويب غامرة وعالية الأداء مبنية بأحدث الأطر البرمجية." : "High-performance, immersive web applications built with cutting-edge frameworks." 
-    },
-  ];
-
+const services = [
+  { 
+    icon: <Globe size={32}/>, 
+    title: isAr ? 'التحول الرقمي وتطوير الويب' : 'Digital Transformation & Web Development', 
+    text: isAr ? 'إعادة تصميم العمليات ورقمة تدفق العمل • تطوير منصات الويب والأتمتة • حلول مخصصة مبنية حول متطلبات عملك.' : 'Process redesign & workflow digitization • Web platform development & automation • Customized solutions built around your business requirements.' 
+  },
+  { 
+    icon: <Laptop size={32}/>, 
+    title: isAr ? 'برمجة المواقع والمتاجر الإلكترونية' : 'Web & E-Commerce Development', 
+    text: isAr ? 'تطوير مواقع تعريفية متميزة للشركات • بناء متاجر إلكترونية متكاملة وقابلة للتوسع • تجربة مستخدم سلسة وتصاميم متجاوبة بالكامل.' : 'Developing premium corporate websites • Building integrated, scalable e-commerce platforms • Seamless UX and fully responsive designs.' 
+  },
+  { 
+    icon: <Cloud size={32}/>, 
+    title: isAr ? 'تنفيذ وحوكمة أنظمة ERP' : 'ERP Implementation & Governance', 
+    text: isAr ? 'نموذج حوكمة نشر وإطلاق أنظمة ERP • مكتب إدارة المشاريع (PMO) كخدمة لدورة حياة ERP • جاهزية الإطلاق الحي وتنفيذ خارطة الطريق.' : 'ERP deployment and rollout governance model • Project Management Office (PMO) as a service for ERP lifecycles • go-live readiness & roadmap execution.' 
+  },
+  { 
+    icon: <Database size={32}/>, 
+    title: isAr ? 'البيانات والتحليلات وذكاء القرار' : 'Data, Analytics & Decision Intelligence', 
+    text: isAr ? 'حوكمة البيانات وبنيتها التحتية • أطر عمل مؤشرات الأداء الرئيسية وتحليلات الأعمال • لوحات تحكم تنفيذية ورؤى فورية.' : 'Data governance & architecture • KPI frameworks & business analytics • Executive dashboards & insights.' 
+  },
+  { 
+    icon: <ShieldCheck size={32}/>, 
+    title: isAr ? 'إدارة التغيير والتنظيم المؤسسي' : 'Organizational & Change Management', 
+    text: isAr ? 'مواءمة أصحاب المصلحة ومشاركة القيادة • اتصالات التغيير وتهيئة المستخدمين • رفع كفاءة الفريق وتدريب المستخدم النهائي.' : 'Stakeholder alignment & leadership engagement • Change communication & user onboarding • Team capability uplift & end-user training.' 
+  },
+  { 
+    icon: <Server size={32}/>, 
+    title: isAr ? 'ضمان الجودة وإدارة الأداء' : 'Quality Assurance & Performance Management', 
+    text: isAr ? 'حوكمة شاملة لضمان الجودة عبر جميع مراحل الحل • دورات المراجعة، مسؤولية الاختبار وتتبع العيوب • ربط الأثر من الإستراتيجية إلى الاختبار ثم التسليم.' : 'End-to-end QA governance across all solution phases • Review cycles, testing accountability & defect tracking • Strategy → Testing → Delivery impact linkage.' 
+  }
+];
   const stats = [
     { n: "250+", l: isAr ? "عميل سعيد" : "Happy Clients" },
     { n: "1.2K+", l: isAr ? "مشروع منجز" : "Projects Shipped" },

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Cloud, ShieldCheck, Zap, Database, Server, Activity, Cpu, Gauge, Radio } from 'lucide-react';
+import { Globe, Cloud, ShieldCheck, Database, Server, Laptop, Activity, Cpu, Gauge, Radio } from 'lucide-react';
 
 export default function ServicesOrbit() {
   const [lang, setLang] = useState('en');
@@ -24,14 +24,37 @@ export default function ServicesOrbit() {
   }, []);
 
   const isAr = lang === 'ar';
-
   const services = [
-    { title: isAr ? 'الربط الحكومي' : 'Government Integration', icon: Globe, desc: isAr ? 'أنظمة الضرائب والفوترة الإلكترونية' : 'Tax systems & e-invoicing' },
-    { title: isAr ? 'سحابة ERP' : 'Cloud ERP', icon: Cloud, desc: isAr ? 'أنظمة مؤسسية قابلة للتوسع' : 'Scalable enterprise ecosystems' },
-    { title: isAr ? 'دعم 24/7' : '24/7 Support', icon: ShieldCheck, desc: isAr ? 'مراقبة واستقرار مستمر' : 'Monitoring & stability' },
-    { title: isAr ? 'تحليل البيانات' : 'Data Analytics', icon: Database, desc: isAr ? 'رؤى أعمال فورية ولحظية' : 'Real-time business insights' },
-    { title: isAr ? 'خوادم عالمية' : 'Global Server', icon: Server, desc: isAr ? 'عناقيد خوادم عالية التوافر' : 'High availability clusters' },
-    { title: isAr ? 'تنفيذ فائق السرعة' : 'Fast Execution', icon: Zap, desc: isAr ? 'عمليات تقنية زمن استجابة منخفض' : 'Low latency transactions' }
+    { 
+      title: isAr ? 'التحول الرقمي وتطوير الويب' : 'Digital Transformation & Web Development', 
+      icon: Globe, 
+      desc: isAr ? 'إعادة تصميم العمليات ورقمة تدفق العمل • تطوير منصات الويب والأتمتة • حلول مخصصة مبنية حول متمتطلبات عملك' : 'Process redesign & workflow digitization • Web platform development & automation • Customized solutions built around your business requirements' 
+    },
+    { 
+      title: isAr ? 'برمجة المواقع و انظمة' : 'Web & E-Commerce Development', 
+      icon: Laptop, 
+      desc: isAr ? 'تطوير مواقع تعريفية متميزة • بناء انطمة متكاملة وقابلة للتوسع • تجربة مستخدم سلسة وتصاميم متجاوبة بالكامل' : 'Developing premium corporate websites • Building integrated, scalable e-commerce platforms • Seamless UX and fully responsive designs' 
+    },
+    { 
+      title: isAr ? 'تنفيذ وحوكمة أنظمة ERP' : 'ERP Implementation & Governance', 
+      icon: Cloud, 
+      desc: isAr ? 'نموذج حوكمة نشر وإطلاق أنظمة ERP • مكتب إدارة المشاريع (PMO) كخدمة لدورة حياة ERP • جاهزية الإطلاق الحي وتنفيذ خارطة الطريق' : 'ERP deployment and rollout governance model • Project Management Office (PMO) as a service for ERP lifecycles • Go-live readiness & roadmap execution' 
+    },
+    { 
+      title: isAr ? 'البيانات والتحليلات وذكاء القرار' : 'Data, Analytics & Decision Intelligence', 
+      icon: Database, 
+      desc: isAr ? 'حوكمة البيانات وبنيتها التحتية • أطر عمل مؤشرات الأداء الرئيسية وتحليلات الأعمال • لوحات تحكم تنفيذية ورؤى فورية' : 'Data governance & architecture • KPI frameworks & business analytics • Executive dashboards & insights' 
+    },
+    { 
+      title: isAr ? 'إدارة التغيير والتنظيم المؤسسي' : 'Organizational & Change Management', 
+      icon: ShieldCheck, 
+      desc: isAr ? 'مواءمة أصحاب المصلحة ومشاركة القيادة • اتصالات التغيير وتهيئة المستخدمين • رفع كفاءة الفريق وتدريب المستخدم النهائي' : 'Stakeholder alignment & leadership engagement • Change communication & user onboarding • Team capability uplift & end-user training' 
+    },
+    { 
+      title: isAr ? 'ضمان الجودة وإدارة الأداء' : 'Quality Assurance & Performance Management', 
+      icon: Server, 
+      desc: isAr ? 'حوكمة شاملة لضمان الجودة عبر جميع مراحل الحل • دورات المراجعة، مسؤولية الاختبار وتتبع العيوب • ربط الأثر من الإستراتيجية إلى الاختبار ثم التسليم' : 'End-to-end QA governance across all solution phases • Review cycles, testing accountability & defect tracking • Strategy → Testing → Delivery impact linkage' 
+    }
   ];
 
   return (
@@ -59,7 +82,7 @@ export default function ServicesOrbit() {
           </h2>
         </motion.div>
 
-        {/* Stats Grid - Responsive columns */}
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 md:mb-32 w-full">
           <StatCard icon={Activity} label={isAr ? "حمل النظام" : "System Load"} value="75%" color="text-cyan-400" isAr={isAr} />
           <StatCard icon={Cpu} label={isAr ? "النقاط النشطة" : "Nodes Active"} value="6/6" color="text-emerald-400" isAr={isAr} />
@@ -67,10 +90,11 @@ export default function ServicesOrbit() {
           <StatCard icon={Radio} label={isAr ? "وقت التشغيل" : "Uptime"} value="99.9%" color="text-amber-400" isAr={isAr} />
         </div>
 
-        {/* ORBIT SYSTEM - Hidden on small screens, shown on desktop */}
-        <div className="hidden lg:flex relative w-[700px] h-[700px] items-center justify-center">
-          <div className="absolute w-[400px] h-[400px] rounded-full border border-white/5" />
-          <div className="absolute w-[600px] h-[600px] rounded-full border border-cyan-500/10" />
+        {/* ORBIT SYSTEM */}
+        <div className="hidden lg:flex relative w-[850px] h-[850px] items-center justify-center">
+          {/* Visual Orbit Rings */}
+          <div className="absolute w-[450px] h-[450px] rounded-full border border-white/5" />
+          <div className="absolute w-[760px] h-[760px] rounded-full border border-cyan-500/10" />
 
           {/* Core */}
           <div className="w-48 h-48 rounded-full bg-slate-900 border border-cyan-500/30 flex flex-col items-center justify-center shadow-[0_0_80px_rgba(6,182,212,0.2)] z-20">
@@ -84,8 +108,9 @@ export default function ServicesOrbit() {
             className="absolute inset-0"
           >
             {services.map((item, i) => {
+              // تم تعديل الحسبة لـ 6 خدمات (360 / 6 = 60 درجة) لضمان توزيع متناسق ومتباعد
               const angle = (i * 60) * (Math.PI / 180);
-              const radius = 300;
+              const radius = 380; 
               const x = Math.cos(angle) * radius;
               const y = Math.sin(angle) * radius;
 
@@ -94,11 +119,11 @@ export default function ServicesOrbit() {
                   <motion.div 
                     animate={{ rotate: -360 }}
                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    className={`w-56 p-5 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl hover:border-cyan-500/50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}
+                    className={`w-72 p-5 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl hover:border-cyan-500/50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}
                   >
                     <item.icon className="text-cyan-400 mb-2" size={24} />
-                    <h4 className="font-bold text-lg">{item.title}</h4>
-                    <p className="text-sm text-white/50 leading-tight">{item.desc}</p>
+                    <h4 className="font-bold text-lg leading-snug">{item.title}</h4>
+                    <p className="text-xs text-white/50 leading-relaxed mt-2">{item.desc}</p>
                   </motion.div>
                 </div>
               )
@@ -106,7 +131,7 @@ export default function ServicesOrbit() {
           </motion.div>
         </div>
 
-        {/* MOBILE LIST - Shown only on small/medium screens */}
+        {/* MOBILE LIST */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6 w-full">
           {services.map((item, i) => (
             <motion.div 

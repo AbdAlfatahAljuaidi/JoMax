@@ -107,12 +107,7 @@ export default function BlogSection() {
                   {posts[active].desc}
                 </p>
                 
-                <motion.button 
-                    whileHover={{ x: isAr ? -10 : 10 }}
-                    className="text-sm font-semibold border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-colors"
-                >
-                    {content.readMore}
-                </motion.button>
+              
               </motion.div>
             </AnimatePresence>
             

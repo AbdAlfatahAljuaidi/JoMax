@@ -88,10 +88,10 @@ export default function AboutSection() {
                 </span>
               </h1>
               <p className={`text-xl text-slate-400 leading-relaxed ${isAr ? 'border-r-2 pr-6' : 'border-l-2 pl-6'} border-cyan-500/30`}>
-                {isAr 
-                  ? "جوماكس سوفت ليست مجرد شركة تقنية؛ نحن مصنع رقمي حيث يلتقي المنطق بالخيال. تأسست على مبدأ 'الكفاءة الفائقة'، نحن نبني أنظمة لا تعمل فحسب، بل تتطور."
-                  : "Jomaxsoft is not just a tech company; we are a digital foundry where logic meets imagination. Founded on the principle of 'Hyper-Efficiency,' we build systems that don't just work—they evolve."}
-              </p>
+  {isAr 
+    ? "تمكن JoMax Soft المؤسسات في جميع أنحاء الشرق الأوسط من تحقيق التحول الرقمي بوضوح، ومسؤولية، ونتائج ملموسة. نحن نعمل في مجالات التنفيذ، والتغيير، والحلول الرقمية، والبيانات، وإدارة الأداء لضمان تقدم المبادرات بملكية واضحة ومخرجات ملموسة. نهجنا عملي، ومنظم، وموجه نحو التنفيذ قائم على النتائج الفعلية لا النظريات."
+    : "JoMax Soft enables organizations across the Middle East to deliver digital transformation with clarity, accountability, and measurable results. We operate across delivery, change, digital solutions, data, and performance management to ensure initiatives progress with clear ownership and tangible outcomes. Our approach is pragmatic, structured, and execution-focused—built on delivery, not theory."}
+</p>
             </motion.div>
           </div>
 
@@ -101,13 +101,17 @@ export default function AboutSection() {
               {
                 icon: <Target className="text-cyan-400" size={40} />,
                 title: isAr ? "المهمة" : "The Mission",
-                desc: isAr ? "تسريع الإمكانات البشرية من خلال هندسة أنظمة رقمية ذاتية الإدارة تلغي التعقيد." : "To accelerate human potential by engineering autonomous digital ecosystems that eliminate complexity.",
+                desc: isAr 
+  ? "تمكين تنفيذ الحلول البرمجية بنفس الانضباط الذي تخضع له العمليات الأساسية، وذلك من خلال التنفيذ المنظم، والحوكمة الواضحة، والأداء القابل للقياس." 
+  : "To enable software solutions to be executed with the same discipline as core operations through structured delivery, clear governance, and measurable performance.",
                 color: "from-cyan-500/20"
               },
               {
                 icon: <Eye className="text-blue-400" size={40} />,
                 title: isAr ? "الرؤية" : "The Vision",
-                desc: isAr ? "وضع معايير عالمية لمؤسسات 'الجيل القادم'، حيث يندمج الذكاء الاصطناعي والإبداع البشري بسلاسة." : "Setting the global standard for the 'Next-Gen' enterprise, where AI and human creativity merge seamlessly.",
+                desc: isAr 
+                ? "أن نصبح مصدراً طويل الأجل للحلول الرقمية التنفيذية التي تعتمد عليها المؤسسات لتحسين آلية تقديم وتحقيق التحول." 
+                : "To become a long-term source of execution Digital Solutions that organizations rely on to improve how transformation is delivered.",
                 color: "from-blue-500/20"
               }
             ].map((item, i) => (

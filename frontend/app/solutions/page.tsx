@@ -37,13 +37,17 @@ export default function BrutalistAboutUpdated() {
     {
       title: isAr ? "رسالتنا" : "Our Mission",
       icon: Target,
-      text: isAr ? "تقديم حلول برمجية سحابية مبتكرة وفعالة للمؤسسات الحديثة." : "Providing innovative, efficient cloud software solutions for modern enterprises.",
+      text: isAr 
+      ? "تمكين الحلول البرمجية ليتم تنفيذها بنفس مستوى الانضباط المتبع في العمليات الأساسية؛ وذلك من خلال تقديم هيكلية تنفيذ منظمة، وحوكمة واضحة، وأداء قابل للقياس."
+      : "To enable software solutions to be executed with the same discipline as core operations through structured delivery, clear governance, and measurable performance.",
       img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"
     },
     {
       title: isAr ? "رؤيتنا" : "Our Vision",
       icon: Eye,
-      text: isAr ? "أن نصبح المزود الإقليمي الرائد لهيكليات البرمجيات عالية الأداء." : "To become the leading regional provider of high-performance software architectures.",
+      text: isAr 
+      ? "أن نصبح مصدراً مستداماً وطويل الأجل للحلول الرقمية القائمة على التنفيذ، والتي تعتمد عليها المؤسسات لتطوير ورفع كفاءة قيادة عملية التحول الرقمي."
+      : "To become a long-term source of execution Digital Solutions that organizations rely on to improve how transformation is delivered.",
       img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200"
     }
   ];

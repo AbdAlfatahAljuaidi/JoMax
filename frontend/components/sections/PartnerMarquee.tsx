@@ -38,7 +38,7 @@ const PartnerMarquee = () => {
         </h4>
       </div>
 
-      <div className="relative flex w-[50%] mx-auto overflow-hidden bg-white/5 backdrop-blur-sm rounded-lg">
+      <div className="relative flex w-[25%] mx-auto overflow-hidden bg-white/5 backdrop-blur-sm rounded-lg">
         
         {/* Gradient Masks - تنعيم الحواف عند الدخول والخروج */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />

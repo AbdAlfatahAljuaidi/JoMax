@@ -26,8 +26,8 @@ export default function JomaxPortalWithImage() {
     titleMain: isAr ? "هيكلة منطق" : "The Architecture",
     titleSub: isAr ? "المستقبل" : "of Future Logic",
     description: isAr 
-      ? "لقد بنينا هذا النظام ليكون الجسر بين البيانات المعقدة والقرارات البسيطة - ليس مجرد كود، بل فلسفة رقمية."
-      : "We built this system to be the bridge between complex data and simple decisions — not just code, but a digital philosophy.",
+    ? "تمكّن جومكس سوفت (JoMax Soft) المؤسسات في جميع أنحاء الشرق الأوسط من تحقيق التحول الرقمي بوضوح، ومسؤولية، ونتائج ملموسة. نحن نعمل في مجالات التنفيذ، وإدارة التغيير، والحلول الرقمية، والبيانات، وإدارة الأداء لضمان سير المبادرات بملكية واضحة ومخرجات حقيقية. إن نهجنا عملي، ومنظم، ويركز على التنفيذ — مبني على النتائج الواقعية لا النظريات."
+    : "JoMax Soft enables organizations across the Middle East to deliver digital transformation with clarity, accountability, and measurable results. We operate across delivery, change, digital solutions, data, and performance management to ensure initiatives progress with clear ownership and tangible outcomes. Our approach is pragmatic, structured, and execution-focused — built on delivery, not theory.",
     velocityLabel: isAr ? "سرعة الاستجابة" : "Response Velocity",
     ecoTitle: isAr ? "تدفق بيانات" : "Live Ecosystem",
     ecoSub: isAr ? "النظام المباشر" : "Data Streams",
@@ -64,7 +64,7 @@ export default function JomaxPortalWithImage() {
               <span className="text-white/40">{content.titleSub}</span>
             </h1>
           </div>
-          <p className="relative z-10 text-white/60 max-w-sm text-lg leading-relaxed">
+          <p className="relative z-10 text-white/60  text-lg leading-relaxed">
             {content.description}
           </p>
         </div>
