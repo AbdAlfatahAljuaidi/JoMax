@@ -90,17 +90,7 @@ const NavBar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-1">
           {menuItems.map((menu) => (
-            menu.link ? (
-              <Link 
-                key={menu.title} 
-                href={menu.link} 
-                className={`px-4 py-2 text-sm font-medium transition-all normal-case ${
-                  pathname === menu.link ? 'text-brand-green' : 'text-white/80 hover:text-white'
-                }`}
-              >
-                {menu.title}
-              </Link>
-            ) : (
+       
               <div key={menu.title} className="relative group">
                 <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-all normal-case group-hover:text-brand-green">
                   {menu.title} <ChevronDown size={14} className="opacity-60 group-hover:rotate-180 transition-transform duration-300" />
@@ -121,7 +111,7 @@ const NavBar = () => {
                   </div>
                 </div>
               </div>
-            )
+            
           ))}
         </div>
 
