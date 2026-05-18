@@ -154,15 +154,7 @@ const NavBar = () => {
           <div className="flex flex-col gap-4 mt-20">
             {menuItems.map((menu) => (
               <div key={menu.title} className="border-b border-white/5 pb-4">
-                {menu.link ? (
-                  <Link 
-                    href={menu.link} 
-                    className="text-2xl font-black text-white block normal-case"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {menu.title}
-                  </Link>
-                ) : (
+           
                   <div>
                     <button 
                       onClick={() => setExpandedMenu(expandedMenu === menu.title ? null : menu.title)}
@@ -187,7 +179,7 @@ const NavBar = () => {
                       </div>
                     )}
                   </div>
-                )}
+           
               </div>
             ))}
             
