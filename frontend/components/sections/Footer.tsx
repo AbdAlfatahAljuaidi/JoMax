@@ -25,13 +25,13 @@ export default function Footer() {
 
   const content = {
     description: isAr 
-      ? "بناء أنظمة بنية تحتية ذكية تدعم المؤسسات الحديثة في جميع أنحاء المنطقة."
-      : "Building intelligent infrastructure systems that power modern enterprises across the region.",
-    solutionsTitle: isAr ? "الحلول" : "SOLUTIONS",
+      ? "جوماكس سوفت تقدم تحول رقمي منظم في الشرق الأوسط مع ملكية واضحة ونتائج قابلة للقياس عبر التسليم، التغيير، البيانات، والأداء."
+      : "JoMax Soft delivers structured digital transformation in the Middle East with clear ownership and measurable results across delivery, change, data, and performance.",
+    solutionsTitle: isAr ? "خدمات" : "Services",
     solutions: isAr 
-      ? ["البنية التحتية", "الأمن السيبراني", "أنظمة السحاب", "أنظمة ERP"]
-      : ["Infrastructure", "Cyber Security", "Cloud Systems", "Enterprise ERP"],
-    companyTitle: isAr ? "الشركة" : "COMPANY",
+      ? ["التحول الرقمي وتطوير الويب", "تنفيذ وحوكمة أنظمة ERP", "البيانات والتحليلات وذكاء القرار", "إدارة التغيير والتنظيم المؤسسي ", "ضمان الجودة وإدارة الأداء"]
+      : ["Digital Transformation & Web Development", "ERP Implementation & Governance", "Data, Analytics & Decision Intelligence", "Organizational & Change Management ", "Quality Assurance & Performance Management"],
+    companyTitle: isAr ? "روابط سريعة" : "Qiuck Links",
     company: isAr 
       ? ["من نحن", "المشاريع", "الوظائف", "الشركاء"]
       : ["About", "Projects", "Careers", "Partners"],
@@ -90,19 +90,22 @@ export default function Footer() {
           </div>
 
           {/* NAV LINKS */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-12">
-            <div>
-              <h4 className="text-xs tracking-[0.4em] text-cyan-400 mb-6">{content.solutionsTitle}</h4>
-              <ul className="space-y-4 text-white/60">
-                {content.solutions.map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="hover:text-cyan-300 transition">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="lg:col-span-5 grid grid-cols-3 gap-12">
+  <div className="col-span-2">
+    <h4 className="text-xs tracking-[0.4em] text-cyan-400 mb-6">
+      {content.solutionsTitle}
+    </h4>
+
+    <ul className="space-y-4 text-white/60">
+      {content.solutions.map((item) => (
+        <li key={item}>
+          <Link href="#" className="hover:text-cyan-300 transition">
+            {item}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
 
             <div>
               <h4 className="text-xs tracking-[0.4em] text-brand-green mb-6">{content.companyTitle}</h4>

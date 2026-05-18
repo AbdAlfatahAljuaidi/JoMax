@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Cloud, ShieldCheck, Database, Server, Laptop, Activity, Cpu, Gauge, Radio } from 'lucide-react';
+import { Globe, Cloud, ShieldCheck, Database, Server, Activity, Cpu, Gauge, Radio } from 'lucide-react';
 
 export default function ServicesOrbit() {
   const [lang, setLang] = useState('en');
@@ -29,11 +29,6 @@ export default function ServicesOrbit() {
       title: isAr ? 'التحول الرقمي وتطوير الويب' : 'Digital Transformation & Web Development', 
       icon: Globe, 
       desc: isAr ? 'إعادة تصميم العمليات ورقمة تدفق العمل • تطوير منصات الويب والأتمتة • حلول مخصصة مبنية حول متمتطلبات عملك' : 'Process redesign & workflow digitization • Web platform development & automation • Customized solutions built around your business requirements' 
-    },
-    { 
-      title: isAr ? 'برمجة المواقع و انظمة' : 'Web & E-Commerce Development', 
-      icon: Laptop, 
-      desc: isAr ? 'تطوير مواقع تعريفية متميزة • بناء انطمة متكاملة وقابلة للتوسع • تجربة مستخدم سلسة وتصاميم متجاوبة بالكامل' : 'Developing premium corporate websites • Building integrated, scalable e-commerce platforms • Seamless UX and fully responsive designs' 
     },
     { 
       title: isAr ? 'تنفيذ وحوكمة أنظمة ERP' : 'ERP Implementation & Governance', 
@@ -85,21 +80,21 @@ export default function ServicesOrbit() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 md:mb-32 w-full">
           <StatCard icon={Activity} label={isAr ? "حمل النظام" : "System Load"} value="75%" color="text-cyan-400" isAr={isAr} />
-          <StatCard icon={Cpu} label={isAr ? "النقاط النشطة" : "Nodes Active"} value="6/6" color="text-emerald-400" isAr={isAr} />
+          <StatCard icon={Cpu} label={isAr ? "النقاط النشطة" : "Nodes Active"} value="5/5" color="text-emerald-400" isAr={isAr} />
           <StatCard icon={Gauge} label={isAr ? "معدل المزامنة" : "Sync Rate"} value="24ms" color="text-purple-400" isAr={isAr} />
           <StatCard icon={Radio} label={isAr ? "وقت التشغيل" : "Uptime"} value="99.9%" color="text-amber-400" isAr={isAr} />
         </div>
 
-        {/* ORBIT SYSTEM */}
-        <div className="hidden lg:flex relative w-[850px] h-[850px] items-center justify-center">
+        {/* ORBIT SYSTEM - التعديل هنا لتضييق المسافات والتقريب للمركز */}
+        <div className="hidden lg:flex relative w-[650px] h-[650px] items-center justify-center">
           {/* Visual Orbit Rings */}
-          <div className="absolute w-[450px] h-[450px] rounded-full border border-white/5" />
-          <div className="absolute w-[760px] h-[760px] rounded-full border border-cyan-500/10" />
+          <div className="absolute w-[320px] h-[320px] rounded-full border border-white/5" />
+          <div className="absolute w-[560px] h-[560px] rounded-full border border-cyan-500/10" />
 
           {/* Core */}
-          <div className="w-48 h-48 rounded-full bg-slate-900 border border-cyan-500/30 flex flex-col items-center justify-center shadow-[0_0_80px_rgba(6,182,212,0.2)] z-20">
-            <h3 className="text-4xl font-black tracking-tighter">{isAr ? "النواة" : "CORE"}</h3>
-            <span className="text-cyan-500 text-xs tracking-widest mt-1 uppercase font-bold">{isAr ? "المنظومة" : "SYSTEM"}</span>
+          <div className="w-44 h-44 rounded-full bg-slate-900 border border-cyan-500/30 flex flex-col items-center justify-center shadow-[0_0_60px_rgba(6,182,212,0.15)] z-20">
+            <h3 className="text-3xl font-black tracking-tighter">{isAr ? "النواة" : "CORE"}</h3>
+            <span className="text-cyan-500 text-[10px] tracking-widest mt-1 uppercase font-bold">{isAr ? "المنظومة" : "SYSTEM"}</span>
           </div>
 
           <motion.div
@@ -108,9 +103,10 @@ export default function ServicesOrbit() {
             className="absolute inset-0"
           >
             {services.map((item, i) => {
-              // تم تعديل الحسبة لـ 6 خدمات (360 / 6 = 60 درجة) لضمان توزيع متناسق ومتباعد
-              const angle = (i * 60) * (Math.PI / 180);
-              const radius = 380; 
+              // توزيع الزوايا بناءً على 5 خدمات (360 / 5 = 72 درجة)
+              const angle = (i * 72) * (Math.PI / 180);
+              // تقليل القطر من 380 إلى 280 ليقتربوا من بعضهم
+              const radius = 280; 
               const x = Math.cos(angle) * radius;
               const y = Math.sin(angle) * radius;
 
@@ -119,11 +115,11 @@ export default function ServicesOrbit() {
                   <motion.div 
                     animate={{ rotate: -360 }}
                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    className={`w-72 p-5 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl hover:border-cyan-500/50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}
+                    className={`w-64 p-4 bg-slate-900/95 backdrop-blur-md border border-white/10 rounded-xl hover:border-cyan-500/50 transition-colors ${isAr ? 'text-right' : 'text-left'}`}
                   >
-                    <item.icon className="text-cyan-400 mb-2" size={24} />
-                    <h4 className="font-bold text-lg leading-snug">{item.title}</h4>
-                    <p className="text-xs text-white/50 leading-relaxed mt-2">{item.desc}</p>
+                    <item.icon className="text-cyan-400 mb-2" size={20} />
+                    <h4 className="font-bold text-base leading-snug">{item.title}</h4>
+                    <p className="text-[11px] text-white/50 leading-relaxed mt-1.5">{item.desc}</p>
                   </motion.div>
                 </div>
               )

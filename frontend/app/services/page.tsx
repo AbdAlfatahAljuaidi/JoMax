@@ -32,11 +32,6 @@ const services = [
     text: isAr ? 'إعادة تصميم العمليات ورقمة تدفق العمل • تطوير منصات الويب والأتمتة • حلول مخصصة مبنية حول متطلبات عملك.' : 'Process redesign & workflow digitization • Web platform development & automation • Customized solutions built around your business requirements.' 
   },
   { 
-    icon: <Laptop size={32}/>, 
-    title: isAr ? 'برمجة المواقع والمتاجر الإلكترونية' : 'Web & E-Commerce Development', 
-    text: isAr ? 'تطوير مواقع تعريفية متميزة للشركات • بناء متاجر إلكترونية متكاملة وقابلة للتوسع • تجربة مستخدم سلسة وتصاميم متجاوبة بالكامل.' : 'Developing premium corporate websites • Building integrated, scalable e-commerce platforms • Seamless UX and fully responsive designs.' 
-  },
-  { 
     icon: <Cloud size={32}/>, 
     title: isAr ? 'تنفيذ وحوكمة أنظمة ERP' : 'ERP Implementation & Governance', 
     text: isAr ? 'نموذج حوكمة نشر وإطلاق أنظمة ERP • مكتب إدارة المشاريع (PMO) كخدمة لدورة حياة ERP • جاهزية الإطلاق الحي وتنفيذ خارطة الطريق.' : 'ERP deployment and rollout governance model • Project Management Office (PMO) as a service for ERP lifecycles • go-live readiness & roadmap execution.' 
