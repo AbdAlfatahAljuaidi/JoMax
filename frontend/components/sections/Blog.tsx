@@ -54,7 +54,7 @@ export default function BlogSection() {
   };
 
   return (
-    <section className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white py-24 md:py-32" dir={isAr ? "rtl" : "ltr"}>
+    <section className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white py-15" dir={isAr ? "rtl" : "ltr"}>
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         
         {/* القسم الرئيسي */}

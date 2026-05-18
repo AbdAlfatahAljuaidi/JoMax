@@ -59,7 +59,7 @@ export default function ServicesOrbit() {
 
   return (
     <section 
-      className="relative py-20 md:py-40 bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white overflow-hidden"
+      className="relative py-5 md:py-15 bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white overflow-hidden"
       dir={isAr ? "rtl" : "ltr"}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">

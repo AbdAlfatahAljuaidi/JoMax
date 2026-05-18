@@ -42,7 +42,7 @@ const NavBar = () => {
 
   const menuItems = [
     { title: lang === 'ar' ? "من نحن" : "About Us", links: ["About", "Partners"] },
-    { title: lang === 'ar' ? "المنتجات" : "Products", link: "/" },
+    // { title: lang === 'ar' ? "المنتجات" : "Products", link: "/" },
     { title: lang === 'ar' ? "خدماتنا" : "Our Services", links: ["Services", "Projects", "Solutions"] },
     { title: lang === 'ar' ? "أعمالنا" : "Portfolio", links: ["Clients", "Certification"] }
   ];

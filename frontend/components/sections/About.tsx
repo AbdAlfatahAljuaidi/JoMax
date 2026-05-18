@@ -40,7 +40,7 @@ export default function JomaxPortalWithImage() {
   };
 
   return (
-    <section className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] py-24 px-6 min-h-screen flex items-center justify-center relative overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
+    <section className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] py-15 px-6 min-h-screen flex items-center justify-center relative overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       
       {/* عناصر خلفية عائمة */}
       <div className={`absolute w-[600px] h-[600px] bg-[#00E6CC]/10 rounded-full blur-[150px] -top-20 ${isAr ? '-left-20' : '-right-20'}`} />

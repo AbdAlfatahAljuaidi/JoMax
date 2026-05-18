@@ -64,7 +64,7 @@ const JomaxStackedSection = () => {
   ];
 
   return (
-    <section className="bg-slate-900 pt-20 px-4 md:px-10 lg:px-20" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="bg-slate-900  px-4 md:px-10 lg:px-20" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="container mx-auto">
         
         {/* Header Section */}
