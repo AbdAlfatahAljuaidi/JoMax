@@ -75,7 +75,7 @@ export default function BrutalistAboutUpdated() {
       <main className="relative">
 
         {/* --- HERO --- */}
-        <section className="relative h-[90vh] flex flex-col justify-end px-6 md:px-16 pb-20 overflow-hidden">
+        <section className="relative md:h-[90vh] pt-36 flex flex-col justify-end px-6 md:px-16 pb-20 overflow-hidden">
           <div className="relative z-10">
             <motion.div
               initial={{ x: isAr ? 100 : -100, opacity: 0 }}
@@ -88,7 +88,7 @@ export default function BrutalistAboutUpdated() {
               </span>
             </motion.div>
 
-            <h1 className={`text-[12vw] md:text-[11vw] font-black leading-[0.8] ${isAr ? 'tracking-normal' : 'tracking-[-0.05em]'} mb-10`}>
+            <h1 className={`text-[9vw] font-black leading-[0.8] ${isAr ? 'tracking-normal' : 'tracking-[-0.05em]'} mb-10`}>
               {isAr ? "هيمنة" : "ENGINEERING"} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
                 {isAr ? "هندسية." : "DOMINANCE."}
@@ -150,7 +150,7 @@ export default function BrutalistAboutUpdated() {
         </section>
 
         {/* --- PROCESS --- */}
-        <section className="relative h-screen px-4 md:px-10 mb-40">
+        <section className="relative h-screen px-4 md:px-10 mb-12">
           <motion.div
             initial={{ clipPath: "inset(20% 0 20% 0)" }}
             whileInView={{ clipPath: "inset(0% 0 0% 0)" }}
@@ -163,7 +163,7 @@ export default function BrutalistAboutUpdated() {
             />
 
             <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20">
-              <h2 className={`text-7xl md:text-[9vw] font-black italic mb-20 ${isAr ? 'leading-tight' : ''}`}>
+              <h2 className={`text-8xl  font-black italic mb-20 ${isAr ? 'leading-tight' : ''}`}>
                 {isAr ? "آلية العمل." : "THE PROCESS."}
               </h2>
 
@@ -181,7 +181,7 @@ export default function BrutalistAboutUpdated() {
         </section>
 
         {/* --- CTA --- */}
-        <section className="relative py-52 flex flex-col items-center overflow-hidden">
+        <section className="relative py-12 flex flex-col items-center overflow-hidden">
           <div className="absolute w-[600px] h-[600px] bg-cyan-500/20 blur-[150px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           <motion.div
             animate={{ rotate: 360 }}
@@ -190,7 +190,7 @@ export default function BrutalistAboutUpdated() {
             <Zap className="text-cyan-400 mb-10" size={70} />
           </motion.div>
 
-          <h2 className={`text-6xl md:text-[8vw] font-black text-center mb-12 leading-[0.85] ${isAr ? 'tracking-normal' : ''}`}>
+          <h2 className={`text-5xl  font-black text-center mb-12 leading-[0.85] ${isAr ? 'tracking-normal' : ''}`}>
             {isAr ? "جاهز" : "READY TO"} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 italic">
               {isAr ? "للتفعيل؟" : "ACTIVATE?"}

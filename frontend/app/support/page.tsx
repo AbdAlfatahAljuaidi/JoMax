@@ -47,11 +47,15 @@ const SupportPage = () => {
   ];
 
   return (
-    <div className={`min-h-screen bg-slate-900 text-white selection:bg-brand-green/30 selection:text-white ${isAr ? 'font-sans' : 'uppercase tracking-tighter'}`} dir={isAr ? "rtl" : "ltr"}>
+    // تأمين الحاوية الرئيسية للموقع بـ w-full و overflow-x-hidden
+    <div className={`min-h-screen bg-slate-900 text-white selection:bg-brand-green/30 selection:text-white w-full overflow-x-hidden ${isAr ? 'font-sans' : 'uppercase tracking-tighter'}`} dir={isAr ? "rtl" : "ltr"}>
       <NavBar />
 
-      <main className="pt-44 pb-24 px-6 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-main/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* إضافة overflow-hidden و w-full هنا لقص تمدد الـ blur الخلفي نهائياً */}
+      <main className="pt-44 pb-24 px-6 relative w-full overflow-hidden">
+        
+        {/* التوهج الخلفي - أصبح آمناً الآن ولن يتسبب في أي تمزق أفقي */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[400px] bg-brand-main/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -72,7 +76,7 @@ const SupportPage = () => {
               </span>
             </div>
 
-            <h1 className={`text-6xl md:text-8xl font-black text-white leading-[0.9] ${isAr ? 'tracking-normal' : 'tracking-tighter'}`}>
+            <h1 className={`text-5xl md:text-8xl font-black text-white leading-[0.9] ${isAr ? 'tracking-normal' : 'tracking-tighter'}`}>
               {isAr ? "مركز دعم" : "Jomax"} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-main via-brand-green to-brand-main italic">
                 {isAr ? "جومكس الفني." : "Support Center."}
@@ -87,7 +91,7 @@ const SupportPage = () => {
           </motion.div>
 
           {/* --- Support Cards --- */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
             {supportCategories.map((item, index) => (
               <motion.div
                 key={index}
@@ -117,11 +121,11 @@ const SupportPage = () => {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-slate-800/30 rounded-[3.5rem] border border-slate-700/50 p-12 md:p-20 relative overflow-hidden"
+            className="bg-slate-800/30 rounded-[3.5rem] border border-slate-700/50 p-6 md:p-12 lg:p-20 relative overflow-hidden"
           >
-            <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className={`space-y-8 ${isAr ? 'text-right' : 'text-left'}`}>
-                <h2 className="text-5xl font-black tracking-tighter uppercase italic text-brand-green">
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic text-brand-green">
                     {isAr ? "طلب مباشر." : "Direct Request."}
                 </h2>
                 <p className="text-slate-400 text-lg leading-relaxed normal-case">
@@ -138,7 +142,7 @@ const SupportPage = () => {
                 </div>
               </div>
 
-              <form className="bg-slate-900/80 p-10 rounded-[2.5rem] border border-white/5 space-y-8 backdrop-blur-xl shadow-2xl">
+              <form className="bg-slate-900/80 p-6 md:p-10 rounded-[2.5rem] border border-white/5 space-y-6 md:space-y-8 backdrop-blur-xl shadow-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input
                     type="text"

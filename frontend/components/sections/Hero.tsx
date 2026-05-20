@@ -89,7 +89,7 @@ export default function Home() {
   const CurrentIcon = sliderData[currentSlide].icon;
 
   return (
-    <div className="relative pt-28 w-full h-screen bg-black overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
+    <div className="relative md:pt-28 pt-10 w-full h-screen bg-black overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       
       {/* 1. Static Background Video - يظل ثابتاً ولا يتأثر بتغيير السلايد */}
       <div className="absolute inset-0 z-0">

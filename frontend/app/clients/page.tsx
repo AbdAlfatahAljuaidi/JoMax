@@ -76,8 +76,8 @@ const ClientsPage = () => {
       <NavBar />
 
       {/* 🔥 HERO */}
-      <section className="h-screen flex items-center justify-center text-center px-6">
-        <h1 className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase">
+      <section className="mt-36 flex items-center justify-center text-center px-6">
+        <h1 className="text-[7vw]  font-black leading-[0.85] tracking-tighter uppercase">
           {isAr ? "ثقة" : "TRUST"} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 italic">
             {isAr ? "عبر الخبرة" : "EXPERIENCE"}
