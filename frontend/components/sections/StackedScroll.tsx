@@ -40,7 +40,7 @@ const JomaxStackedSection = () => {
       title: isAr ? 'ربط الأنظمة المحاسبية' : 'ERP System Integration',
       desc: isAr 
         ? 'تكامل سلس ومباشر يربط نظامك الحالي بمنصة زاتكا لضمان تدفق البيانات تلقائياً دون تدخل بشري.' 
-        : 'Seamless integration linking your current system to ZATKA to ensure automated data flow.',
+        : 'Seamless integration linking your current system to ZATCA to ensure automated data flow.',
       image: '/images/stats.png', // صورة واحدة واضحة جداً
       color: 'text-cyan-400',
       glow: 'from-cyan-500/20',

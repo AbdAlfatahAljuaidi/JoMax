@@ -60,7 +60,7 @@ const WorkflowSection = () => {
     titleSub: isAr ? "امتثالك الضريبي." : "your compliance.",
     gatewayStatus: isAr ? "حالة البوابة: نشطة" : "Gateway Status: Active",
     linkedTitle: isAr ? "مرتبط بسلاسة مع" : "Seamlessly Linked to",
-    linkedBrand: isAr ? "فاتورة زاتكا" : "ZATKA Fatoora",
+    linkedBrand: isAr ? "فاتورة زاتكا" : "ZATCA Fatoora",
     linkedDesc: isAr ? "تكامل آلي لحظي. يتم فحص وتوقيع كل فاتورة في أجزاء من الثانية دون تدخل بشري." : "Automated real-time integration. Every invoice is validated and signed in milliseconds with zero human intervention.",
     connectBtn: isAr ? "اتصل الآن" : "Connect Now",
     certified: isAr ? "معتمد v2.1" : "Certified v2.1"

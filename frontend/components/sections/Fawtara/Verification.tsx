@@ -27,7 +27,7 @@ const ComplianceSection = () => {
     titleSub: isAr ? "ربط قانوني متكامل" : "Legal Integration",
     node1Title: isAr ? "نظام جوماكس" : "Jomax System",
     node1Desc: isAr ? "معالجة آلية للبيانات وتوليد ملفات XML معيار UBL 2.1." : "Automated data processing and XML UBL 2.1 generation.",
-    node2Title: isAr ? "بوابة زاتكا" : "ZATKA Portal",
+    node2Title: isAr ? "بوابة زاتكا" : "ZATCA Portal",
     node2Desc: isAr ? "البوابة الحكومية الرسمية لاعتماد التقارير والفواتير." : "Official government clearance and reporting gateway.",
     liveSync: isAr ? "مزامنة مباشرة" : "Live Sync",
     protocol: isAr ? "بروتوكول المرحلة 2" : "Phase 2 Protocol",
@@ -35,7 +35,7 @@ const ComplianceSection = () => {
     certSub: isAr ? "مرحلة الربط والتكامل" : "Clearance & Integration Phase",
     certQuote: isAr 
       ? "تم تصميم جوماكس سوفت خصيصاً لتلبية المتطلبات التقنية للمرحلة الثانية، والتي تفرض الربط المباشر واللحظي مع منصة زاتكا."
-      : "Jomax Soft is specifically engineered to meet Phase 2 technical requirements, mandating direct real-time integration with the ZATKA platform.",
+      : "Jomax Soft is specifically engineered to meet Phase 2 technical requirements, mandating direct real-time integration with the ZATCA platform.",
     feat1Title: isAr ? "اعتماد API مباشر" : "Direct API Clearance",
     feat1Desc: isAr ? "تحقق فوري من بوابة فاتورة." : "Instant validation from Fatoora portal.",
     feat2Title: isAr ? "إدارة الهوية الرقمية" : "Digital Identity Management",

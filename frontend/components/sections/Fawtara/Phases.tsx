@@ -27,7 +27,7 @@ const PhasesSection = () => {
     titleSub: isAr ? "لكل خطوة" : "For Every Step",
     headerDesc: isAr 
       ? "متوافقون تماماً مع متطلبات (زاتكا) لمرحلتي الإصدار والربط."
-      : "Fully compliant with ZATKA requirements for both Generation and Integration phases.",
+      : "Fully compliant with ZATCA requirements for both Generation and Integration phases.",
     
     phase1Tag: isAr ? "المتطلبات الأولية" : "Initial Requirement",
     phase1Title: isAr ? "المرحلة الأولى: الإصدار" : "Phase One: Generation",
@@ -39,7 +39,7 @@ const PhasesSection = () => {
     phase2Title: isAr ? "المرحلة الثانية: الربط" : "Phase Two: Integration",
     phase2Desc: isAr 
       ? "مزامنة آلية فورية مع أنظمة زاتكا عبر" 
-      : "Automated real-time synchronization with ZATKA systems via",
+      : "Automated real-time synchronization with ZATCA systems via",
     phase2Features: isAr
       ? ["ربط مباشر عبر API", "تصفية الفواتير", "تقارير فورية", "إدارة شهادات CSID", "معيار UBL 2.1", "تقارير مبسطة"]
       : ["Direct API Integration", "Invoice Clearance", "Real-time Reporting", "CSID Management", "UBL 2.1 Standard", "Simplified Reporting"],
@@ -127,7 +127,7 @@ const PhasesSection = () => {
                </h3>
                
                <p className="text-slate-400 text-xl mb-10 leading-relaxed">
-                  {content.phase2Desc} <span className="text-white font-bold border-b-2 border-cyan-500">ZATKA Systems</span>. 
+                  {content.phase2Desc} <span className="text-white font-bold border-b-2 border-cyan-500">ZATCA Systems</span>. 
                   نضمن لك توافقاً كاملاً مع متطلبات الربط التقني للمرحلة الثانية.
                </p>
 

@@ -26,10 +26,10 @@ const StrategicPartnerSection = () => {
   const partnerContent = {
     tag: isAr ? "شراكة استراتيجية" : "STRATEGIC PARTNERSHIP",
     title: isAr ? "قوة Jomax بدعم من" : "Jomax Powered by",
-    partnerName: "ZATKA / Global Partner",
+    partnerName: "ZATCA / Global Partner",
     desc: isAr 
       ? "تكاملنا العميق مع زاتكا يضمن لك استقراراً بنسبة 99.9% في عمليات الفوترة الإلكترونية، مع بنية تحتية سحابية هي الأقوى عالمياً."
-      : "Our deep integration with ZATKA guarantees 99.9% stability in e-invoicing operations, backed by the world's strongest cloud infrastructure.",
+      : "Our deep integration with ZATCA guarantees 99.9% stability in e-invoicing operations, backed by the world's strongest cloud infrastructure.",
     stats: [
       { label: isAr ? "وقت الاستجابة" : "Latency", value: "< 200ms" },
       { label: isAr ? "الأمان" : "Security", value: "AES-256" },

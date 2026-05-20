@@ -32,7 +32,7 @@ const SolutionsSection = () => {
       icon: <FileText size={22} /> 
     },
     { 
-      title: isAr ? "مزامنة API زاتكا" : "ZATKA API Sync", 
+      title: isAr ? "مزامنة API زاتكا" : "ZATCA API Sync", 
       desc: isAr ? "ربط مباشر مع بوابة فاتورة للتحقق الفوري من البيانات." : "Direct integration with the Fatoora portal for real-time validation.", 
       icon: <Zap size={22} /> 
     },
@@ -74,7 +74,7 @@ const SolutionsSection = () => {
     titleSub: isAr ? "للنمو الرقمي." : "For Digital Growth.",
     desc: isAr 
       ? "بنية تحتية معتمدة من زاتكا مصممة لمعالجة أحجام كبيرة من البيانات مع امتثال قانوني بنسبة 100%."
-      : "ZATKA-certified infrastructure designed for high-volume processing and 100% legal compliance.",
+      : "ZATCA-certified infrastructure designed for high-volume processing and 100% legal compliance.",
     status: isAr ? "محرك النظام نشط" : "System Engine Active"
   };
 

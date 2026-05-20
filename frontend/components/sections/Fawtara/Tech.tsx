@@ -27,13 +27,13 @@ const TechAndCtaSection = () => {
     { name: "SAP Integration", cat: isAr ? "أنظمة ERP" : "ERP" },
     { name: "Oracle ERP", cat: isAr ? "أنظمة ERP" : "ERP" },
     { name: "Odoo", cat: isAr ? "أنظمة ERP" : "ERP" },
-    { name: "ZATKA APIs", cat: isAr ? "الربط" : "Integration" },
+    { name: "ZATCA APIs", cat: isAr ? "الربط" : "Integration" },
     { name: "UBL 2.1 XML", cat: isAr ? "المعايير" : "Standard" },
     { name: "REST API", cat: isAr ? "تطوير" : "Dev" },
     { name: "SHA-256", cat: isAr ? "الأمن" : "Security" },
     { name: "PKI / CSID", cat: isAr ? "الهوية" : "Identity" },
     { name: "Cloud Hosting", cat: isAr ? "البنية" : "Infra" },
-    { name: "QR Code TLV", cat: isAr ? "زاتكا" : "ZATKA" }
+    { name: "QR Code TLV", cat: isAr ? "زاتكا" : "ZATCA" }
   ];
 
   const content = {
