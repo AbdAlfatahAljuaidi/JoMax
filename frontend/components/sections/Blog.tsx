@@ -50,71 +50,99 @@ export default function BlogSection() {
 
   const content = {
     selectLabel: isAr ? "اختر الرؤية" : "Select Insight",
-    readMore: isAr ? "قراءة_القصة_كاملة" : "READ_FULL_STORY"
+    readMore: isAr ? "قراءة القصة كاملة" : "READ FULL STORY"
   };
 
   return (
-    <section className="bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-white py-15" dir={isAr ? "rtl" : "ltr"}>
-      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        
-        {/* القسم الرئيسي */}
-        <div className="grid md:grid-cols-5 gap-12 md:gap-20 items-start">
+    <section className="bg-slate-900  text-white py-20 relative overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
+      
+      {/* خط ديكوري علوي ناعم */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid md:grid-cols-5 gap-12 md:gap-16 items-center">
           
-          {/* الجانب الأيسر: قائمة التحكم */}
-          <div className="md:col-span-2 space-y-2">
-            <h4 className={`text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-10 italic ${isAr ? 'text-right' : 'text-left'}`}>
+          {/* الجانب الأيسر: قائمة التحكم الذكية */}
+          <div className="md:col-span-2 space-y-3">
+            <h4 className="text-[11px] uppercase tracking-[0.3em] text-cyan-500/70 font-mono mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
               {content.selectLabel}
             </h4>
-            {posts.map((post, i) => (
-              <button
-                key={post.id}
-                onClick={() => setActive(i)}
-                className={`w-full text-right py-6 border-b border-white/5 transition-all duration-300 group flex items-baseline gap-6 ${active === i ? 'text-white' : 'text-zinc-600 hover:text-zinc-300'}`}
-              >
-                <span className={`font-mono text-lg transition-transform duration-300 ${active === i ? 'translate-x-0' : (isAr ? 'translate-x-2' : '-translate-x-2')}`}>
-                  {post.id}
-                </span>
-                <span className={`text-xl md:text-2xl font-bold tracking-tight leading-snug ${isAr ? 'text-right' : 'text-left'}`}>
-                  {post.title}
-                </span>
-              </button>
-            ))}
+            
+            <div className="space-y-1 relative">
+              {posts.map((post, i) => {
+                const isSelected = active === i;
+                return (
+                  <button
+                    key={post.id}
+                    onClick={() => setActive(i)}
+                    className={`w-full relative py-5 px-4 rounded-xl transition-colors duration-300 group flex items-center gap-6 ${isSelected ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
+                  >
+                    {/* خلفية متحركة ذكية عند التحديد */}
+                    {isSelected && (
+                      <motion.div 
+                        layoutId="activeGlow"
+                        className="absolute inset-0 bg-slate-900 border border-white/10 rounded-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+
+                    <span className={`font-mono text-sm relative z-10 transition-transform duration-300 ${isSelected ? 'text-cyan-400 font-bold' : 'group-hover:scale-105'}`}>
+                      {post.id}
+                    </span>
+                    
+                    <span className="text-lg md:text-xl font-medium tracking-tight relative z-10 transition-transform duration-300">
+                      {post.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* الجانب الأيمن: شاشة العرض */}
-          <div className="md:col-span-3 min-h-[450px] bg-zinc-900/30 border border-white/5 p-8 md:p-12 relative overflow-hidden flex flex-col justify-center">
+          {/* الجانب الأيمن: شاشة العرض السينمائية */}
+          <div className="md:col-span-3 min-h-[460px] bg-gradient-to-b from-zinc-900/40 to-zinc-950/60 border border-white/10 rounded-2xl p-8 md:p-14 relative overflow-hidden flex flex-col justify-between shadow-2xl backdrop-blur-sm">
+            
+            {/* توهج زاوية البطاقة الداخلي */}
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={{ opacity: 0, y: 10, x: isAr ? 20 : -20 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                exit={{ opacity: 0, y: -10, x: isAr ? -20 : 20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className={`space-y-8 ${isAr ? 'text-right' : 'text-left'}`}
+                initial={{ opacity: 0, x: isAr ? 30 : -30, filter: "blur(4px)" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, x: isAr ? -30 : 30, filter: "blur(4px)" }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="space-y-6 my-auto relative z-10"
               >
-                <div className={`flex items-center gap-4 ${isAr ? 'flex-row-reverse justify-end' : ''}`}>
-                    <span className="text-cyan-400 font-mono text-xs tracking-widest uppercase">
+                {/* التصنيف */}
+                <div className="flex items-center gap-3">
+                    <span className="text-cyan-400 font-mono text-xs tracking-widest uppercase bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
                         {posts[active].category}
                     </span>
-                    <div className="h-[1px] w-12 bg-cyan-400/30" />
+                    <div className="h-[1px] flex-1 bg-gradient-to-r from-cyan-500/30 to-transparent" />
                 </div>
                 
-                <h2 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tighter">
+                {/* العنوان الرئيسي */}
+                <h2 className="text-3xl md:text-5xl font-bold leading-[1.15] tracking-tight text-zinc-100">
                   {posts[active].title}
                 </h2>
                 
-                <p className={`text-zinc-400 text-lg md:text-xl leading-relaxed max-w-md ${isAr ? 'mr-0 ml-auto' : ''}`}>
+                {/* الوصف */}
+                <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl">
                   {posts[active].desc}
                 </p>
-                
+
+                {/* زر قراءة المزيد المضاف حديثاً كعنصر تفاعلي */}
               
               </motion.div>
             </AnimatePresence>
             
-            {/* رقم خلفي مخفي */}
-            <div className={`absolute -bottom-10 ${isAr ? '-left-6' : '-right-6'} text-[150px] md:text-[200px] font-black text-white/5 pointer-events-none select-none`}>
+            {/* الرقم الخلفي الضخم بدقة محسنة */}
+            <div className={`absolute -bottom-12 ${isAr ? '-left-4' : '-right-4'} text-[180px] md:text-[240px] font-black text-white/[0.02] pointer-events-none select-none font-mono leading-none tracking-tighter`}>
               {posts[active].id}
             </div>
+
           </div>
         </div>
       </div>

@@ -29,7 +29,10 @@ const PartnerMarquee = () => {
     { id: 6, logoUrl: '/images/Picture26.png' },
     { id: 7, logoUrl: '/images/invice.jpeg' },
   ];
-  
+
+  // تكرار المصفوفة لضمان تغطية عرض الشاشة الكاملة بدون فراغات أثناء الحركة
+  const triplePartners = [...partners, ...partners, ...partners];
+
   return (
     <section className="w-full py-12 bg-gradient-to-b from-black border-b border-white/20 to-slate-900 overflow-hidden" dir={isAr ? "rtl" : "ltr"}>
       <div className="max-w-7xl mx-auto px-6 mb-12">
@@ -38,31 +41,58 @@ const PartnerMarquee = () => {
         </h4>
       </div>
 
-      <div className="relative flex w-[25%] mx-auto overflow-hidden bg-white/5 backdrop-blur-sm rounded-lg">
+      {/* الحاوية الرئيسية - بعرض الشاشة الكاملة وموقع نسبي للأقنعة */}
+      <div className="relative w-full flex flex-col gap-8 overflow-hidden mix-blend-screen">
         
-        {/* Gradient Masks - تنعيم الحواف عند الدخول والخروج */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
+        {/* Gradient Masks - تنعيم الحواف عند الأطراف بما يتناسب مع لون الخلفية */}
+        <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-black via-slate-950/70 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-black via-slate-950/70 to-transparent z-10 pointer-events-none" />
 
-        <motion.div
-          className="flex gap-24 items-center"
-          // في حال العربية، نعكس مصفوفة الحركة ليبدأ التحرك لليمين
-          animate={{ x: isAr ? ["-50%", "0%"] : ["0%", "-50%"] }}
-          transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-        >
-          {[...partners, ...partners].map((partner, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-48 h-16 flex items-center justify-center transition-all duration-700 "
-            >
-              <img 
-                src={partner.logoUrl} 
-                alt="Partner Logo" 
-                className="max-h-full w-auto object-contain " 
-              />
-            </div>
-          ))}
-        </motion.div>
+        {/* السطر الأول: يتحرك باتجاه (حسب اللغة) */}
+        <div className="flex w-full overflow-hidden">
+          <motion.div
+            className="flex gap-16 md:gap-24 items-center whitespace-nowrap pr-16 md:pr-24"
+            animate={{ x: isAr ? ["-33.33%", "0%"] : ["0%", "-33.33%"] }}
+            transition={{ duration: 35, ease: "linear", repeat: Infinity }}
+          >
+            {triplePartners.map((partner, index) => (
+              <div 
+                key={`row1-${index}`} 
+                className="flex-shrink-0 w-36 h-12 md:w-48 md:h-16 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              >
+                <img 
+                  src={partner.logoUrl} 
+                  alt="Partner Logo" 
+                  className="max-h-full w-auto object-contain" 
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* السطر الثاني: يتحرك بالاتجاه المعاكس تماماً */}
+        <div className="flex w-full overflow-hidden">
+          <motion.div
+            className="flex gap-16 md:gap-24 items-center whitespace-nowrap pr-16 md:pr-24"
+            // عكس قيم الـ x تماماً مقارنة بالسطر الأول ليصبح الاتجاه معاكساً
+            animate={{ x: isAr ? ["0%", "-33.33%"] : ["-33.33%", "0%"] }}
+            transition={{ duration: 40, ease: "linear", repeat: Infinity }} // سرعة مختلفة قليلاً تعطي حيوية للتصميم
+          >
+            {triplePartners.map((partner, index) => (
+              <div 
+                key={`row2-${index}`} 
+                className="flex-shrink-0 w-36 h-12 md:w-48 md:h-16 flex items-center justify-center  transition-all duration-300"
+              >
+                <img 
+                  src={partner.logoUrl} 
+                  alt="Partner Logo" 
+                  className="max-h-full w-auto object-contain" 
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

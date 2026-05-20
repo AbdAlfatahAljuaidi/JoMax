@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Step {
   id: string;
@@ -16,14 +17,21 @@ interface Step {
 
 const JomaxStackedSection = () => {
   const [lang, setLang] = useState('en');
-
-  useEffect(() => {
-    const storedLang = localStorage.getItem('language') || 'en';
-    setLang(storedLang);
-  }, []);
-
-  const isAr = lang === 'ar';
-
+ 
+   useEffect(() => {
+     const storedLang = localStorage.getItem('language') || 'en';
+     setLang(storedLang);
+ 
+     const handleStorageChange = () => {
+       setLang(localStorage.getItem('language') || 'en');
+     };
+ 
+     const interval = setInterval(handleStorageChange, 500);
+     return () => clearInterval(interval);
+   }, []);
+ 
+   const isAr = lang === 'ar';
+ 
   const steps: Step[] = [
     {
       id: 'integration',
@@ -68,9 +76,9 @@ const JomaxStackedSection = () => {
       <div className="container mx-auto">
         
         {/* Header Section */}
-        <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="py-10 flex flex-col md:flex-row justify-between items-end gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-white text-5xl md:text-8xl font-black mb-6 tracking-tighter">
+            <h2 className="text-white text-5xl font-black mb-6 tracking-tighter">
               {isAr ? 'قوة ' : 'The Power of '} 
               <span className="text-cyan-500">Jomax</span>
             </h2>
@@ -90,7 +98,7 @@ const JomaxStackedSection = () => {
               className="sticky w-full"
               style={{ top: `${100 + index * 40}px` }}
             >
-              <div className="relative w-full h-[70vh] md:h-[80vh] bg-[#0d1117] border border-white/5 rounded-[4rem] shadow-2xl overflow-hidden group">
+              <div className="relative md:w-[80%] mx-auto h-[70vh] md:h-[80vh] bg-[#0d1117] border border-white/5 rounded-[4rem] shadow-2xl overflow-hidden group">
                 
                 {/* Full-Width Background Image */}
                 <div className="absolute inset-0 z-0">
@@ -114,7 +122,7 @@ const JomaxStackedSection = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-4xl md:text-7xl font-black text-white mb-8 leading-tight">
+                  <h3 className="text-5xl  font-black text-white mb-8 leading-tight">
                     {step.title}
                   </h3>
                   
@@ -123,9 +131,11 @@ const JomaxStackedSection = () => {
                   </p>
 
                   <div className="mt-12">
+                    <Link href="/Fawtara" >
                     <button className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-bold hover:bg-white hover:text-black transition-all duration-300">
                       {isAr ? 'اكتشف المزيد' : 'Learn More'}
                     </button>
+                    </Link>
                   </div>
                 </div>
 

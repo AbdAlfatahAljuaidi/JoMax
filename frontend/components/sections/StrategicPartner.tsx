@@ -6,14 +6,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const StrategicPartnerSection = () => {
-  const [lang, setLang] = useState('en');
+ const [lang, setLang] = useState('en');
 
   useEffect(() => {
     const storedLang = localStorage.getItem('language') || 'en';
     setLang(storedLang);
+
+    const handleStorageChange = () => {
+      setLang(localStorage.getItem('language') || 'en');
+    };
+
+    const interval = setInterval(handleStorageChange, 500);
+    return () => clearInterval(interval);
   }, []);
 
   const isAr = lang === 'ar';
+
 
   const partnerContent = {
     tag: isAr ? "شراكة استراتيجية" : "STRATEGIC PARTNERSHIP",
@@ -31,10 +39,12 @@ const StrategicPartnerSection = () => {
   };
 
   return (
-    <section className="bg-slate-900 px-4 md:px-10 lg:px-20  relative overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="bg-slate-900 px-4 md:px-10 lg:px-20 pb-10    relative overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
+      <div className='w-[85%] mx-auto'>
+
       
       {/* Background Ambient Glow - Reduced size on mobile */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+      <div className="absolute top-0 left-0  h-full pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-cyan-500/10 blur-[80px] md:blur-[150px] rounded-full" />
         <div className="absolute bottom-1/4 right-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-indigo-500/10 blur-[80px] md:blur-[150px] rounded-full" />
       </div>
@@ -52,9 +62,9 @@ const StrategicPartnerSection = () => {
                 </span>
               </div>
               
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+              <h2 className="text-4xl  font-black text-white leading-tight">
                 {partnerContent.title} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-brand-green">
                   {partnerContent.partnerName}
                 </span>
               </h2>
@@ -105,21 +115,11 @@ const StrategicPartnerSection = () => {
               <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[length:100%_4px,3px_100%]" />
             </div>
 
-            {/* Decorative Floating Card - Responsive behavior */}
-            <div className={` absolute -bottom-6 md:-bottom-10 ${isAr ? '-right-4 md:-right-10' : '-left-4 md:-left-10'} sm:block bg-cyan-500 p-0.5 md:p-1 rounded-[1.5rem] md:rounded-[2rem] rotate-3 hover:rotate-0 transition-transform duration-500 shadow-xl`}>
-                <div className="bg-[#020617] hidden lg:block p-4 md:p-8 rounded-[1.4rem] md:rounded-[1.8rem] flex items-center gap-4 md:gap-6">
-                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500">
-                        <ArrowRight size={20} className={isAr ? 'rotate-180' : ''} />
-                    </div>
-                    <div className=''>
-                        <p className="text-white text-sm md:text-base font-bold leading-none mb-1">{isAr ? "تحقق التوافق" : "Compliance Verified"}</p>
-                        <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">{isAr ? "فحص بنسبة 100%" : "100% Monitored"}</p>
-                    </div>
-                </div>
-            </div>
+          
           </div>
 
         </div>
+      </div>
       </div>
     </section>
   );

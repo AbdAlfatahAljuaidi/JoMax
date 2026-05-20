@@ -125,7 +125,7 @@ export default function Home() {
               </span>
             </div>
             
-            <h1 className="text-5xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[1] max-w-4xl">
+            <h1 className="text-5xl  font-black text-white tracking-tighter mb-8 leading-[1] max-w-4xl">
               {sliderData[currentSlide].title}
             </h1>
             
@@ -146,7 +146,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => router.push('/Fawtara')}
-                className="group relative flex items-center gap-4 bg-white text-black px-10 py-5 mb-10 rounded-2xl font-black uppercase text-sm tracking-widest overflow-hidden transition-all"
+                className="group relative flex items-center gap-4 bg-white text-black px-6 py-4 mb-10 rounded-2xl font-black uppercase text-sm tracking-widest overflow-hidden transition-all"
               >
                 <span className="relative z-10">{isAr ? 'اكتشف المزيد' : 'Learn More'}</span>
                 {isAr ? <ArrowLeft size={20} /> : <ArrowRight size={20} />}
@@ -169,24 +169,6 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* 3. Global Progress Bars */}
-      {/* <div className={`absolute bottom-16 ${isAr ? 'right-24' : 'left-24'} flex gap-3 z-30`}>
-        {sliderData.map((slide, i) => (
-          <div key={i} className="group cursor-pointer py-4" onClick={() => setCurrentSlide(i)}>
-            <div className="h-[3px] w-20 bg-white/10 rounded-full overflow-hidden">
-              <motion.div 
-                initial={{ width: 0 }} 
-                animate={{ width: i === currentSlide ? "100%" : i < currentSlide ? "100%" : "0%" }} 
-                transition={{ 
-                  duration: i === currentSlide ? slide.duration : 0.3, 
-                  ease: i === currentSlide ? "linear" : "easeInOut" 
-                }} 
-                className="h-full bg-brand-green shadow-[0_0_10px_#00ff00]" 
-              />
-            </div>
-          </div>
-        ))}
-      </div> */}
 
       {/* Decorative Scanline effect */}
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%] z-10" />

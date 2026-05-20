@@ -59,7 +59,7 @@ export default function JomaxPortalWithImage() {
           
           <div className="relative z-10 space-y-4">
             <h2 className="text-brand-green text-[10px] uppercase tracking-[0.4em] font-bold">{content.badge}</h2>
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-5xl  font-black tracking-tight text-white leading-tight">
               {content.titleMain}<br /> 
               <span className="text-white/40">{content.titleSub}</span>
             </h1>

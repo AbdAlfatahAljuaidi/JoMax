@@ -69,9 +69,9 @@ export default function ServicesOrbit() {
           <p className="text-cyan-400 tracking-[0.2em] md:tracking-[0.35em] text-xs md:sm mb-4 uppercase font-bold">
             {isAr ? "كوكبة الخدمات" : "Service Constellation"}
           </p>
-          <h2 className="text-4xl md:text-7xl font-bold text-white leading-tight">
+          <h2 className="text-5xl  font-bold text-white leading-tight">
             {isAr ? "أنظمة " : "Enterprise "}
-            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-brand-green">
               {isAr ? "المؤسسات" : "Systems"}
             </span>
           </h2>
