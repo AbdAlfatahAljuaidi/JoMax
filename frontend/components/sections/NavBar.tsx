@@ -1,65 +1,16 @@
 'use client';
 
-import { ChevronDown, Menu, X, Mail, LifeBuoy, ArrowRight, Languages } from 'lucide-react'; // أضفنا Languages icon
+import { ChevronDown, Menu, X, Mail, LifeBuoy, ArrowRight, Languages } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
-  const pathname = usePathname();
-  const isFawtaraPage = pathname === '/Fawtara';
-
-  // --- منطق تغيير اللغة ---
-  const [lang, setLang] = useState<'ar' | 'en'>('en');
-
-  useEffect(() => {
-    // جلب اللغة من الـ localStorage عند تحميل الصفحة فقط (Client-side)
-    const savedLang = localStorage.getItem('language') || 'en';
-    setLang(savedLang);
-    updatePageDirection(savedLang);
-
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const updatePageDirection = (l: string) => {
-    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = l;
-  };
-
-  const toggleLanguage = () => {
-    const newLang = lang === 'en' ? 'ar' : 'en';
-    setLang(newLang);
-    localStorage.setItem('language', newLang);
-    updatePageDirection(newLang);
-  };
-  // -----------------------
-  const menuItems = [
-    { 
-      title: lang === 'ar' ? "من نحن" : "About Us", 
-      links: ["About", "Partners"] 
-    },
-    { 
-      title: lang === 'ar' ? "خدماتنا" : "Our Services", 
-      links: ["Services", "Projects", "Solutions"] 
-    },
-    { 
-      title: lang === 'ar' ? "أعمالنا" : "Portfolio", 
-      links: ["Clients", "Certification"] 
-    }
-  ];
-// Define the interface for the translation object
 interface TranslationEntry {
   ar: string;
   en: string;
 }
 
-// Apply the type to your translations object
 const translations: Record<string, TranslationEntry> = {
   About: { ar: "من نحن", en: "About" },
   Partners: { ar: "الشركاء", en: "Partners" },
@@ -69,6 +20,47 @@ const translations: Record<string, TranslationEntry> = {
   Clients: { ar: "عملائنا", en: "Clients" },
   Certification: { ar: "الشهادات", en: "Certification" },
 };
+
+const NavBar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+  
+  // تهيئة اللغة مباشرة لتجنب الأخطاء
+  const [lang, setLang] = useState<'ar' | 'en'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('language');
+      return (saved === 'ar' || saved === 'en') ? saved : 'en';
+    }
+    return 'en';
+  });
+
+  const pathname = usePathname();
+  const isFawtaraPage = pathname === '/Fawtara';
+
+  const updatePageDirection = (l: 'ar' | 'en') => {
+    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = l;
+  };
+
+  useEffect(() => {
+    updatePageDirection(lang);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lang]);
+
+  const toggleLanguage = () => {
+    const newLang = lang === 'en' ? 'ar' : 'en';
+    setLang(newLang);
+    localStorage.setItem('language', newLang);
+  };
+
+  const menuItems = [
+    { title: lang === 'ar' ? "من نحن" : "About Us", links: ["About", "Partners"] },
+    { title: lang === 'ar' ? "خدماتنا" : "Our Services", links: ["Services", "Projects", "Solutions"] },
+    { title: lang === 'ar' ? "أعمالنا" : "Portfolio", links: ["Clients", "Certification"] }
+  ];
 
   return (
     <nav className="fixed top-0 w-full z-[100] flex justify-center px-4 pt-4">
