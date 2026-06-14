@@ -53,16 +53,22 @@ const NavBar = () => {
       links: ["Clients", "Certification"] 
     }
   ];
+// Define the interface for the translation object
+interface TranslationEntry {
+  ar: string;
+  en: string;
+}
 
-  const translations = {
-    About: { ar: "من نحن", en: "About" },
-    Partners: { ar: "الشركاء", en: "Partners" },
-    Services: { ar: "خدماتنا", en: "Services" },
-    Projects: { ar: "مشاريعنا", en: "Projects" },
-    Solutions: { ar: "الحلول", en: "Solutions" },
-    Clients: { ar: "عملائنا", en: "Clients" },
-    Certification: { ar: "الشهادات", en: "Certification" },
-  };
+// Apply the type to your translations object
+const translations: Record<string, TranslationEntry> = {
+  About: { ar: "من نحن", en: "About" },
+  Partners: { ar: "الشركاء", en: "Partners" },
+  Services: { ar: "خدماتنا", en: "Services" },
+  Projects: { ar: "مشاريعنا", en: "Projects" },
+  Solutions: { ar: "الحلول", en: "Solutions" },
+  Clients: { ar: "عملائنا", en: "Clients" },
+  Certification: { ar: "الشهادات", en: "Certification" },
+};
 
   return (
     <nav className="fixed top-0 w-full z-[100] flex justify-center px-4 pt-4">
