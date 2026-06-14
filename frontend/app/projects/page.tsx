@@ -27,11 +27,11 @@ const ProjectsPage = () => {
 
   const projects = [
     {
-      title: isAr ? "منصة FinEdge البنكية" : "FinEdge Banking Platform",
-      category: isAr ? "Web" : "Web", // التصنيفات التقنية عادة تبقى بالإنجليزية أو تعرب (ويب)
+      title: isAr ? "سولتك - عمان" : "Soltek - Amman",
+      category: isAr ? "تنفيذ ERP" : "ERP", // التصنيفات التقنية عادة تبقى بالإنجليزية أو تعرب (ويب)
       description: isAr 
-        ? "جيل جديد من منصات الصيرفة الرقمية تتعامل مع أكثر من 2 مليون عملية يومياً باستجابة أقل من 100 ملي ثانية."
-        : "A next-generation digital banking platform handling 2M+ daily transactions with sub-100ms latency.",
+        ?"تنفذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
+        : "implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
       tech: ["React", "Node.js", "PostgreSQL"],
       result: isAr ? "2 مليون+ عملية يومية" : "2M+ daily transactions",
       accentColor: "from-blue-500 to-cyan-400",
@@ -40,29 +40,73 @@ const ProjectsPage = () => {
       icon: <Globe size={20} />,
     },
     {
-      title: isAr ? "محرك ذكاء اصطناعي للتجارة" : "NeuralCommerce AI Engine",
-      category: "AI",
+      title: isAr ? "NGN - KSA" : "NGN - KSA",
+      category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
-        ? "محرك توصيات مخصص ونظام تسعير ديناميكي أدى لزيادة معدلات التحويل بنسبة 34% لقطاع التجزئة."
-        : "Custom recommendation engine and dynamic pricing system that increased conversion rates by 34% for retail.",
+        ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
+        : "implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
       tech: ["Python", "TensorFlow", "FastAPI"],
       result: isAr ? "+34% معدل التحويل" : "+34% conversion rate",
-      accentColor: "from-emerald-500 to-cyan-400",
-      glowColor: "group-hover:shadow-emerald-500/20",
-      tagText: "text-emerald-400",
+      accentColor: "from-blue-500 to-cyan-400",
+      glowColor: "group-hover:shadow-blue-500/20",
+      tagText: "text-cyan-400",
       icon: <Cpu size={20} />,
     },
     {
-      title: isAr ? "SecureVault للأمن الصفري" : "SecureVault Zero-Trust",
-      category: "Security",
+      title: isAr ? "Starkar - Iraq" : "Starkar - Iraq",
+      category: isAr ? "تطوير برمجيات مخصصة" : "Software Dev",
       description: isAr 
-        ? "تصميم وتنفيذ بنية تحتية شبكية قائمة على مبدأ الثقة الصفرية لمقاول دفاعي، محققاً معايير NIST."
-        : "Designed and implemented a zero-trust network architecture for a defense contractor achieving NIST compliance.",
+        ? "تطوير مخصص لتأمين المركبات مع التسعير الديناميكي ورقمنة تأمين المركبات"
+        : "  Customize development  for Vehicle insurance with dynamic prices , digitization Vehicle insurance",
       tech: ["Palo Alto", "Okta", "IBM"],
       result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
-      accentColor: "from-orange-500 to-amber-400",
-      glowColor: "group-hover:shadow-orange-500/20",
-      tagText: "text-orange-400",
+      accentColor: "from-blue-500 to-cyan-400",
+      glowColor: "group-hover:shadow-blue-500/20",
+      tagText: "text-cyan-400",
+      icon: <Shield size={20} />,
+    },
+
+    
+    {
+      title: isAr ? "Beautiful cars - KSA" : "Beautiful cars - KSA",
+      category: isAr ? "تكامل ZATCA للفوترة الإلكترونية" : "ZATCA E-Invoice",
+      description: isAr 
+        ? "تطوير مخصص لتأمين المركبات مع التسعير الديناميكي ورقمنة تأمين المركبات"
+        : "  Sales Module integrated implicitly with Zatca",
+      tech: ["Palo Alto", "Okta", "IBM"],
+      result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
+      accentColor: "from-blue-500 to-cyan-400",
+      glowColor: "group-hover:shadow-blue-500/20",
+      tagText: "text-cyan-400",
+      icon: <Shield size={20} />,
+    },
+
+    {
+      title: isAr ? "Yamin  Solation - Jordan" : "Yamin  Solation - Jordan ",
+      category: isAr ? "تنفيذ ERP" : "ERP",
+      description: isAr 
+        ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
+        : "   implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+      tech: ["Palo Alto", "Okta", "IBM"],
+      result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
+      accentColor: "from-blue-500 to-cyan-400",
+      glowColor: "group-hover:shadow-blue-500/20",
+      tagText: "text-cyan-400",
+      icon: <Shield size={20} />,
+    },
+
+    
+    {
+      title: isAr ? "Soltek - KSA " : "Soltek - KSA ",
+      category: isAr ? "تنفيذ ERP" : "ERP",
+      description: isAr 
+        ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
+        : " implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+      tech: ["Palo Alto", "Okta", "IBM"],
+      result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
+      accentColor: "from-blue-500 to-cyan-400",
+      glowColor: "group-hover:shadow-blue-500/20",
+      tagText: "text-cyan-400",
       icon: <Shield size={20} />,
     },
   ];
@@ -75,8 +119,8 @@ const ProjectsPage = () => {
   ];
 
   const tabs = isAr 
-    ? ["الكل", "Web", "AI", "Security", "Cloud"]
-    : ["All", "Web", "AI", "Security", "Cloud"];
+    ? ["الكل", "تنفيذ ERP", "تطوير برمجيات مخصصة", "تكامل ZATCA للفوترة الإلكترونية"]
+   :  ["All", "ERP", "Software Dev", "ZATCA E-Invoice"]
 
   const [activeTab, setActiveTab] = useState("All");
 
@@ -200,7 +244,7 @@ const ProjectsPage = () => {
 
                 <div className="flex justify-between items-start mb-8">
                   <div className={`flex items-center gap-2 ${project.tagText} font-mono text-[10px] uppercase tracking-widest`}>
-                    {project.icon}
+                    {/* {project.icon} */}
                     {project.category}
                   </div>
                   <ArrowUpRight className={`${isAr ? 'rotate-[-90deg]' : ''} text-slate-600 group-hover:text-cyan-400 transition-colors`} size={20} />
@@ -214,7 +258,7 @@ const ProjectsPage = () => {
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
+                {/* <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((t, i) => (
                     <span
                       key={i}
@@ -232,7 +276,7 @@ const ProjectsPage = () => {
                   <span className={`font-bold text-sm italic tracking-tight ${project.tagText}`}>
                     {project.result}
                   </span>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </motion.div>
