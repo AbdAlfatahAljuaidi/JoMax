@@ -28,6 +28,7 @@ const ProjectsPage = () => {
   const projects = [
     {
       title: isAr ? "سولتك - عمان" : "Soltek - Amman",
+      logo:"/images/SOL.png",
       category: isAr ? "تنفيذ ERP" : "ERP", // التصنيفات التقنية عادة تبقى بالإنجليزية أو تعرب (ويب)
       description: isAr 
         ?"تنفذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
@@ -41,6 +42,7 @@ const ProjectsPage = () => {
     },
     {
       title: isAr ? "NGN - KSA" : "NGN - KSA",
+      logo:"/images/NGN.png",
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
@@ -54,6 +56,7 @@ const ProjectsPage = () => {
     },
     {
       title: isAr ? "Starkar - Iraq" : "Starkar - Iraq",
+      logo:"/images/Star.png",
       category: isAr ? "تطوير برمجيات مخصصة" : "Software Dev",
       description: isAr 
         ? "تطوير مخصص لتأمين المركبات مع التسعير الديناميكي ورقمنة تأمين المركبات"
@@ -69,6 +72,7 @@ const ProjectsPage = () => {
     
     {
       title: isAr ? "Beautiful cars - KSA" : "Beautiful cars - KSA",
+      logo:"/images/BC.png",
       category: isAr ? "تكامل ZATCA للفوترة الإلكترونية" : "ZATCA E-Invoice",
       description: isAr 
         ? "تطوير مخصص لتأمين المركبات مع التسعير الديناميكي ورقمنة تأمين المركبات"
@@ -83,6 +87,7 @@ const ProjectsPage = () => {
 
     {
       title: isAr ? "Yamin  Solation - Jordan" : "Yamin  Solation - Jordan ",
+      logo:"/images/Yamin.png",
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
@@ -98,6 +103,7 @@ const ProjectsPage = () => {
     
     {
       title: isAr ? "Soltek - KSA " : "Soltek - KSA ",
+      logo:"/images/SOL.png",
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
@@ -245,38 +251,31 @@ const ProjectsPage = () => {
                 <div className="flex justify-between items-start mb-8">
                   <div className={`flex items-center gap-2 ${project.tagText} font-mono text-[10px] uppercase tracking-widest`}>
                     {/* {project.icon} */}
+                
                     {project.category}
                   </div>
                   <ArrowUpRight className={`${isAr ? 'rotate-[-90deg]' : ''} text-slate-600 group-hover:text-cyan-400 transition-colors`} size={20} />
                 </div>
-
-                <h3 className="text-2xl font-bold text-white tracking-tight mb-4 group-hover:text-cyan-300 transition-colors text-start">
-                  {project.title}
-                </h3>
+                <div className="flex items-center gap-4 mb-4">
+  {project.logo && (
+    <div className="w-20 h-20 bg-white flex items-center justify-center  rounded-2xl p-2 border border-white/5">
+      <img 
+        src={project.logo} 
+        alt={project.title} 
+        className="max-w-full max-h-full object-contain" 
+      />
+    </div>
+  )}
+  <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors text-start">
+    {project.title}
+  </h3>
+</div>
 
                 <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow font-medium text-start">
                   {project.description}
                 </p>
 
-                {/* <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((t, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-white/5 border border-white/5 rounded-lg text-[9px] font-bold text-slate-400 group-hover:text-cyan-200 transition-colors"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
-                      {isAr ? "النتيجة" : "Outcome"}
-                  </span>
-                  <span className={`font-bold text-sm italic tracking-tight ${project.tagText}`}>
-                    {project.result}
-                  </span>
-                </div> */}
+               
               </motion.div>
             ))}
           </motion.div>
