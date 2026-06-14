@@ -28,7 +28,7 @@ const ProjectsPage = () => {
   const projects = [
     {
       title: isAr ? "سولتك - عمان" : "Soltek - Amman",
-      logo:"/images/SOL.png",
+      logo:"/images/Sol.png",
       category: isAr ? "تنفيذ ERP" : "ERP", // التصنيفات التقنية عادة تبقى بالإنجليزية أو تعرب (ويب)
       description: isAr 
         ?"تنفذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
@@ -103,7 +103,7 @@ const ProjectsPage = () => {
     
     {
       title: isAr ? "Soltek - KSA " : "Soltek - KSA ",
-      logo:"/images/SOL.png",
+      logo:"/images/Sol.png",
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
