@@ -14,7 +14,7 @@ const NavBar = () => {
   const isFawtaraPage = pathname === '/Fawtara';
 
   // --- منطق تغيير اللغة ---
-  const [lang, setLang] = useState('en'); // القيمة الافتراضية
+  const [lang, setLang] = useState<'ar' | 'en'>('en');
 
   useEffect(() => {
     // جلب اللغة من الـ localStorage عند تحميل الصفحة فقط (Client-side)
