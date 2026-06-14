@@ -25,14 +25,10 @@ const PartnersPage = () => {
   const isAr = lang === 'ar';
 
   const partners = [
-    { id: 1, logoUrl: "/images/Picture18.png" },
-    { id: 2, logoUrl: "/images/Picture19.png" },
-    { id: 3, logoUrl: "/images/Picture20.png" },
-    { id: 4, logoUrl: "/images/Picture21.png" },
-    { id: 5, logoUrl: "/images/Picture22.png" },
-    { id: 6, logoUrl: "/images/Picture23.png" },
-    { id: 7, logoUrl: "/images/Picture24.png" },
-    { id: 8, logoUrl: "/images/Picture25.jpg" },
+    { id: 1, logoUrl: "/images/Sol.png" },
+    { id: 2, logoUrl: "/images/Star.png" },
+    { id: 3, logoUrl: "/images/BC.png" },
+    { id: 4, logoUrl: "/images/NGN.png" },
   ];
 
   const containerVariants = {

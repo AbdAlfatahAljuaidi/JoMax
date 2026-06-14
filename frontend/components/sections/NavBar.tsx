@@ -39,13 +39,30 @@ const NavBar = () => {
     updatePageDirection(newLang);
   };
   // -----------------------
-
   const menuItems = [
-    { title: lang === 'ar' ? "من نحن" : "About Us", links: ["About", "Partners"] },
-    // { title: lang === 'ar' ? "المنتجات" : "Products", link: "/" },
-    { title: lang === 'ar' ? "خدماتنا" : "Our Services", links: ["Services", "Projects", "Solutions"] },
-    { title: lang === 'ar' ? "أعمالنا" : "Portfolio", links: ["Clients", "Certification"] }
+    { 
+      title: lang === 'ar' ? "من نحن" : "About Us", 
+      links: ["About", "Partners"] 
+    },
+    { 
+      title: lang === 'ar' ? "خدماتنا" : "Our Services", 
+      links: ["Services", "Projects", "Solutions"] 
+    },
+    { 
+      title: lang === 'ar' ? "أعمالنا" : "Portfolio", 
+      links: ["Clients", "Certification"] 
+    }
   ];
+
+  const translations = {
+    About: { ar: "من نحن", en: "About" },
+    Partners: { ar: "الشركاء", en: "Partners" },
+    Services: { ar: "خدماتنا", en: "Services" },
+    Projects: { ar: "مشاريعنا", en: "Projects" },
+    Solutions: { ar: "الحلول", en: "Solutions" },
+    Clients: { ar: "عملائنا", en: "Clients" },
+    Certification: { ar: "الشهادات", en: "Certification" },
+  };
 
   return (
     <nav className="fixed top-0 w-full z-[100] flex justify-center px-4 pt-4">
@@ -98,16 +115,17 @@ const NavBar = () => {
                 
                 <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                   <div className="bg-slate-900/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-3 w-52 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                    {menu.links?.map((item) => (
-                      <Link 
-                        key={item} 
-                        href={`/${item.toLowerCase().replace(' ', '-')}`} 
-                        className="flex items-center justify-between px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all group/item normal-case"
-                      >
-                        {item}
-                        <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-brand-green" />
-                      </Link>
-                    ))}
+                  {menu.links?.map((item) => (
+  <Link 
+    key={item} 
+    href={`/${item.toLowerCase().replace(' ', '-')}`} 
+    className="flex items-center justify-between px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all group/item normal-case"
+  >
+    {/* هنا التعديل: استخدمنا القاموس للترجمة */}
+    {translations[item][lang]} 
+    <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-brand-green" />
+  </Link>
+))}
                   </div>
                 </div>
               </div>
@@ -166,16 +184,17 @@ const NavBar = () => {
                     
                     {expandedMenu === menu.title && (
                       <div className="mt-4 ml-4 flex flex-col gap-6 border-l-2 border-brand-green/30 pl-6 py-2">
-                        {menu.links?.map((item) => (
-                          <Link 
-                            key={item} 
-                            href={`/${item.toLowerCase().replace(' ', '-')}`}
-                            className="text-xl text-gray-400 hover:text-brand-green normal-case transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {item}
-                          </Link>
-                        ))}
+                   {menu.links?.map((item) => (
+  <Link 
+    key={item} 
+    href={`/${item.toLowerCase().replace(' ', '-')}`} 
+    className="flex items-center justify-between px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-2xl transition-all group/item normal-case"
+  >
+    {/* هنا التعديل: استخدمنا القاموس للترجمة */}
+    {translations[item][lang]} 
+    <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-brand-green" />
+  </Link>
+))}
                       </div>
                     )}
                   </div>

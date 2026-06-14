@@ -117,12 +117,12 @@ const ProjectsPage = () => {
     },
   ];
 
-  const stats = [
-    { label: isAr ? "تأسست عام" : "Founded", value: "2011", sub: isAr ? "رواد الرقمية" : "Digital Pioneers" },
-    { label: isAr ? "العملاء" : "Clients Served", value: "500+", sub: isAr ? "ثقة عالمية" : "Global Trust" },
-    { label: isAr ? "المشاريع المنفذة" : "Projects Delivered", value: "1.2K+", sub: isAr ? "كفاءة مطلقة" : "Pure Efficiency" },
-    { label: isAr ? "وقت التشغيل" : "Uptime", value: "99.9%", sub: isAr ? "أنظمة موثوقة" : "Reliable Systems" },
-  ];
+  // const stats = [
+  //   { label: isAr ? "تأسست عام" : "Founded", value: "2011", sub: isAr ? "رواد الرقمية" : "Digital Pioneers" },
+  //   { label: isAr ? "العملاء" : "Clients Served", value: "500+", sub: isAr ? "ثقة عالمية" : "Global Trust" },
+  //   { label: isAr ? "المشاريع المنفذة" : "Projects Delivered", value: "1.2K+", sub: isAr ? "كفاءة مطلقة" : "Pure Efficiency" },
+  //   { label: isAr ? "وقت التشغيل" : "Uptime", value: "99.9%", sub: isAr ? "أنظمة موثوقة" : "Reliable Systems" },
+  // ];
 
   const tabs = isAr 
     ? ["الكل", "تنفيذ ERP", "تطوير برمجيات مخصصة", "تكامل ZATCA للفوترة الإلكترونية"]
@@ -163,7 +163,7 @@ const ProjectsPage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           
           {/* Stats Section */}
-          <motion.div
+          {/* <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
@@ -188,7 +188,7 @@ const ProjectsPage = () => {
                 </p>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* Header & Tabs */}
           <motion.div

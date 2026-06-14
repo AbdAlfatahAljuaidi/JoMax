@@ -25,7 +25,7 @@ const ClientsPage = () => {
   const isAr = lang === 'ar';
 
   const clients = [
-    { name: isAr ? "بنك ميريديان" : "Meridian Bank" },
+    { name:  "Soltek", logo: "/images/Sol.png" },
     { name: isAr ? "أبكس للرعاية الصحية" : "Apex Health" },
     { name: isAr ? "ستراتاس للخدمات اللوجستية" : "Stratas Logistics" },
     { name: isAr ? "فيرتكس للذكاء الاصطناعي" : "Vertex AI" },
@@ -69,6 +69,50 @@ const ClientsPage = () => {
     }
   ];
 
+
+  const services = [
+    {
+      title: isAr ? "تطوير برمجيات ERP" : "ERP Systems",
+      desc: isAr ? "حلول متكاملة لإدارة موارد المؤسسات بكفاءة عالية." : "End-to-end solutions for resource management.",
+    },
+    {
+      title: isAr ? "تحليل البيانات" : "Data Analytics",
+      desc: isAr ? "تحويل البيانات الخام إلى رؤى استراتيجية لاتخاذ القرارات." : "Turning raw data into strategic insights.",
+    },
+    {
+      title: isAr ? "الأمن السيبراني" : "Cyber Security",
+      desc: isAr ? "حماية أصولك الرقمية بأحدث تقنيات التشفير والتحصين." : "Protecting digital assets with advanced security.",
+    },
+    {
+      title: isAr ? "الحوسبة السحابية" : "Cloud Solutions",
+      desc: isAr ? "بنية تحتية مرنة وسحابية تضمن استمرارية العمل." : "Flexible and reliable cloud infrastructure.",
+    },
+    {
+      title: isAr ? "تكامل الأنظمة" : "Systems Integration",
+      desc: isAr ? "ربط برمجياتك الحالية لتعمل كنظام واحد متناغم." : "Seamless integration for your existing software.",
+    },
+  ];
+
+  const values = [
+    {
+      title: isAr ? "أمان لا يضاهى" : "Unrivaled Security",
+      desc: isAr ? "نضع الحماية كأولوية قصوى في كل سطر برمجي، لضمان سلامة بياناتك وخصوصيتك." : "Security is our top priority, ensuring your data remains protected at all levels.",
+      icon: "Shield" // يمكنك استخدام أيقونات Lucide
+    },
+    {
+      title: isAr ? "سرعة الأداء" : "Performance Speed",
+      desc: isAr ? "نصمم أنظمة فائقة السرعة تضمن لك استجابة فورية وتجربة مستخدم سلسة." : "High-performance systems designed for lightning-fast responsiveness.",
+    },
+    {
+      title: isAr ? "احترافية مطلقة" : "Professional Excellence",
+      desc: isAr ? "نلتزم بأعلى معايير الجودة في التنفيذ والتطوير لتقديم نتائج تفوق التوقعات." : "We adhere to the highest quality standards to exceed your expectations.",
+    },
+    {
+      title: isAr ? "قابلية التوسع" : "Infinite Scalability",
+      desc: isAr ? "بنيتنا التحتية مصممة لتنمو وتتوسع معك أياً كان حجم طموحك وتوسع أعمالك." : "Infrastructure designed to scale alongside your business growth.",
+    },
+  ];
+
   return (
     <div className={`bg-slate-900 text-white min-h-screen bg-[radial-gradient(circle_at_center,rgba(40,202,225,.15),transparent_60%)] font-sans`}
          dir={isAr ? "rtl" : "ltr"}>
@@ -88,37 +132,41 @@ const ClientsPage = () => {
       {/* 🔥 HORIZONTAL CLIENTS */}
       <section ref={containerRef} className="relative h-[320vh]">
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-          <motion.div
-            style={{ x }}
-            className="flex gap-24 px-20 md:px-32"
-          >
-            {clients.map((c, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.08, y: -10 }}
-                className="min-w-[380px] md:min-w-[480px] h-[320px] md:h-[380px] 
-                bg-[#0a0a0a] border border-white/10 rounded-[3rem] 
-                flex flex-col items-center justify-center text-center 
-                shadow-xl hover:shadow-[0_0_60px_rgba(6,182,212,0.2)] 
-                transition-all duration-500 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 hover:opacity-100 transition-all duration-500" />
-                
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black font-black text-2xl mb-6 shadow-lg">
-                  {isAr ? "JC" : c.name.split(" ").map(w => w[0]).join("")}
-                </div>
-
-                <h3 className="text-2xl md:text-3xl font-black tracking-tight">
-                  {c.name}
-                </h3>
-              </motion.div>
-            ))}
-          </motion.div>
+        <motion.div
+  style={{ x }}
+  className="flex gap-10 px-20 md:px-32"
+>
+  {values.map((v, i) => (
+    <motion.div
+      key={i}
+      whileHover={{ scale: 1.05, borderColor: "#3b82f6" }}
+      className="min-w-[320px] md:min-w-[400px] h-[300px] 
+      bg-[#0a0a0a] border border-white/5 rounded-[2rem] 
+      flex flex-col items-start justify-center p-10
+      shadow-xl hover:shadow-[0_0_50px_rgba(59,130,246,0.1)] 
+      transition-all duration-500"
+    >
+      {/* الرقم التسلسلي للقيمة */}
+      <div className="text-4xl font-black text-white/10 mb-6">
+        0{i + 1}
+      </div>
+      
+      <div className="space-y-4">
+        <h3 className="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+          {v.title}
+        </h3>
+        <p className="text-slate-400 text-sm leading-relaxed normal-case">
+          {v.desc}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </section>
 
       {/* 🔥 PERFORMANCE STATS */}
-      <section className="py-40 px-6 md:px-12 max-w-5xl mx-auto">
+      <section className=" px-6 md:px-12 max-w-5xl mx-auto">
         <h2 className="text-5xl md:text-7xl font-black mb-20 text-center uppercase">
           {isAr ? "الأداء الرقمي" : "PERFORMANCE"}
         </h2>
@@ -143,7 +191,7 @@ const ClientsPage = () => {
       </section>
 
       {/* 🔥 WHY CHOOSE US */}
-      <section className="py-40 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
             {isAr ? "لماذا يختارنا" : "WHY CLIENTS"} <span className="text-cyan-400 italic">{isAr ? "العملاء؟" : "CHOOSE US"}</span>

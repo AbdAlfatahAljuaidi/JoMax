@@ -53,8 +53,8 @@ const services = [
   }
 ];
   const stats = [
-    { n: "250+", l: isAr ? "عميل سعيد" : "Happy Clients" },
-    { n: "1.2K+", l: isAr ? "مشروع منجز" : "Projects Shipped" },
+    { n: "99.9", l: isAr ?  "موثوقية الخدمة" : "Service Reliability" },
+    { n: "24/7", l: isAr ? "مشروع منجز" : "Fast Response" },
     { n: "99.9%", l: isAr ? "وقت تشغيل النظام" : "System Uptime" },
     { n: "24/7", l: isAr ? "دعم الخبراء" : "Expert Support" }
   ];
