@@ -32,7 +32,7 @@ const ProjectsPage = () => {
       category: isAr ? "تنفيذ ERP" : "ERP", // التصنيفات التقنية عادة تبقى بالإنجليزية أو تعرب (ويب)
       description: isAr 
         ?"تنفذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
-        : "implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+        : "implement list of our Products such as Accounting   Supply chain , sales , E-invoice , warehouses",
       tech: ["React", "Node.js", "PostgreSQL"],
       result: isAr ? "2 مليون+ عملية يومية" : "2M+ daily transactions",
       accentColor: "from-blue-500 to-cyan-400",
@@ -46,7 +46,7 @@ const ProjectsPage = () => {
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
-        : "implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+        : "implement list of our Products such as Accounting   Supply chain , sales , E-invoice , warehouses",
       tech: ["Python", "TensorFlow", "FastAPI"],
       result: isAr ? "+34% معدل التحويل" : "+34% conversion rate",
       accentColor: "from-blue-500 to-cyan-400",
@@ -91,7 +91,7 @@ const ProjectsPage = () => {
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
-        : "   implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+        : "   implement list of our Products such as Accounting   Supply chain , sales , E-invoice , warehouses",
       tech: ["Palo Alto", "Okta", "IBM"],
       result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
       accentColor: "from-blue-500 to-cyan-400",
@@ -107,7 +107,7 @@ const ProjectsPage = () => {
       category: isAr ? "تنفيذ ERP" : "ERP",
       description: isAr 
         ? "تنفيذ قائمة منتجاتنا مثل المحاسبة، وسلسلة التوريد، والمبيعات، والفواتير الإلكترونية، والمستودعات"
-        : " implement list of our Products such as Accounting ,  Supply chain , sales , E-invoice , warehouses",
+        : " implement list of our Products such as Accounting   Supply chain , sales , E-invoice , warehouses",
       tech: ["Palo Alto", "Okta", "IBM"],
       result: isAr ? "شهادة NIST 800-207" : "NIST 800-207 certified",
       accentColor: "from-blue-500 to-cyan-400",
