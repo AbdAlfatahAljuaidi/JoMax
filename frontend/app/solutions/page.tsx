@@ -84,7 +84,7 @@ export default function BrutalistAboutUpdated() {
             >
               <div className="h-px w-20 bg-cyan-500" />
               <span className={`text-cyan-500 font-mono text-sm ${isAr ? 'tracking-normal' : 'tracking-[0.4em]'}`}>
-                {isAr ? "تأسست عام 2011 // جومكس" : "Established 2011 // Jomax"}
+                {isAr ? "تأسست عام 2025 // جومكس" : "Established 2025 // Jomax"}
               </span>
             </motion.div>
 
