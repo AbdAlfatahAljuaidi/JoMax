@@ -3,20 +3,21 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
-  Target,
-  Eye,
-  Lightbulb,
-  Award,
-  Smile,
-  LifeBuoy,
-  CheckCircle,
-  Zap
+  Layers,
+  Cpu,
+  BarChart3,
+  FileCheck,
+  Code2,
+  Zap,
+  ArrowUpRight,
+  Activity,
+  Sparkles
 } from "lucide-react";
 
 import NavBar from "@/components/sections/NavBar";
 import Footer from "@/components/sections/Footer";
 
-export default function BrutalistAboutUpdated() {
+export default function JoMaxSolutionsPage() {
   const [lang, setLang] = useState('en');
 
   useEffect(() => {
@@ -33,183 +34,236 @@ export default function BrutalistAboutUpdated() {
 
   const isAr = lang === 'ar';
 
-  const missionVision = [
+  const solutions = [
     {
-      title: isAr ? "رسالتنا" : "Our Mission",
-      icon: Target,
-      text: isAr 
-      ? "تمكين الحلول البرمجية ليتم تنفيذها بنفس مستوى الانضباط المتبع في العمليات الأساسية؛ وذلك من خلال تقديم هيكلية تنفيذ منظمة، وحوكمة واضحة، وأداء قابل للقياس."
-      : "To enable software solutions to be executed with the same discipline as core operations through structured delivery, clear governance, and measurable performance.",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"
+      id: "01",
+      title: isAr ? "التحول الرقمي وتطوير الويب" : "Digital Transformation & Web Dev",
+      subItems: [
+        "Digital Transformation & Web Development",
+        "Quality Assurance & Performance Management"
+      ],
+      icon: Code2,
+      desc: isAr 
+        ? "بناء منصات رقمية متكاملة فائقة السرعة والأداء مع ضمان أعلى معايير الجودة وإدارة الأداء."
+        : "Building high-performance digital platforms tailored for modern enterprise scalability.",
+      gridClass: "md:col-span-2",
+      metrics: "99.9% Uptime // QA Certified"
     },
     {
-      title: isAr ? "رؤيتنا" : "Our Vision",
-      icon: Eye,
-      text: isAr 
-      ? "أن نصبح مصدراً مستداماً وطويل الأجل للحلول الرقمية القائمة على التنفيذ، والتي تعتمد عليها المؤسسات لتطوير ورفع كفاءة قيادة عملية التحول الرقمي."
-      : "To become a long-term source of execution Digital Solutions that organizations rely on to improve how transformation is delivered.",
-      img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200"
+      id: "02",
+      title: isAr ? "تكامل الأنظمة والربط الفاتوري" : "ERP E-Invoicing & Compliance",
+      subItems: [
+        "ERP E-Invoicing Integration"
+      ],
+      icon: FileCheck,
+      desc: isAr 
+        ? "أتمتة الفوترة الإلكترونية المتوافقة تماماً مع متطلبات هيئة الزكاة والضريبة والجمارك (ZATKA)."
+        : "Seamless compliance and automated e-invoicing systems integrated directly with ZATKA regulations.",
+      gridClass: "md:col-span-1",
+      metrics: "ZATKA Phase 2 Ready"
+    },
+    {
+      id: "03",
+      title: isAr ? "بنية وحوكمة أنظمة ERP" : "ERP Architecture & Governance",
+      subItems: [
+        "ERP Functional Architecture",
+        "ERP Landscape",
+        "ERP Implementation & Governance"
+      ],
+      icon: Cpu,
+      desc: isAr 
+        ? "تصميم وهيكلة وإدارة بيئات الـ ERP المعقدة لضمان سير العمليات بكفاءة وحوكمة كاملة."
+        : "Designing, auditing, and executing complex ERP ecosystems with strict operational governance.",
+      gridClass: "md:col-span-1",
+      metrics: "Tier-1 Governance"
+    },
+    {
+      id: "04",
+      title: isAr ? "ذكاء البيانات وإدارة التغيير" : "Data Intelligence & Change",
+      subItems: [
+        "Data, Analytics & Decision Intelligence",
+        "Organizational & Change Management"
+      ],
+      icon: BarChart3,
+      desc: isAr 
+        ? "تحويل البيانات الضخمة إلى قرارات استراتيجية ذكية مع قيادة المؤسسات عبر مراحل التغيير بسلاسة."
+        : "Empowering decisions through advanced analytics while driving institutional cultural adaptation.",
+      gridClass: "md:col-span-2",
+      metrics: "Predictive BI Model"
     }
   ];
 
-  const values = [
-    { title: isAr ? "الابتكار" : "Innovation", icon: Lightbulb },
-    { title: isAr ? "الجودة" : "Quality", icon: Award },
-    { title: isAr ? "الشفافية" : "Transparency", icon: Eye },
-    { title: isAr ? "تركيزنا العميل" : "Customer Focus", icon: Smile },
-    { title: isAr ? "الالتزام" : "Commitment", icon: CheckCircle },
-    { title: isAr ? "دعم 24/7" : "24/7 Support", icon: LifeBuoy },
+  const processSteps = [
+    { num: "01", title: isAr ? "اكتشاف البيئة البرمجية" : "Architecture Discovery", tag: "Audit" },
+    { num: "02", title: isAr ? "تشخيص الثغرات والأداء" : "Performance Diagnosis", tag: "Analysis" },
+    { num: "03", title: isAr ? "مخطط حوكمة البيانات" : "Governance Blueprint", tag: "Design" },
+    { num: "04", title: isAr ? "التنفيذ والربط الشامل" : "Enterprise Execution", tag: "Go-Live" },
+    { num: "05", title: isAr ? "التطوير والتحول المستمر" : "Continuous Evolution", tag: "Scale" },
   ];
-
-  const steps = isAr 
-    ? ["01 الاكتشاف", "02 التشخيص", "03 المخطط", "04 التنفيذ", "05 التطوير"]
-    : ["01 Discovery", "02 Diagnosis", "03 Blueprint", "04 Execute", "05 Evolve"];
 
   return (
     <div 
-      className={`bg-slate-900 bg-[radial-gradient(circle_at_center,rgba(40,202,225,.12),transparent_55%)] text-[#fff] min-h-screen selection:bg-cyan-500 selection:text-black ${isAr ? 'font-sans' : 'uppercase tracking-tighter'}`}
+      className={`bg-[#0b1120] bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.2),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(29,78,216,0.15),transparent_70%)] text-slate-100 min-h-screen selection:bg-cyan-400 selection:text-black overflow-x-hidden ${isAr ? 'font-sans' : 'font-mono'}`}
       dir={isAr ? "rtl" : "ltr"}
     >
       <NavBar />
 
-      <main className="relative">
+      <main className="relative z-10">
+        
+        {/* --- HERO SECTION WITH OPEN AMBIENT GLOW --- */}
+        <section className="max-w-7xl mx-auto px-6 md:px-12 pt-40 pb-28 relative">
+          {/* خلفية جمالية مشعة تفتح مساحة الصفحة */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-gradient-to-r from-cyan-500/20 to-blue-500/20 blur-[100px] rounded-full pointer-events-none" />
 
-        {/* --- HERO --- */}
-        <section className="relative md:h-[90vh] pt-36 flex flex-col justify-end px-6 md:px-16 pb-20 overflow-hidden">
-          <div className="relative z-10">
-            <motion.div
-              initial={{ x: isAr ? 100 : -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              className="flex items-center gap-4 mb-6"
-            >
-              <div className="h-px w-20 bg-cyan-500" />
-              <span className={`text-cyan-500 font-mono text-sm ${isAr ? 'tracking-normal' : 'tracking-[0.4em]'}`}>
-                {isAr ? "تأسست عام 2025 // جومكس" : "Established 2025 // Jomax"}
-              </span>
-            </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 backdrop-blur-md px-4 py-2 rounded-xl text-cyan-400 text-xs font-bold uppercase tracking-wider"
+              >
+                <Sparkles size={14} className="text-cyan-400" />
+                {isAr ? "جومكس سوفت // مصفوفة الحلول المتقدمة 2025" : "JoMax Soft // Advanced Solutions Matrix 2025"}
+              </motion.div>
 
-            <h1 className={`text-[9vw] font-black leading-[0.8] ${isAr ? 'tracking-normal' : 'tracking-[-0.05em]'} mb-10`}>
-              {isAr ? "هيمنة" : "ENGINEERING"} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
-                {isAr ? "هندسية." : "DOMINANCE."}
-              </span>
-            </h1>
+              <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] text-white">
+                {isAr ? "منظومة حلول" : "INTELLIGENT"}<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
+                  {isAr ? "المؤسسات الذكية." : "ENTERPRISE SOLUTIONS."}
+                </span>
+              </h1>
+            </div>
+
+            <div className="lg:col-span-4 lg:border-l lg:border-slate-800 lg:pl-8 lg:rtl:border-l-0 lg:rtl:border-r lg:rtl:pr-8 backdrop-blur-sm p-6 rounded-2xl bg-slate-900/20 border border-slate-800/40">
+              <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold mb-3 font-mono">
+                <Activity size={12} className="animate-pulse" /> // LIVE ENGINE ACTIVE
+              </div>
+              <p className="text-slate-300 text-base leading-relaxed normal-case font-sans">
+                {isAr 
+                  ? "نقوم بهندسة وحوكمة البنية الرقمية وأنظمة الـ ERP لتمكين الشركات من قيادة التحول الرقمي بأعلى معايير الكفاءة والامتثال المالي والتنظيمي."
+                  : "Architecting governed digital ecosystems and full-scale ERP frameworks to ensure complete compliance, technical resilience, and data-driven intelligence."}
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* --- MISSION & VISION --- */}
-        <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen border-y border-white/10">
-          {missionVision.map((item, i) => (
-            <div key={i} className="relative group overflow-hidden border-x border-white/5">
-              <img
-                src={item.img}
-                className="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-110 group-hover:opacity-40 transition-all duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
+        {/* --- INNOVATIVE BENTO GRID SOLUTIONS --- */}
+        <section className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="text-cyan-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                {isAr ? "القدرات التشغيلية والحلول" : "OUR ARCHITECTURE CAPABILITIES"}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white">
+                {isAr ? "الحلول الهندسية المعتمدة" : "Ecosystem Architecture"}
+              </h2>
+            </div>
+          </div>
 
-              <div className="relative h-full p-12 md:p-20 flex flex-col justify-between backdrop-blur-sm group-hover:backdrop-blur-md transition-all">
-                <item.icon className="text-cyan-400 group-hover:scale-125 transition-all duration-500" size={44} />
-                <div className="space-y-6">
-                  <h3 className="text-6xl md:text-7xl font-black italic tracking-tight group-hover:text-cyan-400 transition-all duration-500">
-                    {item.title}
+          {/* البينتو جريد بنظام الزجاج الفاتح المنشرح */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {solutions.map((sol, index) => (
+              <motion.div
+                key={index}
+                className={`bg-gradient-to-br from-slate-900/60 to-slate-950/80 border border-slate-800 hover:border-cyan-400/60 p-8 md:p-10 rounded-[2rem] relative overflow-hidden group flex flex-col justify-between transition-all duration-500 shadow-xl shadow-black/20 backdrop-blur-md ${sol.gridClass}`}
+                whileHover={{ y: -6, scale: 1.01 }}
+              >
+                {/* إضاءة خلفية داخل الكرت تظهر عند الـ Hover لتعطي حيوية وانشراح */}
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                <div>
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="p-4 bg-slate-800/50 border border-slate-700/60 rounded-2xl text-cyan-400 group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-blue-500 group-hover:text-black group-hover:shadow-lg group-hover:shadow-cyan-400/20 transition-all duration-300">
+                      <sol.icon size={24} />
+                    </div>
+                    {/* فكرة فنية: شريط تتبع يعطي انطباع بذكاء الأنظمة (System Performance Tag) */}
+                    <span className="text-xs font-mono px-3 py-1 bg-slate-950 rounded-full border border-slate-800 text-slate-400 group-hover:text-cyan-400 transition-colors">
+                      {sol.metrics}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-4 text-white group-hover:text-cyan-400 transition-colors">
+                    {sol.title}
                   </h3>
-                  <p className="text-slate-300 text-lg max-w-md leading-relaxed normal-case">
-                    {item.text}
+                  <p className="text-slate-300 text-sm leading-relaxed mb-8 font-sans">
+                    {sol.desc}
                   </p>
                 </div>
-                <div className="absolute inset-0 border border-transparent group-hover:border-cyan-500/40 transition-all duration-500" />
-              </div>
-            </div>
-          ))}
-        </section>
 
-        {/* --- VALUES --- */}
-        <section className="py-40 px-6 md:px-16">
-          <h2 className="text-8xl font-black mb-24 leading-none">
-            {isAr ? "قيمنا" : "CORE"} <span className="text-cyan-500 italic font-light">{isAr ? "الجوهرية" : "VALUES"}</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {values.map((val, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ backgroundColor: "rgba(6, 182, 212, 0.05)" }}
-                className="bg-black p-12 group"
-              >
-                <div className="flex justify-between mb-12">
-                  <val.icon className="text-cyan-500" size={32} />
-                  <span className="text-white/10 font-black text-4xl">0{i + 1}</span>
+                {/* استعراض دقيق وشرح للنقاط المأخوذة من ملفكم */}
+                <div className="mt-auto pt-6 border-t border-slate-800/60">
+                  <div className="flex flex-wrap gap-2">
+                    {sol.subItems.map((sub, i) => (
+                      <span key={i} className="text-xs bg-slate-950/80 px-3 py-2 rounded-xl border border-slate-800 text-slate-200 font-sans font-medium hover:border-cyan-500/40 transition-colors">
+                        {sub}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h4 className="text-3xl font-black mb-4">{val.title}</h4>
-                <p className="text-slate-500 text-sm normal-case italic leading-relaxed">
-                  {isAr ? "الدقة في كل سطر برمجـي." : "Precision in every line of code."}
-                </p>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* --- PROCESS --- */}
-        <section className="relative h-screen px-4 md:px-10 mb-12">
-          <motion.div
-            initial={{ clipPath: "inset(20% 0 20% 0)" }}
-            whileInView={{ clipPath: "inset(0% 0 0% 0)" }}
-            transition={{ duration: 1.2 }}
-            className="relative h-full w-full overflow-hidden rounded-[4rem]"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2800"
-              className="w-full h-full object-cover grayscale brightness-50 opacity-40"
-            />
+        {/* --- INTERACTIVE PIPELINE PROCESS SECTION --- */}
+        <section className="max-w-7xl mx-auto px-6 md:px-12 py-10  relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
+          
+          <div className="bg-slate-900/40 border border-slate-800 rounded-[3rem] p-8 md:p-14 backdrop-blur-md relative overflow-hidden">
+            <h3 className="text-2xl md:text-4xl font-black mb-12 tracking-tight text-white">
+              {isAr ? "منهجية التشغيل والتحول في جومكس" : "THE EXECUTION PIPELINE"}
+            </h3>
 
-            <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20">
-              <h2 className={`text-8xl  font-black italic mb-20 ${isAr ? 'leading-tight' : ''}`}>
-                {isAr ? "آلية العمل." : "THE PROCESS."}
-              </h2>
-
-              <div className="grid md:grid-cols-5 gap-px bg-white/20 border border-white/20">
-                {steps.map((step, i) => (
-                  <div key={i} className="bg-black/60 p-10 backdrop-blur-md hover:bg-cyan-500 transition-all group">
-                    <h4 className="text-xl font-black group-hover:text-black">
-                      {step}
-                    </h4>
+            {/* خط زمني يربط المراحل الخمس انسيابياً وبألوان واضحة تفاعلية */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
+              {processSteps.map((step, index) => (
+                <div 
+                  key={index} 
+                  className="bg-slate-950/60 border border-slate-800/80 hover:border-cyan-400/40 p-6 rounded-2xl group transition-all duration-300 relative flex flex-col justify-between h-40"
+                >
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-cyan-400 font-bold font-mono text-sm bg-cyan-500/10 px-2.5 py-0.5 rounded-md border border-cyan-500/20">{step.num}</span>
+                    <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">{step.tag}</span>
                   </div>
-                ))}
-              </div>
+                  <h4 className="text-sm md:text-base font-bold tracking-tight text-slate-200 group-hover:text-white transition-colors font-sans">
+                    {step.title}
+                  </h4>
+                </div>
+              ))}
             </div>
-          </motion.div>
+          </div>
         </section>
 
-        {/* --- CTA --- */}
-        <section className="relative py-12 flex flex-col items-center overflow-hidden">
-          <div className="absolute w-[600px] h-[600px] bg-cyan-500/20 blur-[150px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        {/* --- INSPIRATIONAL CALL TO ACTION (CTA) --- */}
+        <section className="relative py-10 flex flex-col items-center justify-center px-6">
+          {/* دائرة نيون ضخمة خلف الـ CTA لتعطي شعوراً بالتفاؤل والانشراح الهيكلي */}
+          <div className="absolute w-[600px] h-[300px] bg-gradient-to-r from-cyan-400/20 to-blue-600/20 blur-[140px] rounded-full pointer-events-none" />
+          
           <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="mb-6 p-4 bg-cyan-500/10 border border-cyan-400/20 rounded-full text-cyan-400 shadow-xl shadow-cyan-500/5"
           >
-            <Zap className="text-cyan-400 mb-10" size={70} />
+            <Zap className="fill-cyan-400" size={32} />
           </motion.div>
 
-          <h2 className={`text-5xl  font-black text-center mb-12 leading-[0.85] ${isAr ? 'tracking-normal' : ''}`}>
-            {isAr ? "جاهز" : "READY TO"} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 italic">
-              {isAr ? "للتفعيل؟" : "ACTIVATE?"}
-            </span>
+          <h2 className="text-4xl md:text-6xl font-black text-center mb-6 tracking-tight text-white leading-tight">
+            {isAr ? "لنصنع القفزة الرقمية معاً" : "CONNECT YOUR ECOSYSTEM"}
           </h2>
-
-          <p className="text-slate-400 text-lg mb-12 text-center max-w-xl normal-case px-6 leading-relaxed">
+          <p className="text-slate-300 text-center max-w-xl mb-12 text-sm md:text-base font-sans leading-relaxed">
             {isAr 
-              ? "لنقم ببناء شيء قوي وقابل للتوسع وجاهز للمستقبل معاً."
-              : "Let’s build something powerful, scalable, and future-proof together."}
+              ? "انتقل بمؤسستك إلى مستوى جديد من الحوكمة والأتمتة الذكية عبر تفعيل باقة حلول جومكس المتكاملة."
+              : "Deploy governed ERP components and highly scalable applications optimized for enterprise performance."}
           </p>
 
           <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-14 py-5 bg-cyan-500 text-black font-black text-lg rounded-full overflow-hidden"
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 40px -15px rgba(6,182,212,0.4)" }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative px-10 py-4.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 text-slate-950 font-black text-sm rounded-2xl flex items-center gap-3 tracking-wider shadow-xl shadow-cyan-500/20"
           >
-            <span className="relative z-10">{isAr ? "بدء المشروع" : "INITIALIZE PROJECT"}</span>
-            <div className="absolute inset-0 bg-white opacity-0 hover:opacity-20 transition-all duration-300" />
+            <span className="font-sans font-black text-base">{isAr ? "ابدأ هندسة حلولك الآن" : "INITIALIZE SOLUTION ARCHITECTURE"}</span>
+            <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform stroke-[2.5]" />
           </motion.button>
         </section>
 
