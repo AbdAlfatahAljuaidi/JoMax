@@ -103,7 +103,7 @@ export default function JoMaxSolutionsPage() {
 
   return (
     <div 
-      className={`bg-[#0b1120] bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.2),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(29,78,216,0.15),transparent_70%)] text-slate-100 min-h-screen selection:bg-cyan-400 selection:text-black overflow-x-hidden ${isAr ? 'font-sans' : 'font-mono'}`}
+      className={`bg-[#0b1120] bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.2),transparent_60%),radial-gradient(ellipse_at_bottom,rgba(29,78,216,0.15),transparent_70%)] text-slate-100 min-h-screen selection:bg-cyan-400 selection:text-black overflow-x-hidden `}
       dir={isAr ? "rtl" : "ltr"}
     >
       <NavBar />
