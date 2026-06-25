@@ -119,6 +119,32 @@ export default function JoMaxSolutionsPage() {
           items: isAr 
             ? ["تخطيط المشاريع وهيكل العمل WBS", "تتبع المهام والمراحل الرئيسية", "توزيع الموارد ونسب الاستخدام", "مراقبة الميزانية والتكاليف", "إدارة الجداول الزمنية (Timesheets)"]
             : ["Project Planning & WBS", "Task & Milestone Tracking", "Resource Allocation & Utilization", "Budget & Cost Control", "Timesheet Management"]
+        },
+        {
+          category: isAr ? "إدارة الرواتب والامتثال (Payroll & Compliance)" : "Payroll Management & Compliance",
+          items: isAr 
+            ? [
+                "معالجة الرواتب والربط الحكومي",
+                "تقارير الموارد البشرية والرواتب",
+                "سجل الرواتب والفروقات (Payroll Register & Variance)",
+                "تقارير الحضور والإجازات والعمل الإضافي",
+                "حساب نهاية الخدمة وانتهاء الوثائق",
+                "محرك رواتب سعودي يحتوي على أكثر من 100 عنصر قابل للتهيئة",
+                "حسابات الموظفين وأصحاب العمل بالتكامل مع الأنظمة الحكومية",
+                "إنشاء ملفات WPS البنكية حسب رقم IBAN",
+                "إدارة الامتثال والالتزام بأنظمة الرواتب"
+              ]
+            : [
+                "Payroll Processing & Government Integrations",
+                "HR & Payroll Reports",
+                "Payroll Register & Variance Reports",
+                "Attendance, Leave & Overtime Reports",
+                "End-of-Service & Document Expiry Tracking",
+                "Saudi Payroll Engine with 100+ Configurable Elements",
+                "Government-Integrated Employer & Employee Calculations",
+                "WPS Bank File Generation (IBAN-Based)",
+                "Payroll Compliance & Regulatory Management"
+              ]
         }
       ]
     },
