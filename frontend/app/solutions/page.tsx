@@ -112,7 +112,8 @@ export default function JoMaxSolutionsPage() {
           category: isAr ? "إدارة رأس المال البشري (HCM)" : "Human Capital Management (HCM)",
           items: isAr 
             ? ["إدارة دورة حياة الموظف", "معالجة الرواتب والربط الحكومي", "التوظيف والتهيئة للعمل", "الأداء والتقييمات", "تتبع الإجازات والحضور"]
-            : ["Employee Lifecycle Management", "Payroll Processing & Government Integrations", "Recruitment & Onboarding", "Performance & Appraisals", "Leave & Attendance Tracking"]
+            : ["Employee Lifecycle Management", "Payroll Processing & Government Integrations", "Recruitment & Onboarding", "Performance & Appraisals", "Leave & Attendance Tracking",
+              "Attendance, Leave & Overtime Reports",]
         },
         {
           category: isAr ? "إدارة المشاريع" : "Project Management",
@@ -138,7 +139,6 @@ export default function JoMaxSolutionsPage() {
                 "Payroll Processing & Government Integrations",
                 "HR & Payroll Reports",
                 "Payroll Register & Variance Reports",
-                "Attendance, Leave & Overtime Reports",
                 "End-of-Service & Document Expiry Tracking",
                 "Saudi Payroll Engine with 100+ Configurable Elements",
                 "Government-Integrated Employer & Employee Calculations",
